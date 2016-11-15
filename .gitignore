@@ -1,0 +1,37 @@
+data/*
+cache/*
+uploads/*
+scratch
+
+#Configuration - API keys etc
+configuration.json
+
+#VSCode
+.vscode
+jsconfig.json
+.jshintrc
+
+.npmrc
+
+#tsd
+
+tsd.json
+typings
+
+#client js
+files/js/cms.js
+files/js/cms.min.js
+
+# Logs
+*.log
+
+# Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
+.grunt
+
+# Compiled binary addons (http://nodejs.org/api/addons.html)
+build/Release
+
+# Dependency directory
+# Commenting this out is preferred by some people, see
+# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git-
+node_modules
