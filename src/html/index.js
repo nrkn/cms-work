@@ -2,111 +2,100 @@
 
 const hinfo = require( 'hinfo' )
 
+const ensureArray = ( obj, name ) => {
+  if( !Array.isArray( obj[ name ] ) )
+    obj[ name ] = []
+}
+
+const ensureProperties = def => {
+  ensureArray( def, 'categories' )
+  ensureArray( def, 'content' )
+}
+
 const Html = defs => {
-  defs = defs || hinfo()
+  if( defs === undefined ){
+    defs = hinfo()
+  } else {
+    defs = JSON.parse( JSON.stringify( defs ) )
+  }
 
   const tagNames = Object.keys( defs )
 
-  const empty = tagName =>
-    !Array.isArray( defs[ tagName ].content ) ||
-    defs[ tagName ].content.length === 0
+  const hasCategory = ( tagName, categoryName ) =>
+    defs[ tagName ].categories.includes( categoryName )
 
-  const accept = parentName => {
-    const parent = defs[ parentName ]
-
-    if( !Array.isArray( parent.content ) || parent.content.length === 0 )
-      return []
-
-    return Object.keys( defs ).filter( childName => {
-      return parent.content.includes( '<' + childName + '>' ) || (
-        Array.isArray( defs[ childName ].categories ) &&
-        defs[ childName ].categories.some( category => parent.content.includes( category ) )
-      )
-    })
+  const predicates = {
+    empty: tagName => defs[ tagName ].content.length === 0,
+    metadata: tagName => hasCategory( tagName, 'metadata content' ),
+    inline: tagName => hasCategory( tagName, 'phrasing content' ),
+    embedded: tagName => hasCategory( tagName, 'embedded content' ),
+    block: tagName =>
+      hasCategory( tagName, 'flow content' ) && !predicates.inline( tagName ),
+    container: tagName => !predicates.empty( tagName )
   }
 
-  const allCategories = Object.keys( defs ).reduce(
-    ( allCategories, key ) => {
-      const def = defs[ key ]
+  const doesAccept = ( tagName, childTagName ) => {
+    if( predicates.empty( tagName ) ) return false
 
-      if( Array.isArray( def.categories ) ){
-        allCategories = allCategories.concat( def.categories )
-      }
+    const def = defs[ tagName ]
 
-      return allCategories
-    }, []
-  )
+    if( def.content.includes( `<${ childTagName }>` ) )
+      return true
+
+    const childDef = defs[ childTagName ]
+
+    return childDef.categories.some( category =>
+      def.content.includes( category )
+    )
+  }
+
+  const predicateNames = Object.keys( predicates )
+
+  const maps = {
+    accepts: {}
+  }
+
+  predicateNames.forEach( name => maps[ name ] = {} )
+
+  let allCategories = []
+
+  tagNames.forEach( tagName => {
+    const def = defs[ tagName ]
+
+    ensureProperties( def )
+
+    allCategories = allCategories.concat( def.categories )
+
+    predicateNames.forEach( predicateName =>
+      maps[ predicateName ][ tagName ] = predicates[ predicateName ]( tagName )
+    )
+
+    maps.accepts[ tagName ] = {}
+
+    tagNames.forEach( childTagName =>
+      maps.accepts[ tagName ][ childTagName ] = doesAccept( tagName, childTagName )
+    )
+  })
 
   const categoryNames = Array.from( new Set( allCategories ) ).sort()
 
-  const metadata = tagName =>
-    Array.isArray( defs[ tagName ].categories ) &&
-    defs[ tagName ].categories.includes( 'metadata content' )
-
-  const text = tagName =>
-    Array.isArray( defs[ tagName ].content ) &&
-    defs[ tagName ].content.includes( 'phrasing content' )
-
-  const embedded = tagName =>
-    Array.isArray( defs[ tagName ].categories ) &&
-    defs[ tagName ].categories.includes( 'embedded content' )
-
-  const block = tagName =>
-    Array.isArray( defs[ tagName ].content ) &&
-    defs[ tagName ].content.includes( 'flow content' ) &&
-    !text( tagName )
-
-  const container = tagName => !empty( tagName )
-
-  const decorators = {
-    empty: empty,
-    accept: accept,
-    reject: reject,
-    metadata: metadata,
-    text: text,
-    embedded: embedded,
-    block: block,
-    container: container
+  const api = {
+    tagNames: () => tagNames,
+    categoryNames: () => categoryNames,
+    isEmpty: tagName => maps.empty[ tagName ],
+    isMetadata: tagName => maps.metadata[ tagName ],
+    isInline: tagName => maps.inline[ tagName ],
+    isEmbedded: tagName => maps.embedded[ tagName ],
+    isBlock: tagName => maps.block[ tagName ],
+    isContainer: tagName => maps.container[ tagName ],
+    accepts: ( tagName, childTagName ) => maps.accepts[ tagName ][ childTagName ],
+    def: tagName => {
+      if( defs[ tagName ] )
+        return JSON.parse( JSON.stringify( defs[ tagName ] ) )
+    }
   }
 
-  const acceptMap = Object.keys( defs ).reduce( ( acceptMap, parentName ) => {
-    const tagAccepts = accept( parentName )
-
-    acceptMap[ parentName ] = {}
-
-    Object.keys( defs ).forEach( childName => {
-      acceptMap[ parentName ][ childName ] = tagAccepts.includes( childName )
-    })
-
-    return acceptMap
-  }, {} )
-
-  const decorated = Object.keys( defs ).reduce( ( decorated, tagName ) => {
-    decorated[ tagName ] = Object.assign(
-      {
-        categories: [],
-        parent: [],
-        content: [],
-        disallow: [],
-        previous: [],
-        next: [],
-        singular: false
-      },
-      defs[ tagName ],
-      Object.keys( decorators ).reduce( ( extra, decoratorName ) => {
-        extra[ decoratorName ] = decorators[ decoratorName ]( tagName )
-
-        return extra
-      }, {} )
-    )
-
-    return decorated
-  }, {} )
-
-  return {
-    tags: decorated,
-    acceptMap: acceptMap
-  }
+  return api
 }
 
 module.exports = Html
