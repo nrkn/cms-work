@@ -3,26 +3,25 @@
 const Html = require( 'html' )
 const info = Html()
 
-const toHtml = ( node, depth, prev, indent ) => {
+const stringify = ( node, depth = 0 ) => {
   let html = ''
-  let nl = ''
-  let lineIndent = ''
 
-  if( typeof indent === 'string' ){
-    lineIndent = indent.repeat( depth )
-    nl = '\n'
-  }
+  const { nodeType } = node.value
 
-  if( node.value.nodeType === 'text' ){
+  if( nodeType === 'text' )
     html += node.value.nodeValue
-  }
 
-  if( node.value.type === 'element' ){
-    html += `${ lineIndent }<${ node.value.tagName }`
+  if( nodeType === 'comment' )
+    html += `<!--${ node.value.nodeValue }-->`
 
-    if( node.value.attributes )
-      Object.keys( node.value.attributes ).forEach( name => {
-        const value = node.value.attributes[ name ]
+  if( nodeType === 'element' ){
+    const { tagName, attributes } = node.value
+
+    html += `<${ tagName }`
+
+    if( attributes )
+      Object.keys( attributes ).forEach( name => {
+        const value = [ name ]
 
         html += ` ${ name }`
 
@@ -30,30 +29,19 @@ const toHtml = ( node, depth, prev, indent ) => {
           html += `="${ value }"`
       })
 
-    if( html )
-    html += `>${ nl }`
+    html += info.isEmpty( tagName ) ? ' />' : '>'
+
+    depth++
   }
 
-  if( node.value.type === 'tag' )
-    depth++
+  if( Array.isArray( node.children ) )
+    node.children.forEach( child => html += stringify( child, depth ) )
 
-  let current
-  node.children.forEach( child => {
-    html += toHtml( child, depth, current )
-    current = child
-  })
-
-  if( node.value.type === 'tag' ){
-    html += ( '\n' + indent + '</' + node.value.name + '>\n' )
+  if( nodeType === 'element' && !info.isEmpty( node.value.tagName ) ){
+    html += `</${ node.value.tagName }>`
   }
 
   return html
-}
-
-const stringify = ( node, indent ) => {
-  indent =  typeof indent === 'number' ? ' '.repeat( indent ) : indent
-
-  return toHtml( node, 0, null, indent )
 }
 
 module.exports = stringify

@@ -18,6 +18,6 @@ console.log( 'ul', 'div', html.accepts( 'ul', 'div' ) )
 */
 const htree = Htree()
 
-htree.parse( '<div id="cool"><strong>Hello</strong>, </div>World!<!--Hello, --><!--World!--><?PITarget PIContent?>' )
-  .then( JSON.stringify )
+htree.parse( '<div id="cool"><strong>Hello</strong>, </div>World!<!--Hello, --><!--World!--><?PITarget PIContent?><img src="logo.svg" alt="Logo" />' )
+  .then( htree.stringify )
   .then( console.log )
