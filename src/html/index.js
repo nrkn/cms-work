@@ -72,9 +72,11 @@ const Html = defs => {
 
     maps.accepts[ tagName ] = {}
 
-    tagNames.forEach( childTagName =>
+    tagNames.forEach( childTagName =>{
+      ensureProperties( defs[ childTagName ] )
+
       maps.accepts[ tagName ][ childTagName ] = doesAccept( tagName, childTagName )
-    )
+    })
   })
 
   const categoryNames = Array.from( new Set( allCategories ) ).sort()
