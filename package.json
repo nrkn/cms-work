@@ -14,13 +14,14 @@
     "1tree": "^0.3.1",
     "cross-env": "^3.1.3",
     "dragula": "^3.7.2",
-    "hinfo": "^0.1.1",
+    "hinfo": "^0.1.2",
     "htmlparser2": "^3.9.2",
     "leveldown": "^1.5.0",
     "levelup": "^1.3.3",
     "morphdom": "^2.2.0",
     "mtype": "^0.1.0",
     "nodetype-enum": "^1.1.1",
-    "pify": "^2.3.0"
+    "pify": "^2.3.0",
+    "tv4": "^1.2.7"
   }
 }
