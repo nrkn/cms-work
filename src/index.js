@@ -25,7 +25,14 @@ const span = htree.createElement( 'span', { id: 'coolSpan' } )
 htree.append( span )
 
 console.log( JSON.stringify( htree.get(), null, 2 ) )
+console.log( htree.isDocumentFragment() )
 console.log( htree.stringify() )
 console.log( strong.get() )
 console.log( div.matches( '#uncool' ) )
 console.log( div.attr( 'id' ) )
+
+const newTree = Htree.createTree( { value: { nodeType: 'element', tagName: 'main' }, children: [] } )
+
+newTree.append( htree )
+
+console.log( JSON.stringify( newTree.get(), null, 2 ) )

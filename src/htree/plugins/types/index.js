@@ -23,10 +23,6 @@ const nodeTypes = [
   'text', 'element', 'comment', 'document', 'documentType', 'documentFragment'
 ]
 
-const fnames = nodeTypes.map( typename =>
-  'is' + capitalizeFirstLetter( typename )
-)
-
 const t = T( is )
 
 const isType = ( node, typename ) => t.is( node, typename )
@@ -41,8 +37,10 @@ isType.def = {
 const types = fn => {
   const plugins = { isType }
 
-  fnames.forEach( fname => {
-    plugins[ fname ] = node => fn.isType( node, fname )
+  nodeTypes.forEach( typename => {
+    const fname = 'is' + capitalizeFirstLetter( typename )
+
+    plugins[ fname ] = node => fn.isType( node, typename )
 
     plugins[ fname ].def = isType.def
   })
