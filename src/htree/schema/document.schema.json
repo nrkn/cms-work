@@ -1,0 +1,13 @@
+{
+  "id": "document",
+  "allOf": [
+    {
+      "type": "object",
+      "properties": {
+        "value": { "$ref": "documentValue" }
+      },
+      "required": [ "value" ]
+    },
+    { "$ref": "parentNode" }
+  ]
+}

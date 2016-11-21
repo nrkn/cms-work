@@ -1,0 +1,10 @@
+{
+  "id": "parentNode",
+  "properties": {
+    "children": {
+      "type": "array",
+      "items": { "$ref": "node" }
+    }
+  },
+  "required": [ "children" ]
+}

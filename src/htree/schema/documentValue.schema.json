@@ -1,0 +1,11 @@
+{
+  "id": "documentValue",
+  "type": "object",
+  "properties": {
+    "nodeType": {
+      "type": "string",
+      "enum": [ "document" ]
+    }
+  },
+  "required": [ "nodeType" ]
+}

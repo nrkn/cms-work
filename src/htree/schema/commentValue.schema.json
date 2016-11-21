@@ -1,0 +1,12 @@
+{
+  "id": "commentValue",
+  "type": "object",
+  "properties": {
+    "nodeType": {
+      "type": "string",
+      "enum": [ "comment" ]
+    },
+    "nodeValue": { "type": "string" }
+  },
+  "required": [ "nodeType", "nodeValue" ]
+}

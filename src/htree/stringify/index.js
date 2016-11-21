@@ -21,7 +21,7 @@ const stringify = ( node, depth = 0 ) => {
 
     if( attributes )
       Object.keys( attributes ).forEach( name => {
-        const value = [ name ]
+        const value = attributes[ name ]
 
         html += ` ${ name }`
 

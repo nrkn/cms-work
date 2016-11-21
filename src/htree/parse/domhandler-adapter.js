@@ -1,7 +1,7 @@
 'use strict'
 
-const DomHandler = ( callback, options, elementCB ) => {
-  const state = State( callback, options, elementCB )
+const DomHandler = options => {
+  const state = State( options )
 
   const handler = { state }
 
@@ -17,16 +17,7 @@ const defaultOpts = {
 
 const whitespace = /\s+/g;
 
-const State = ( callback, options, elementCB ) => {
-	if( typeof callback === 'object' ){
-		elementCB = options
-		options = callback
-		callback = null
-	} else if( typeof options === 'function' ){
-		elementCB = options
-		options = defaultOpts
-	}
-
+const State = options => {
   options = options || defaultOpts
 
   const dom = createNode( {}, 'documentFragment' )
@@ -35,7 +26,7 @@ const State = ( callback, options, elementCB ) => {
   const parser = null
 
   const state = {
-    callback, options, elementCB, dom, done, tagStack, parser
+    options, dom, done, tagStack, parser
   }
 
   return state
@@ -52,9 +43,9 @@ const Api = handler => {
   const oninit = parser => handler.state.parser = parser
 
   const onreset = () => {
-    const { callback, options, elementCb } = handler.state
+    const { options } = handler.state
 
-    handler.state = State( callback, options, elementCb )
+    handler.state = State( options )
   }
 
   const onend = () => {
@@ -66,22 +57,13 @@ const Api = handler => {
   }
 
   const onerror = err => {
-    const { callback, dom } = handler.state
-
-    if( typeof callback === 'function' ){
-      callback( err, dom )
-      return
-    }
-
     if( err ) throw err
   }
 
   const onclosetag = () => {
-    const { tagStack, elementCB } = handler.state
+    const { tagStack } = handler.state
 
     const elem = tagStack.pop()
-
-    if( elementCB ) elementCB( elem )
   }
 
   const onopentag = ( name, attribs ) => {
@@ -140,9 +122,11 @@ const Api = handler => {
 
   const oncommentend = () => handler.state.tagStack.pop()
 
+  const getDom = () => handler.state.dom
+
   const api = {
     oninit, onreset, onend, onerror, onclosetag, onopentag, ontext, oncomment,
-    oncommentend, onprocessinginstruction
+    oncommentend, onprocessinginstruction, getDom
   }
 
   return api

@@ -1,23 +1,31 @@
-const Html = require( 'html' )
 const Htree = require( 'htree' )
-const pify = require( 'pify' )
-const fs = require( 'fs' )
 
-const writeFile = pify( fs.writeFile )
+const html = '<div id="cool"><strong>Hello</strong>, </div>World!<!--Hello, --><!--World!--><?PITarget PIContent?><img src="logo.svg" alt="Logo" />'
 
-const html = Html()
+const htree = Htree( html )
 
-// console.log( html )
+const strong = htree.select( 'strong' )
+const div = htree.select( 'div' )
 
-/*
-console.log( html.tagNames() )
-console.log( html.categoryNames() )
+div.attr( 'id', 'uncool' )
 
-console.log( 'ul', 'li', html.accepts( 'ul', 'li' ) )
-console.log( 'ul', 'div', html.accepts( 'ul', 'div' ) )
-*/
-const htree = Htree()
+strong.addClass( 'soVeryStrong' )
+strong.addClass( 'wellPrettyStrong' )
 
-htree.parse( '<div id="cool"><strong>Hello</strong>, </div>World!<!--Hello, --><!--World!--><?PITarget PIContent?><img src="logo.svg" alt="Logo" />' )
-  .then( htree.stringify )
-  .then( console.log )
+strong.addClass( 'iGuess' )
+strong.removeClass( 'iGuess' )
+
+strong.addClass( 'iGuess2' )
+strong.toggleClass( 'iGuess2' )
+
+strong.toggleClass( 'iGuess3' )
+
+const span = htree.createElement( 'span', { id: 'coolSpan' } )
+
+htree.append( span )
+
+console.log( JSON.stringify( htree.get(), null, 2 ) )
+console.log( htree.stringify() )
+console.log( strong.get() )
+console.log( div.matches( '#uncool' ) )
+console.log( div.attr( 'id' ) )

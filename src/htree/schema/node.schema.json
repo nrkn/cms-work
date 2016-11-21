@@ -1,0 +1,8 @@
+{
+  "id": "node",
+  "type": "object",
+  "properties": {
+    "value": { "$ref": "nodeValue" }
+  },
+  "required": [ "value" ]
+}

@@ -1,0 +1,8 @@
+{
+  "id": "documentType",
+  "type": "object",
+  "properties": {
+    "value": { "$ref": "documentTypeValue" }
+  },
+  "required": [ "value" ]
+}
