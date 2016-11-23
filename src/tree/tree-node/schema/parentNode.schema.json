@@ -1,0 +1,15 @@
+{
+  "id": "parentNode",
+  "allOf": [
+    { "$ref": "node" },
+    {
+      "properties": {
+        "children": {
+          "type": "array",
+          "items": { "$ref": "node" }
+        }
+      },
+      "required": [ "children" ]
+    }
+  ]
+}

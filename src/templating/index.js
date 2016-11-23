@@ -1,6 +1,6 @@
 'use strict'
 
-const Htree = require( 'htree' )
+const Htree = require( 'tree/htree' )
 const utils = require( 'utils' )
 
 const { clone } = utils

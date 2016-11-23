@@ -1,8 +1,0 @@
-{
-  "id": "comment",
-  "type": "object",
-  "properties": {
-    "value": { "$ref": "commentValue" }
-  },
-  "required": [ "value" ]
-}

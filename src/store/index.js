@@ -1,6 +1,6 @@
 'use strict'
 
-const TreeNode = require( 'tree-node' )
+const TreeNode = require( 'tree/tree-node' )
 const Events = require( 'events' )
 const utils = require( 'utils' )
 

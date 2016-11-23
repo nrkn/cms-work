@@ -1,0 +1,8 @@
+{
+  "id": "text",
+  "type": "object",
+  "properties": {
+    "value": { "$ref": "textValue" }
+  },
+  "required": [ "value" ]
+}

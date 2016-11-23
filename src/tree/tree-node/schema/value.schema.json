@@ -1,0 +1,15 @@
+{
+  "id": "value",
+  "type": "object",
+  "properties": {
+    "_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "nodeType": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [ "_id", "nodeType" ]
+}

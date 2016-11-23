@@ -1,0 +1,11 @@
+{
+  "id": "comment",
+  "allOf": [
+    { "$ref": "node" },
+    {
+      "properties": {
+        "value": { "$ref": "commentValue" }
+      }      
+    }    
+  ]
+}
