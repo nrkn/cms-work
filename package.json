@@ -11,7 +11,7 @@
   "author": "Nik Coughlin <nrkn.com@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "1tree": "^0.3.1",
+    "1tree": "^0.3.2",
     "cross-env": "^3.1.3",
     "css-select-base-adapter": "^0.1.0",
     "dragula": "^3.7.2",

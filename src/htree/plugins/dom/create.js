@@ -1,5 +1,9 @@
 'use strict'
 
+const utils = require( 'utils' )
+
+const { escapeHtml } = utils
+
 const create = fn => {
   const createElement = ( tagName, attributes )  => {
     tagName = tagName || 'div'
@@ -57,6 +61,8 @@ const create = fn => {
 
   const createText = nodeValue => {
     const nodeType = 'text'
+
+    nodeValue = escapeHtml( String( nodeValue ) )
 
     const value = { nodeType, nodeValue }
 

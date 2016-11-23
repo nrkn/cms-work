@@ -1,38 +1,26 @@
-const Htree = require( 'htree' )
+'use strict'
 
-const html = '<div id="cool"><strong>Hello</strong>, </div>World!<!--Hello, --><!--World!--><?PITarget PIContent?><img src="logo.svg" alt="Logo" />'
+const fs = require( 'fs' )
+const pify = require( 'pify' )
+const KitchenSink = require( '../data/kitchen-sink' )
+const kitchenSinkModel = require( '../data/kitchen-sink.json' )
+const Templating = require( 'templating' )
 
-const htree = Htree( html )
+const writeFile = pify( fs.writeFile )
 
-const strong = htree.select( 'strong' )
-const div = htree.select( 'div' )
+KitchenSink()
+  .then( kitchenSink => {
+    const templates = Templating.getTemplates( kitchenSink )
 
-div.attr( 'id', 'uncool' )
+    const templating = Templating( templates )
 
-strong.addClass( 'soVeryStrong' )
-strong.addClass( 'wellPrettyStrong' )
+    const populated = templating( 'kitchen-sink', kitchenSinkModel )
 
-strong.addClass( 'iGuess' )
-strong.removeClass( 'iGuess' )
+    const html = populated.stringify()
 
-strong.addClass( 'iGuess2' )
-strong.toggleClass( 'iGuess2' )
-
-strong.toggleClass( 'iGuess3' )
-
-const span = htree.createElement( 'span', { id: 'coolSpan' } )
-
-htree.append( span )
-
-console.log( JSON.stringify( htree.get(), null, 2 ) )
-console.log( htree.isDocumentFragment() )
-console.log( htree.stringify() )
-console.log( strong.get() )
-console.log( div.matches( '#uncool' ) )
-console.log( div.attr( 'id' ) )
-
-const newTree = Htree.createTree( { value: { nodeType: 'element', tagName: 'main' }, children: [] } )
-
-newTree.append( htree )
-
-console.log( JSON.stringify( newTree.get(), null, 2 ) )
+    return html
+  })
+  .then( html =>
+    writeFile( './data/kitchen-sink-populated.html', html, 'utf8' )
+  )
+  .catch( console.error )
