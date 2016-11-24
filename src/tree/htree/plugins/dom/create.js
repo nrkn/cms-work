@@ -1,6 +1,6 @@
 'use strict'
 
-const TreeNode = require( 'tree/tree-node' )
+const EntityNode = require( 'tree/entity-node' )
 const utils = require( 'utils' )
 
 const { escapeHtml, capitalizeFirstLetter } = utils
@@ -11,30 +11,33 @@ const nodeMap = {
     attributes: {}
   }),
   comment: () => ({
-    nodeValue: ''
+    nodeValue: '',
+    isEmpty: true
   }),
   text: () => ({
-    nodeValue: ''
+    nodeValue: '',
+    isEmpty: true
   }),
   documentType: () => ({
-    name: 'html', 
-    publicId: '', 
-    systemId: ''    
+    name: 'html',
+    publicId: '',
+    systemId: '',
+    isEmpty: true
   })
 }
 
 const createDomNode = ( fn, nodeType, value ) => {
   const defaultValue = ( nodeType in nodeMap ) ? nodeMap[ nodeType ]() : {}
 
-  value = Object.assign( 
-    { nodeType }, 
-    defaultValue, 
+  value = Object.assign(
+    { nodeType },
+    defaultValue,
     value || {}
   )
 
-  const treeNode = TreeNode( value )
+  const entityNode = EntityNode( value )
 
-  const node = fn.createNode( treeNode.value )
+  const node = fn.createNode( entityNode.value )
 
   const capNodeType = capitalizeFirstLetter( nodeType )
   const assertName = 'assert' + capNodeType
@@ -52,13 +55,13 @@ const createDomNodeDef = ( nodeType, argTypes ) => ({
 })
 
 const create = fn => {
-  const createElement = ( tagName, attributes )  => 
+  const createElement = ( tagName, attributes )  =>
     createDomNode( fn, 'element', { tagName, attributes } )
 
-  createElement.def = createDomNodeDef( 'element', [ 'string', 'object' ] ) 
+  createElement.def = createDomNodeDef( 'element', [ 'string', 'object' ] )
 
   const createComment = nodeValue =>
-    createDomNode( fn, 'element', { nodeValue } )    
+    createDomNode( fn, 'element', { nodeValue } )
 
   createComment.def = createDomNodeDef( 'comment', [ 'string' ] )
 
@@ -70,18 +73,18 @@ const create = fn => {
 
   createDocumentFragment.def = createDomNodeDef( 'documentFragment', [] )
 
-  const createText = nodeValue => 
-    createDomNode( fn, 'text', { 
-      nodeValue: escapeHtml( String( nodeValue ) ) 
+  const createText = nodeValue =>
+    createDomNode( fn, 'text', {
+      nodeValue: escapeHtml( String( nodeValue ) )
     })
 
-  createText.def = createDomNodeDef( 'text', [ 'string' ] )    
+  createText.def = createDomNodeDef( 'text', [ 'string' ] )
 
   const createDocumentType = ( name, publicId, systemId ) =>
-    createDomNode( fn, 'documentType', { name, publicId, systemId } ) 
-  
-  createDocumentType.def = 
-    createDomNodeDef( 'documentType', [ 'string', 'string', 'string' ] )    
+    createDomNode( fn, 'documentType', { name, publicId, systemId } )
+
+  createDocumentType.def =
+    createDomNodeDef( 'documentType', [ 'string', 'string', 'string' ] )
 
   const plugins = {
     createText, createElement, createComment, createDocument,

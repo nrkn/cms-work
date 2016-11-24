@@ -1,11 +1,11 @@
 {
   "id": "text",
   "allOf": [
-    { "$ref": "node" },
+    { "$ref": "emptyNode" },
     {
       "properties": {
         "value": { "$ref": "textValue" }
-      }      
-    }    
+      }
+    }
   ]
 }

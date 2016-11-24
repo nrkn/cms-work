@@ -1,8 +1,11 @@
 'use strict'
 
-const node = require( 'tree/tree-node/schema/node.schema.json' )
-const parentNode = require( 'tree/tree-node/schema/parentNode.schema.json' )
-const value = require( 'tree/tree-node/schema/value.schema.json' )
+const entityNode = require( 'tree/entity-node/schema/entityNode.schema.json' )
+const entityNodeValue = require( 'tree/entity-node/schema/entityNodeValue.schema.json' )
+const emptyNode = require( 'tree/entity-node/schema/emptyNode.schema.json' )
+const emptyNodeValue = require( 'tree/entity-node/schema/emptyNodeValue.schema.json' )
+const parentNode = require( 'tree/entity-node/schema/parentNode.schema.json' )
+
 
 const comment = require( './comment.schema.json' )
 const commentValue = require( './commentValue.schema.json' )
@@ -22,7 +25,7 @@ const schema = {
   documentFragmentValue, document, documentValue, documentType,
   documentTypeValue, element, elementValue, text, textValue,
 
-  node, parentNode, value
+  entityNode, entityNodeValue, emptyNode, emptyNodeValue, parentNode
 }
 
 module.exports = schema

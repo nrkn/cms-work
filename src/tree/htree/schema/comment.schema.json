@@ -1,11 +1,11 @@
 {
   "id": "comment",
   "allOf": [
-    { "$ref": "node" },
+    { "$ref": "emptyNode" },
     {
       "properties": {
         "value": { "$ref": "commentValue" }
-      }      
-    }    
+      }
+    }
   ]
 }

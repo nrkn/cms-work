@@ -1,0 +1,15 @@
+{
+  "id": "emptyNode",
+  "allOf": [
+    { "$ref": "entityNode" },
+    {
+      "properties": {
+        "value": { "$ref": "emptyNodeValue" },
+        "children": {
+          "type": "array",
+          "maxLength": 0
+        }
+      }
+    }
+  ]
+}

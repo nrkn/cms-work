@@ -1,0 +1,15 @@
+{
+  "id": "emptyNodeValue",
+  "allOf":  [
+    { "$ref": "entityNodeValue" },
+    {
+      "properties": {
+        "isEmpty": {
+          "type": "boolean",
+          "enum": [ true ]
+        }
+      },
+      "required": [ "isEmpty" ]
+    }
+  ]
+}

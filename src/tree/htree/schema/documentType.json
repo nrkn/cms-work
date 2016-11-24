@@ -1,11 +1,11 @@
 {
   "id": "documentType",
   "allOf": [
-    { "$ref": "node" },
+    { "$ref": "emptyNode" },
     {
       "properties": {
         "value": { "$ref": "documentTypeValue" }
-      }      
-    }    
+      }
+    }
   ]
 }

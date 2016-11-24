@@ -1,6 +1,6 @@
 'use strict'
 
-const TreeNode = require( 'tree/tree-node' )
+const EntityNode = require( 'tree/entity-node' )
 
 const DomHandler = options => {
   const state = State( options )
@@ -22,7 +22,7 @@ const whitespace = /\s+/g;
 const State = options => {
   options = options || defaultOpts
 
-  const dom = TreeNode( 'documentFragment' )
+  const dom = EntityNode( 'documentFragment' )
   const done = false
   const tagStack = []
   const parser = null
@@ -64,7 +64,7 @@ const Api = handler => {
   const onopentag = ( name, attribs ) => {
     const { tagStack } = handler.state
 
-    const element = TreeNode({
+    const element = EntityNode({
       tagName: name,
       attributes: attribs
     }, 'element' )
@@ -87,7 +87,7 @@ const Api = handler => {
     } else {
       data = normalize( data )
 
-      const text = TreeNode( { nodeValue: data }, 'text' )
+      const text = EntityNode( { nodeValue: data }, 'text' )
 
       addDomElement( handler, text )
     }
@@ -104,7 +104,7 @@ const Api = handler => {
       return
     }
 
-    const comment = TreeNode( { nodeValue: data }, 'comment' )
+    const comment = EntityNode( { nodeValue: data }, 'comment' )
 
     addDomElement( handler, comment )
     tagStack.push( comment )

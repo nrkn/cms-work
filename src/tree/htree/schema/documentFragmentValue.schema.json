@@ -1,7 +1,7 @@
 {
   "id": "documentFragmentValue",
   "allOf":  [
-    { "$ref": "value" },
+    { "$ref": "entityNodeValue" },
     {
       "properties": {
         "nodeType": {
@@ -11,5 +11,5 @@
       },
       "required": [ "nodeType" ]
     }
-  ] 
+  ]
 }

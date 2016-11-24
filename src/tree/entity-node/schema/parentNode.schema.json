@@ -1,12 +1,13 @@
 {
   "id": "parentNode",
+  "not": { "$ref": "emptyNode" },
   "allOf": [
-    { "$ref": "node" },
+    { "$ref": "entityNode" },
     {
       "properties": {
         "children": {
           "type": "array",
-          "items": { "$ref": "node" }
+          "items": { "$ref": "entityNode" }
         }
       },
       "required": [ "children" ]

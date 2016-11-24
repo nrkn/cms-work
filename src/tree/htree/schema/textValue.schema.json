@@ -1,7 +1,7 @@
 {
   "id": "textValue",
   "allOf":  [
-    { "$ref": "value" },
+    { "$ref": "entityNodeValue" },
     {
       "properties": {
         "nodeType": {
@@ -12,5 +12,5 @@
       },
       "required": [ "nodeType", "nodeValue" ]
     }
-  ] 
+  ]
 }

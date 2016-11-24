@@ -1,6 +1,6 @@
 'use strict'
 
-const TreeNode = require( 'tree/tree-node' )
+const EntityNode = require( 'tree/entity-node' )
 const Events = require( 'events' )
 const utils = require( 'utils' )
 
@@ -35,8 +35,11 @@ const Store = ( adapter ) => {
   }
 
   const save = obj => {
-    if( !TreeNode.isTreeNode( obj ) )
-      typeError( 'Store.save', 'obj', 'an instance of TreeNode' )
+    if( EntityNode.mtype.is( obj, 'entityNodeValue' ) )
+      obj = EntityNode( obj )
+
+    if( !EntityNode.mtype.is( obj, 'entityNode' ) )
+      typeError( 'Store.save', 'obj', 'an entityNode' )
 
     const now = ( new Date() ).toJSON()
 

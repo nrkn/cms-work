@@ -1,5 +1,5 @@
 {
-  "id": "value",
+  "id": "entityNodeValue",
   "type": "object",
   "properties": {
     "_id": {
