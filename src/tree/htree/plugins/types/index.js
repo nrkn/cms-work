@@ -1,6 +1,11 @@
+'use strict'
+
 const tv4 = require( 'tv4' )
 const T = require( 'mtype' )
 const schema = require( 'tree/htree/schema' )
+const utils = require( 'utils' )
+
+const { capitalizeFirstLetter } = utils
 
 const validator = tv4.freshApi()
 
@@ -14,9 +19,6 @@ const is = schemaNames.reduce( ( map, name ) => {
 
   return map
 }, {} )
-
-const capitalizeFirstLetter = str =>
-  str.charAt( 0 ).toUpperCase() + str.slice( 1 )
 
 // could get this from the names, but better to be explicit
 const nodeTypes = [
@@ -35,14 +37,30 @@ isType.def = {
 }
 
 const types = fn => {
-  const plugins = { isType }
+  const assertType = ( node, typename ) => {
+    if( !fn.isType( node, typename ) )
+      throw new TypeError( `Expected node to be ${ typename }` )
+  }
 
+  assertType.def = {
+    argTypes: [ 'node', 'string' ],
+    requires: [ 'isType' ],
+    categories: [ 'type', 'plugin' ]
+  }
+
+  const plugins = { isType, assertType }
+
+  // add isDocument, isText etc
   nodeTypes.forEach( typename => {
-    const fname = 'is' + capitalizeFirstLetter( typename )
+    const capTypename = capitalizeFirstLetter( typename )
+    const isName = 'is' + capTypename
+    const assertName = 'assert' + capTypename
 
-    plugins[ fname ] = node => fn.isType( node, typename )
+    plugins[ isName ] = node => fn.isType( node, typename )
+    plugins[ isName ].def = isType.def
 
-    plugins[ fname ].def = isType.def
+    plugins[ assertName ] = node => fn.assertType( node, typename )
+    plugins[ assertName ].def = assertType.def
   })
 
   return Object.assign( fn, plugins )

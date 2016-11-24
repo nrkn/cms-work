@@ -2,96 +2,83 @@
 
 const utils = require( 'utils' )
 
-const { escapeHtml } = utils
+const { escapeHtml, capitalizeFirstLetter } = utils
+
+const nodeMap = {
+  element: () => ({
+    tagName: 'div',
+    attributes: {}
+  }),
+  comment: () => ({
+    nodeValue: ''
+  }),
+  text: () => ({
+    nodeValue: ''
+  }),
+  documentType: () => ({
+    name: 'html', 
+    publicId: '', 
+    systemId: ''    
+  })
+}
+
+const createDomNode = ( fn, nodeType, value ) => {
+  const defaultValue = ( nodeType in nodeMap ) ? nodeMap[ nodeType ]() : {}
+
+  value = Object.assign( 
+    { nodeType }, 
+    defaultValue, 
+    value || {}
+  )
+
+  const node = fn.createNode( value )
+
+  const capNodeType = capitalizeFirstLetter( nodeType )
+  const assertName = 'assert' + capNodeType
+
+  fn[ assertName ]( node )
+
+  return node
+}
+
+const createDomNodeDef = ( nodeType, argTypes ) => ({
+  argTypes,
+  returnType: 'node',
+  requires: [ 'createNode', 'assert' + capitalizeFirstLetter( nodeType ) ],
+  categories: [ 'create', 'plugin' ]
+})
 
 const create = fn => {
-  const createElement = ( tagName, attributes )  => {
-    tagName = tagName || 'div'
-    attributes = attributes || {}
+  const createElement = ( tagName, attributes )  => 
+    createDomNode( fn, 'element', { tagName, attributes } )
 
-    const nodeType = 'element'
+  createElement.def = createDomNodeDef( 'element', [ 'string', 'object' ] ) 
 
-    const value = {
-      nodeType, tagName, attributes
-    }
+  const createComment = nodeValue =>
+    createDomNode( fn, 'element', { nodeValue } )    
 
-    return fn.createNode( value )
-  }
+  createComment.def = createDomNodeDef( 'comment', [ 'string' ] )
 
-  createElement.def = {
-    argTypes: [ 'string', 'object' ],
-    returnType: 'node',
-    requires: [ 'createNode' ],
-    categories: [ 'create', 'plugin' ]
-  }
+  const createDocument = () => createDomNode( fn, 'document' )
 
-  const createComment = nodeValue => {
-    const nodeType = 'comment'
+  createDocument.def = createDomNodeDef( 'document', [] )
 
-    const value = { nodeType, nodeValue }
+  const createDocumentFragment = () => createDomNode( fn, 'documentFragment' )
 
-    return fn.createNode( value )
-  }
+  createDocumentFragment.def = createDomNodeDef( 'documentFragment', [] )
 
-  createComment.def = {
-    argTypes: [ 'string' ],
-    returnType: 'node',
-    requires: [ 'createNode' ],
-    categories: [ 'create', 'plugin' ]
-  }
+  const createText = nodeValue => 
+    createDomNode( fn, 'text', { 
+      nodeValue: escapeHtml( String( nodeValue ) ) 
+    })
 
-  const createDocument = () => fn.createNode( { nodeType: 'document' } )
+  createText.def = createDomNodeDef( 'text', [ 'string' ] )    
 
-  createDocument.def = {
-    argTypes: [],
-    returnType: 'node',
-    requires: [ 'createNode' ],
-    categories: [ 'create', 'plugin' ]
-  }
-
-  const createDocumentFragment = () =>
-    fn.createNode( { nodeType: 'documentFragment' } )
-
-  createDocumentFragment.def = {
-    argTypes: [],
-    returnType: 'node',
-    requires: [ 'createNode' ],
-    categories: [ 'create', 'plugin' ]
-  }
-
-  const createText = nodeValue => {
-    const nodeType = 'text'
-
-    nodeValue = escapeHtml( String( nodeValue ) )
-
-    const value = { nodeType, nodeValue }
-
-    return fn.createNode( value )
-  }
-
-  createText.def = {
-    argTypes: [ 'string' ],
-    returnType: 'node',
-    requires: [ 'createNode' ],
-    categories: [ 'create', 'plugin' ]
-  }
-
-  const createDocumentType = ( name, publicId, systemId ) => {
-    const nodeType = 'documentType'
-
-    const value = {
-      nodeType, name, publicId, systemId
-    }
-
-    return fn.createNode( value )
-  }
-
-  createDocumentType.def = {
-    argTypes: [ 'string', 'string', 'string' ],
-    returnType: 'node',
-    requires: [ 'createNode' ],
-    categories: [ 'create', 'plugin' ]
-  }
+  const createDocumentType = ( name, publicId, systemId ) =>
+    createDomNode( fn, 'documentType', { name, publicId, systemId } ) 
+  
+  createDocumentType.def = 
+    createDomNodeDef( 'documentType', [ 'string', 'string', 'string' ] )    
 
   const plugins = {
     createText, createElement, createComment, createDocument,

@@ -5,13 +5,8 @@ const utils = require( 'utils' )
 const { clone } = utils
 
 const element = fn => {
-  const expectElement = ( node, fname ) => {
-    if( !fn.isElement( node ) )
-      throw new TypeError( `${ fname } can only be called on element nodes` )
-  }
-
   const attributes = ( node, value ) => {
-    expectElement( node, 'attributes' )
+    fn.assertElement( node )
 
     const nodeValue = fn.value( node )
 
@@ -30,12 +25,12 @@ const element = fn => {
   attributes.def = {
     argTypes: [ 'node', 'object?' ],
     returnType: 'object',
-    requires: [ 'value', 'isElement' ],
+    requires: [ 'value', 'assertElement' ],
     categories: [ 'dom', 'attributes', 'plugins' ]
   }
 
   const tagName = ( node, value ) => {
-    expectElement( node, 'tagName' )
+    fn.assertElement( node )
 
     const nodeValue = fn.value( node )
 
@@ -51,12 +46,12 @@ const element = fn => {
   tagName.def = {
     argTypes: [ 'node', 'string' ],
     returnType: 'string',
-    requires: [ 'value', 'isElement' ],
+    requires: [ 'value', 'assertElement' ],
     categories: [ 'dom', 'tagName', 'plugins' ]
   }
 
   const attr = ( node, name, value ) => {
-    expectElement( node, 'attr' )
+    fn.assertElement( node )
 
     const nodeValue = fn.value( node )
 
@@ -75,12 +70,12 @@ const element = fn => {
   attr.def = {
     argTypes: [ 'node', 'string', 'string' ],
     returnType: 'string',
-    requires: [ 'value', 'isElement' ],
+    requires: [ 'value', 'assertElement' ],
     categories: [ 'dom', 'attr', 'plugins' ]
   }
 
   const hasAttr = ( node, name ) => {
-    expectElement( node, 'hasAttr' )
+    fn.assertElement( node )
 
     return fn.attr( node, name ) !== undefined
   }
@@ -88,12 +83,12 @@ const element = fn => {
   hasAttr.def = {
     argTypes: [ 'node', 'string' ],
     returnType: 'boolean',
-    requires: [ 'value', 'isElement' ],
+    requires: [ 'value', 'assertElement' ],
     categories: [ 'dom', 'hasAttr', 'plugins' ]
   }
 
   const removeAttr = ( node, name ) => {
-    expectElement( node, 'removeAttr' )
+    fn.assertElement( node )
 
     const nodeValue = fn.value( node )
 
@@ -105,12 +100,12 @@ const element = fn => {
 
   removeAttr.def = {
     argTypes: [ 'node', 'string' ],
-    requires: [ 'value', 'isElement' ],
+    requires: [ 'value', 'assertElement' ],
     categories: [ 'dom', 'removeAttr', 'plugins' ]
   }
 
   const clearAttrs = node => {
-    expectElement( node, 'clearAttr' )
+    fn.assertElement( node )
 
     const nodeValue = fn.value( node )
 
@@ -121,24 +116,24 @@ const element = fn => {
 
   clearAttrs.def = {
     argTypes: [ 'node' ],
-    requires: [ 'value', 'isElement' ],
+    requires: [ 'value', 'assertElement' ],
     categories: [ 'dom', 'clearAttrs', 'plugins' ]
   }
 
   const clearClasses = node => {
-    expectElement( node, 'clearAttr' )
+    fn.assertElement( node )
 
     fn.attr( node, 'class', '' )
   }
 
   clearClasses.def = {
     argTypes: [ 'node' ],
-    requires: [ 'value', 'isElement' ],
+    requires: [ 'value', 'assertElement' ],
     categories: [ 'dom', 'clearClasses', 'plugins' ]
   }
 
   const classNames = node => {
-    expectElement( node, 'classNames' )
+    fn.assertElement( node )
 
     const classNames = fn.attr( node, 'class' )
 
@@ -150,12 +145,12 @@ const element = fn => {
   classNames.def = {
     argTypes: [ 'node' ],
     returnType: '[string]',
-    requires: [ 'attr', 'isElement' ],
+    requires: [ 'attr', 'assertElement' ],
     categories: [ 'dom', 'classNames', 'plugins' ]
   }
 
   const hasClass = ( node, className ) => {
-    expectElement( node, 'hasClass' )
+    fn.assertElement( node )
 
     return fn.classNames( node ).some( name => name === className )
   }
@@ -163,12 +158,12 @@ const element = fn => {
   hasClass.def = {
     argTypes: [ 'node', 'string' ],
     returnType: 'boolean',
-    requires: [ 'classNames', 'isElement' ],
+    requires: [ 'classNames', 'assertElement' ],
     categories: [ 'dom', 'hasClass', 'plugins' ]
   }
 
   const addClass = ( node, className ) => {
-    expectElement( node, 'addClass' )
+    fn.assertElement( node )
 
     className = className.trim()
 
@@ -184,12 +179,12 @@ const element = fn => {
   addClass.def = {
     argTypes: [ 'node', 'string' ],
     returnType: 'node',
-    requires: [ 'classNames', 'attr', 'isElement' ],
+    requires: [ 'classNames', 'attr', 'assertElement' ],
     categories: [ 'dom', 'addClass', 'plugins' ]
   }
 
   const removeClass = ( node, className ) => {
-    expectElement( node, 'removeClass' )
+    fn.assertElement( node )
 
     className = className.trim()
 
@@ -203,12 +198,12 @@ const element = fn => {
   removeClass.def = {
     argTypes: [ 'node', 'string' ],
     returnType: 'node',
-    requires: [ 'classNames', 'attr', 'isElement' ],
+    requires: [ 'classNames', 'attr', 'assertElement' ],
     categories: [ 'dom', 'removeClass', 'plugins' ]
   }
 
   const toggleClass = ( node, className, shouldHave ) => {
-    expectElement( node, 'toggleClass' )
+    fn.assertElement( node )
 
     const alreadyHas = fn.hasClass( node, className )
 
@@ -229,7 +224,7 @@ const element = fn => {
   toggleClass.def = {
     argTypes: [ 'node', 'string', 'boolean' ],
     returnType: 'node',
-    requires: [ 'hasClass', 'removeClass', 'addClass', 'isElement' ],
+    requires: [ 'hasClass', 'removeClass', 'addClass', 'assertElement' ],
     categories: [ 'dom', 'toggleClass', 'plugins' ]
   }
 

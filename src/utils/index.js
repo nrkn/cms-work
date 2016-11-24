@@ -40,5 +40,9 @@ const escapeHtml = str => {
   return str
 }
 
+const capitalizeFirstLetter = str =>
+  str.charAt( 0 ).toUpperCase() + str.slice( 1 )
 
-module.exports = { id, identifier, matches, clone, escapeHtml }
+module.exports = { 
+  id, identifier, matches, clone, escapeHtml, capitalizeFirstLetter
+}

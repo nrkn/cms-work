@@ -1,3 +1,5 @@
+'use strict'
+
 const Store = require( 'store' )
 const Adapter = require( './adapter' )
 

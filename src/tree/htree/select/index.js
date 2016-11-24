@@ -1,4 +1,6 @@
-const CSSselect = require( './css-select' )
+'use strict'
+
+const CSSselect = require( 'css-select' )
 
 const Select = adapter => {
   const options = { adapter }

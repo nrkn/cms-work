@@ -63,7 +63,7 @@ const Api = handler => {
   const onclosetag = () => {
     const { tagStack } = handler.state
 
-    const elem = tagStack.pop()
+    tagStack.pop()
   }
 
   const onopentag = ( name, attribs ) => {
@@ -79,7 +79,7 @@ const Api = handler => {
   }
 
   const ontext = data => {
-    const { options, tagStack, dom } = handler.state
+    const { options } = handler.state
 
     const normalize = options.normalizeWhitespace || options.ignoreWhitespace ?
       str => str.replace( whitespace, ' ' ) :

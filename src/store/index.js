@@ -90,7 +90,7 @@ const Store = ( adapter ) => {
   const on = events.on
 
   const api = {
-    exists, save, load, get, remove, all, on
+    exists, save, load, get, remove, all, on, find
   }
 
   return api

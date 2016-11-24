@@ -1,3 +1,5 @@
+'use strict'
+
 const element = require( './element' )
 const create = require( './create' )
 const clone = require( './clone' )

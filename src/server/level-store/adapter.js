@@ -49,7 +49,7 @@ const defaults = {
 const exists = ( db, id ) => new Promise( resolve =>
   load( db, id )
     .then( () => resolve( true ) )
-    .catch( err => resolve( false ) )
+    .catch( () => resolve( false ) )
 )
 
 const save = ( db, obj ) =>
