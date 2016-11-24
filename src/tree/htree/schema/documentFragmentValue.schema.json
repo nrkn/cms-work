@@ -1,11 +1,15 @@
 {
   "id": "documentFragmentValue",
-  "type": "object",
-  "properties": {
-    "nodeType": {
-      "type": "string",
-      "enum": [ "documentFragment" ]
+  "allOf":  [
+    { "$ref": "value" },
+    {
+      "properties": {
+        "nodeType": {
+          "type": "string",
+          "enum": [ "documentFragment" ]
+        }
+      },
+      "required": [ "nodeType" ]
     }
-  },
-  "required": [ "nodeType" ]
+  ] 
 }

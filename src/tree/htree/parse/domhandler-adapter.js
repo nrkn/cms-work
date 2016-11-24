@@ -1,5 +1,7 @@
 'use strict'
 
+const TreeNode = require( 'tree/tree-node' )
+
 const DomHandler = options => {
   const state = State( options )
 
@@ -20,7 +22,7 @@ const whitespace = /\s+/g;
 const State = options => {
   options = options || defaultOpts
 
-  const dom = createNode( {}, 'documentFragment' )
+  const dom = TreeNode( 'documentFragment' )
   const done = false
   const tagStack = []
   const parser = null
@@ -30,13 +32,6 @@ const State = options => {
   }
 
   return state
-}
-
-const createNode = ( value, nodeType ) => {
-  Object.assign( value, { nodeType } )
-  const children = []
-
-  return { value, children }
 }
 
 const Api = handler => {
@@ -69,7 +64,7 @@ const Api = handler => {
   const onopentag = ( name, attribs ) => {
     const { tagStack } = handler.state
 
-    const element = createNode({
+    const element = TreeNode({
       tagName: name,
       attributes: attribs
     }, 'element' )
@@ -92,7 +87,7 @@ const Api = handler => {
     } else {
       data = normalize( data )
 
-      const text = createNode( { nodeValue: data }, 'text' )
+      const text = TreeNode( { nodeValue: data }, 'text' )
 
       addDomElement( handler, text )
     }
@@ -109,7 +104,7 @@ const Api = handler => {
       return
     }
 
-    const comment = createNode( { nodeValue: data }, 'comment' )
+    const comment = TreeNode( { nodeValue: data }, 'comment' )
 
     addDomElement( handler, comment )
     tagStack.push( comment )

@@ -1,31 +1,18 @@
 'use strict'
 
-const tv4 = require( 'tv4' )
-const T = require( 'mtype' )
+const Validator = require( 'validator' )
 const schema = require( 'tree/htree/schema' )
 const utils = require( 'utils' )
 
 const { capitalizeFirstLetter } = utils
-
-const validator = tv4.freshApi()
-
-const schemaNames = Object.keys( schema )
-const schemas = schemaNames.map( name => schema[ name ] )
-
-schemas.forEach( schema => validator.addSchema( schema ) )
-
-const is = schemaNames.reduce( ( map, name ) => {
-  map[ name ] = obj => validator.validate( obj, name )
-
-  return map
-}, {} )
 
 // could get this from the names, but better to be explicit
 const nodeTypes = [
   'text', 'element', 'comment', 'document', 'documentType', 'documentFragment'
 ]
 
-const t = T( is )
+const validator = Validator( schema )
+const t = Validator.mtype( validator )
 
 const isType = ( node, typename ) => t.is( node, typename )
 

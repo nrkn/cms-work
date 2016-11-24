@@ -1,15 +1,19 @@
 {
   "id": "elementValue",
-  "type": "object",
-  "properties": {
-    "nodeType": {
-      "type": "string",
-      "enum": [ "element" ]
-    },
-    "attributes": {
-      "type": "object",
-      "additionalProperties": { "type": "string" }
+  "allOf":  [
+    { "$ref": "value" },
+    {
+      "properties": {
+        "nodeType": {
+          "type": "string",
+          "enum": [ "element" ]
+        },
+        "attributes": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        }
+      },
+      "required": [ "nodeType", "attributes" ]
     }
-  },
-  "required": [ "nodeType", "attributes" ]
+  ] 
 }

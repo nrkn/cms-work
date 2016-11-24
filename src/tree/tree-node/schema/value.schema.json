@@ -9,6 +9,9 @@
     "nodeType": {
       "type": "string",
       "minLength": 1
+    },
+    "isEmpty": {
+      "type": "boolean"
     }
   },
   "required": [ "_id", "nodeType" ]

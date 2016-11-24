@@ -1,8 +1,11 @@
 {
   "id": "documentType",
-  "type": "object",
-  "properties": {
-    "value": { "$ref": "documentTypeValue" }
-  },
-  "required": [ "value" ]
+  "allOf": [
+    { "$ref": "node" },
+    {
+      "properties": {
+        "value": { "$ref": "documentTypeValue" }
+      }      
+    }    
+  ]
 }

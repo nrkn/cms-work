@@ -1,11 +1,15 @@
 {
   "id": "documentValue",
-  "type": "object",
-  "properties": {
-    "nodeType": {
-      "type": "string",
-      "enum": [ "document" ]
+  "allOf":  [
+    { "$ref": "value" },
+    {
+      "properties": {
+        "nodeType": {
+          "type": "string",
+          "enum": [ "document" ]
+        }
+      },
+      "required": [ "nodeType" ]
     }
-  },
-  "required": [ "nodeType" ]
+  ] 
 }

@@ -108,7 +108,6 @@ const Templating = templates => {
     include: ( el, scope, value ) => {
       el.empty()
       el.append( Tree( value ) )
-      console.log( 'include', el.stringify() )
     }
   }
 

@@ -1,50 +1,41 @@
 'use strict'
 
+const Validator = require( 'validator' )
 const utils = require( 'utils' )
+const schema = require( 'tree/tree-node/schema' )
 
 const { id, identifier } = utils
 
+const validator = Validator( schema )
+const t = Validator.mtype( validator )
+
 const TreeNode = ( ...args ) => {
-  let nodeType = 'treeNode'
-  let value = {}
-  let isEmpty = false
+  let value = { 
+    nodeType: 'node',
+    isEmpty: false 
+  }
+
+  const children = []
 
   args.forEach( arg => {
     if( typeof arg === 'string' ){
-      nodeType = identifier( arg, true )
+      value.nodeType = identifier( arg, true )
     } else if( typeof arg === 'object' ){
-      value = arg
+      Object.assign( value, arg )
     } else if( typeof arg === 'boolean' ){
-      isEmpty = arg
+      value.isEmpty = arg
     }
   })
 
-  const treeNode = {
-    value: Object.assign(
-      {
-        _id: id( nodeType ),
-        nodeType,
-        isEmpty
-      },
-      value
-    ),
-    children: []
-  }
+  if( typeof value._id !== 'string' )
+    value._id = id( value.nodeType ) 
+  
+  const treeNode = { value, children } 
 
-  if( !TreeNode.isTreeNode( treeNode ) )
-    throw new TypeError( '_id or nodeType is not a string' )
+  if( !t.is( treeNode, 'node' ) )
+    throw new TypeError( 'Cannot create a node with those arguments' )
 
   return treeNode
 }
-
-TreeNode.isTreeNode = obj =>
-  obj !== undefined &&
-  typeof obj.value === 'object' &&
-  typeof obj.value._id === 'string' &&
-  typeof obj.value.nodeType === 'string' &&
-  Array.isArray( obj.children )
-
-TreeNode.isNodeType = ( obj, nodeType ) =>
-  TreeNode.isTreeNode( obj ) && obj.value.nodeType === nodeType
 
 module.exports = TreeNode

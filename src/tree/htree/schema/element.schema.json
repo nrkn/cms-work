@@ -1,13 +1,11 @@
 {
   "id": "element",
   "allOf": [
+    { "$ref": "parentNode" },
     {
-      "type": "object",
       "properties": {
         "value": { "$ref": "elementValue" }
-      },
-      "required": [ "value" ]
-    },
-    { "$ref": "parentNode" }
+      }      
+    }    
   ]
 }

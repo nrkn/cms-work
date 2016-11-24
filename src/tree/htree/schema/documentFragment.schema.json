@@ -1,13 +1,11 @@
 {
   "id": "documentFragment",
   "allOf": [
+    { "$ref": "parentNode" },
     {
-      "type": "object",
       "properties": {
         "value": { "$ref": "documentFragmentValue" }
-      },
-      "required": [ "value" ]
-    },
-    { "$ref": "parentNode" }
+      }      
+    }    
   ]
 }

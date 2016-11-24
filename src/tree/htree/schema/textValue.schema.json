@@ -1,12 +1,16 @@
 {
-  "id": "commentValue",
-  "type": "object",
-  "properties": {
-    "nodeType": {
-      "type": "string",
-      "enum": [ "text" ]
-    },
-    "nodeValue": { "type": "string" }
-  },
-  "required": [ "nodeType", "nodeValue" ]
+  "id": "textValue",
+  "allOf":  [
+    { "$ref": "value" },
+    {
+      "properties": {
+        "nodeType": {
+          "type": "string",
+          "enum": [ "text" ]
+        },
+        "nodeValue": { "type": "string" }
+      },
+      "required": [ "nodeType", "nodeValue" ]
+    }
+  ] 
 }

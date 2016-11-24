@@ -1,5 +1,6 @@
 'use strict'
 
+const TreeNode = require( 'tree/tree-node' )
 const utils = require( 'utils' )
 
 const { escapeHtml, capitalizeFirstLetter } = utils
@@ -31,7 +32,9 @@ const createDomNode = ( fn, nodeType, value ) => {
     value || {}
   )
 
-  const node = fn.createNode( value )
+  const treeNode = TreeNode( value )
+
+  const node = fn.createNode( treeNode.value )
 
   const capNodeType = capitalizeFirstLetter( nodeType )
   const assertName = 'assert' + capNodeType
