@@ -1,12 +1,12 @@
 'use strict'
 
-// add handling for text elements, eg combine them  
+// add handling for text elements, eg combine them
 
 const insertBeforeWrapper = fn => {
-  // handle document fragments
   const originalInsertBefore = fn.insertBefore
 
   const insertBefore = ( fn, root, parentNode, childNode, referenceNode ) => {
+    // handle document fragments
     if( fn.isDocumentFragment( childNode ) ){
       const children = fn.getChildren( childNode )
 

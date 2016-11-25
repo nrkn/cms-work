@@ -9,8 +9,9 @@ const parse = require( 'tree/htree/plugins/parse' )
 const select = require( 'tree/htree/plugins/select' )
 const stringify = require( 'tree/htree/plugins/stringify' )
 const types = require( 'tree/htree/plugins/types' )
+const vdom = require( 'tree/htree/plugins/vdom' )
 
-const Htree = Mtree( dom, parse, select, stringify, types )
+const Htree = Mtree( dom, parse, select, stringify, types, vdom )
 
 // add afterwards because the original createTree doesn't exist until now
 Htree.plugin( createTree )

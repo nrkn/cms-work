@@ -55,8 +55,11 @@ const createDomNodeDef = ( nodeType, argTypes ) => ({
 })
 
 const create = fn => {
-  const createElement = ( tagName, attributes )  =>
-    createDomNode( fn, 'element', { tagName, attributes } )
+  const createElement = ( tagName, attributes ) => {
+    attributes = attributes || {}
+
+    return createDomNode( fn, 'element', { tagName, attributes } )
+  }
 
   createElement.def = createDomNodeDef( 'element', [ 'string', 'object' ] )
 

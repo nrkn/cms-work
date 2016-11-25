@@ -53,7 +53,7 @@ const exists = ( db, id ) => new Promise( resolve =>
 )
 
 const save = ( db, obj ) =>
-  db.put( obj._id, JSON.stringify( obj ) )
+  db.put( obj.value._id, JSON.stringify( obj ) )
 
 const load = ( db, id ) => Array.isArray( id ) ?
   Promise.all( id.map( id => load( db, id ) ) ) :

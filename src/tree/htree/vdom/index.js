@@ -1,13 +1,17 @@
 'use strict'
 
-const Vnode = ( root, node ) => {
+const Vnode = node => {
+  if( node === null || node === undefined ){
+    return node
+  }
+
   const vnode = {
     get firstChild(){
-      return node.firstChild()
+      return Vnode( node.firstChild() )
     },
 
     get nextSibling(){
-      return node.nextSibling()
+      return Vnode( node.nextSibling() )
     },
 
     get nodeType(){
@@ -49,7 +53,7 @@ const Vnode = ( root, node ) => {
 
     // should be something for svg or math etc.!
     // hasAttributeNS: ( namespaceURI, name ) => {
-    hasAttributeNS: namespaceURI => 
+    hasAttributeNS: namespaceURI =>
       namespaceURI === vnode.namespaceURI,
 
     assignAttributes: targetNode => {
@@ -58,14 +62,42 @@ const Vnode = ( root, node ) => {
       Object.keys( attributes ).forEach( name =>
         targetNode.setAttribute( name, attributes[ name ] )
       )
-    }
+    },
+
+    actualize: document => actualize[ vnode.nodeType ]( document, vnode )
   }
 
   return vnode
 }
 
-const vdom = htree => {
+const addChildren = ( document, el, vnode ) => {
+  let child = vnode.firstChild
 
+  while( child ){
+    el.appendChild( child.actualize( document ) )
+    child = child.nextSibling
+  }
 }
 
-module.exports = vdom
+const actualize = {
+  text: ( document, vnode ) => document.createTextNode( vnode.nodeValue ),
+  comment: ( document, vnode ) => document.createComment( vnode.nodeValue ),
+  element: ( document, vnode ) => {
+    const el = document.createElement( vnode.nodeName )
+
+    vnode.assignAttributes( el )
+
+    addChildren( document, el, vnode )
+
+    return el
+  },
+  documentFragment: ( document, vnode ) => {
+    const el = document.createDocumentFragment()
+
+    addChildren( document, el, vnode )
+
+    return el
+  }
+}
+
+module.exports = Vnode

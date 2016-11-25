@@ -1,7 +1,7 @@
 'use strict'
 
 const EntityNode = require( 'tree/entity-node' )
-const Events = require( 'events' )
+const Events = require( 'mevents' )
 const utils = require( 'utils' )
 
 const { matches } = utils
