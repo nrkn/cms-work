@@ -1,3 +1,4 @@
 # `📁 /dist`
 
-The contents of `/src/client`, browserified
+Files that can be served statically, because they've already been generated,
+they don't change often etc.
