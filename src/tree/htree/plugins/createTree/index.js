@@ -1,5 +1,9 @@
 'use strict'
 
+/*
+  Extend createTree to allow creating a tree from an HTML string
+*/
+
 const parseStr = require( 'tree/htree/parse' )
 
 // should be added after the default plugins so that createTree exists!

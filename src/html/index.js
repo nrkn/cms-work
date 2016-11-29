@@ -2,6 +2,24 @@
 
 const hinfo = require( 'hinfo' )
 
+const nodeDefs = {
+  "#document": {
+    "content": [ "#documentType", "<html>" ]
+  },
+  "#documentType": {
+    "parent": [ "#document" ]
+  },
+  "#text": {
+    "categories": [ "flow content", "phrasing content", "palpable content" ]
+  },
+  '#comment': {
+    "categories": [ "flow content" ]
+  },
+  '#documentFragment': {
+    "content": [ "flow content" ]
+  }
+}
+
 const ensureArray = ( obj, name ) => {
   if( !Array.isArray( obj[ name ] ) )
     obj[ name ] = []
@@ -14,7 +32,7 @@ const ensureProperties = def => {
 
 const Html = defs => {
   if( defs === undefined ){
-    defs = hinfo()
+    defs = Object.assign( hinfo(), nodeDefs )
   } else {
     defs = JSON.parse( JSON.stringify( defs ) )
   }
