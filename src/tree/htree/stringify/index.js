@@ -1,6 +1,10 @@
 'use strict'
 
 const Html = require( 'html' )
+const utils = require( 'utils' )
+
+const { escapeHtml } = utils
+
 const info = Html()
 
 const stringify = ( node, depth = 0 ) => {
@@ -9,7 +13,7 @@ const stringify = ( node, depth = 0 ) => {
   const { nodeType } = node.value
 
   if( nodeType === 'text' )
-    html += node.value.nodeValue
+    html += escapeHtml( node.value.nodeValue )
 
   if( nodeType === 'comment' )
     html += `<!--${ node.value.nodeValue }-->`

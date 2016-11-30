@@ -3,7 +3,7 @@
 const EntityNode = require( 'tree/entity-node' )
 const utils = require( 'utils' )
 
-const { escapeHtml, capitalizeFirstLetter } = utils
+const { capitalizeFirstLetter } = utils
 
 const nodeMap = {
   element: () => ({
@@ -78,7 +78,7 @@ const create = fn => {
 
   const createText = nodeValue =>
     createDomNode( fn, 'text', {
-      nodeValue: escapeHtml( String( nodeValue ) )
+      nodeValue: String( nodeValue )
     })
 
   createText.def = createDomNodeDef( 'text', [ 'string' ] )

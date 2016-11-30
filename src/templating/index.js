@@ -144,6 +144,22 @@ const Templating = templates => {
     return populateNext( template, scope )
   }
 
+  const unwrapNextFragment = template => {
+    const fragment = template.select( 'fragment' )
+
+    if( !fragment ) return template
+
+    const firstChild = fragment.firstChild()
+
+    if( firstChild ){
+      firstChild.unwrap()
+    } else {
+      fragment.remove()
+    }
+
+    return unwrapNextFragment( template )
+  }
+
   const populate = ( name, model ) => {
     const template = Tree( name )
 
@@ -152,7 +168,10 @@ const Templating = templates => {
       current: model
     }
 
-    return populateNext( template, scope )
+    populateNext( template, scope )
+    unwrapNextFragment( template )
+
+    return template
   }
 
   return populate
