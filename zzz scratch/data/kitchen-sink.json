@@ -1,0 +1,42 @@
+{
+  "header": [
+    {
+      "tagName": "h2",
+      "attr": [ "id", "myHeader" ],
+      "removeAttr": "data-removeme",
+      "addClass": "primary-header",
+      "removeClass": "removeMe",
+      "toggleClass": "toggleMeOff"
+    },
+    {
+      "toggleClass": "toggleMeOn"
+    }
+  ],
+
+  "name": "Chris",
+  "value": 10000,
+  "taxedValue": 6000,
+  "inCa": true,
+
+  "company": "<b>Github</b>",
+
+  "person": false,
+
+  "repo": [
+    { "name": "resque" },
+    { "name": "hub" },
+    { "name": "rip" }
+  ],
+
+  "greet": {
+    "name": "John"
+  },
+
+  "categories": [],
+
+  "names": [
+    { "name": "Jane" },
+    { "name": "Sue" },
+    { "name": "Paula" }
+  ]
+}

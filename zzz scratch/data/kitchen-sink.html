@@ -1,0 +1,51 @@
+<template id="kitchen-sink">
+  <h1 data-tag="header" data-removeme class="removeMe toggleMeOff">Hello <span data-text="name"></span></h1>
+  <p>
+    You have just won <span data-text="value"></span> dollars!
+  </p>
+  <div data-is="inCa">
+    Well, <span data-text="taxedValue"></span> dollars, after taxes.
+  </div>
+  <div data-is="inCa">
+    <p>
+      Well, <span data-text="taxedValue"></span> dollars, after taxes.
+    </p>
+  </div>
+
+  <p>Shown.</p>
+  <div data-is="person">
+    <p>Never shown!</p>
+  </div>
+
+  <ul>
+    <li><span data-text="name"></span></li>
+    <li><span data-text="age"></span></li>
+    <li><span data-text="company"></span></li>
+    <li><span data-html="company"></span></li>
+  </ul>
+
+  <div data-context="greet">
+    <p>Hi <span data-text="name"></span>!</p>
+  </div>
+
+  <div data-each="categories">
+    <p><span data-text="name"></span></p>
+  </div>
+  <div data-empty="categories">
+    <p>No categories!</p>
+  </div>
+
+  <div data-each="names">
+    <strong><span data-text="name"></span></strong>
+  </div>
+
+  <div data-each="names">
+    <div data-include="user"></div>
+  </div>
+
+  <p data-include="user"></p>
+</template>
+
+<template id="user">
+  <strong><span data-text="name"></span></strong>
+</template>

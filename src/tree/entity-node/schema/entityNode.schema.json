@@ -1,8 +1,0 @@
-{
-  "id": "entityNode",
-  "type": "object",
-  "properties": {
-    "value": { "$ref": "entityNodeValue" }
-  },
-  "required": [ "value" ]
-}
