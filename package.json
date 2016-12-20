@@ -4,28 +4,27 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "cross-env NODE_PATH=src gulp",
-    "test": "cross-env NODE_PATH=src mocha",
-    "start": "cross-env NODE_PATH=src node ./src"
+    "build": "gulp",
+    "test": "mocha",
+    "start": "node"
   },
   "keywords": [],
   "author": "Nik Coughlin <nrkn.com@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "1tree": "^0.3.2",
-    "cross-env": "^3.1.3",
-    "css-select": "fb55/css-select",
-    "css-select-base-adapter": "^0.1.0",
+    "1tree-factory": "^0.1.2",
     "dragula": "^3.7.2",
-    "hinfo": "^0.1.2",
-    "htmlparser2": "^3.9.2",
-    "leveldown": "^1.5.0",
-    "levelup": "^1.3.3",
-    "morphdom": "^2.2.0",
+    "express": "^4.14.0",
+    "html-node": "^0.1.0",
+    "mojule-dom": "^0.1.0",
+    "mojule-templating": "^0.1.0",
+    "mojule-utils": "^0.1.1",
     "mtype": "^0.1.2",
-    "nodetype-enum": "^1.1.1",
-    "pify": "^2.3.0",
-    "tv4": "^1.2.7"
+    "mtype-node": "^0.1.3",
+    "mtype-node-level": "^0.1.0",
+    "mtype-node-localstorage": "^0.1.0",
+    "mtype-tv4": "^0.1.0",
+    "pify": "^2.3.0"
   },
   "devDependencies": {
     "babel-preset-es2015": "^6.18.0",

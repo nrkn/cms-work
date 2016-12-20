@@ -2,81 +2,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Test Static</title>
+    <title>Test</title>
   </head>
   <body>
-    <div id="container">
-    </div>
-    <script src="./js/client.js"></script>
+    <main></main>
+    <script src="client/index.js"></script>
     <script>
-      const createPeople = store => {
-        const EntityNode = window.mojule.EntityNode
-
-        const people = [
-          {
-            name: 'Nik',
-            age: 36
-          },
-          {
-            name: 'Jane',
-            age: 37
-          }
-        ]
-
-        people.forEach( person => person.nodeType = 'person' )
-
-        const entities = people.map( EntityNode )
-
-        return Promise.all( entities.map( e => store.save( e ) ) )
-      }
-
-      const getPeople = store => store.get( 'person' )
-
-      const test = store =>
-        createPeople( store )
-          .then( () => getPeople( store ) )
-          .then( people =>
-            people.forEach( person =>
-              console.log( JSON.stringify( person ) )
-            )
-          )
-
-      const init = () => {
-        const { LocalStore, Templating, testData } = window.mojule
-
-        //LocalStore( 'people' ).then( test )
-
-        const { tree, model } = testData
-
-        const templates = Templating.getTemplates( tree )
-        const populate = Templating( templates )
-
-        const populated = populate( 'kitchen-sink', model )
-
-        const container = document.getElementById( 'container' )
-
-        container.innerHTML = populated.stringify()
-
-        model.name = 'Nik'
-
-        const newPopulated = populate( 'kitchen-sink', model )
-
-        const newContainer = tree.createElement( 'div' )
-        newContainer.attr( 'id', 'container' )
-        newContainer.append( newPopulated )
-
-        const debug = {
-          onNodeAdded: node => console.log( 'onNodeAdded', node.nodeName ),
-          onElUpdated: node => console.log( 'onElUpdated', node.nodeName ),
-          onNodeDiscarded: node => console.log( 'onNodeDiscarded', node.nodeName, node.id )
-        }
-
-        document.body.addEventListener( 'click', e => {
-          newContainer.morphdom( container, debug )
-        })
-      }
-
-      init()
+      mojule.init()
     </script>
   </body>
 </html>
