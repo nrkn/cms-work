@@ -12,6 +12,7 @@
   "author": "Nik Coughlin <nrkn.com@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "1tree": "^0.4.0",
     "1tree-factory": "^0.1.2",
     "dragula": "^3.7.2",
     "express": "^4.14.0",
