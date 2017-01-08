@@ -1,0 +1,7 @@
+{
+  "id": "style",
+  "oneOf": [
+    { "$ref": "styleText" },
+    { "$ref": "styleUri" }
+  ]
+}

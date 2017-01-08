@@ -1,0 +1,7 @@
+{
+  "id": "script",
+  "oneOf": [
+    { "$ref": "scriptText" },
+    { "$ref": "scriptUri" }
+  ]
+}

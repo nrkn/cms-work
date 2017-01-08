@@ -1,0 +1,10 @@
+{
+  "id": "resourceText",
+  "type": "object",
+  "properties": {
+    "text": {
+      "type": "string"
+    }
+  },
+  "required": [ "text" ]
+}

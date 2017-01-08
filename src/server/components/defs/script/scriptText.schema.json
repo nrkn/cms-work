@@ -1,0 +1,10 @@
+{
+  "id": "scriptText",
+  "type": "object",
+  "properties": {
+    "scriptText": {
+      "type": "string"
+    }
+  },
+  "required": [ "scriptText" ]
+}
