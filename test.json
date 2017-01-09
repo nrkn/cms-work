@@ -1,0 +1,637 @@
+{
+  "document": {
+    "css": "* {\r\n  box-sizing: border-box;\r\n}\r\n\r\nhtml {\r\n  font-family: sans-serif;\r\n}\r\n",
+    "template": {
+      "value": {
+        "nodeType": "documentFragment",
+        "_id": "documentfragment-ca8c8d5f94b56bd563ab678edb05b9fa"
+      },
+      "children": [
+        {
+          "value": {
+            "nodeType": "comment",
+            "nodeValue": "!doctype html",
+            "_id": "comment-986a37e91ef117c9b4edb11865db7be1"
+          },
+          "children": []
+        },
+        {
+          "value": {
+            "nodeType": "text",
+            "nodeValue": "\r\n",
+            "_id": "text-30566852005b664a988f1fb7060425ea"
+          },
+          "children": []
+        },
+        {
+          "value": {
+            "nodeType": "element",
+            "tagName": "html",
+            "attributes": {
+              "class": "no-js",
+              "lang": "en"
+            },
+            "_id": "element-814422d16b91af883ce69fb25831caab"
+          },
+          "children": [
+            {
+              "value": {
+                "nodeType": "text",
+                "nodeValue": "\r\n  ",
+                "_id": "text-274a16a2ad9e82d5a7fdb87a324cbf17"
+              },
+              "children": []
+            },
+            {
+              "value": {
+                "nodeType": "element",
+                "tagName": "head",
+                "attributes": {},
+                "_id": "element-66c9db45accd75353635f7ff83a820ad"
+              },
+              "children": [
+                {
+                  "value": {
+                    "nodeType": "text",
+                    "nodeValue": "\r\n    ",
+                    "_id": "text-a663def9ec2eaecb45abc229eb878ea2"
+                  },
+                  "children": []
+                },
+                {
+                  "value": {
+                    "nodeType": "element",
+                    "tagName": "meta",
+                    "attributes": {
+                      "charset": "utf-8"
+                    },
+                    "_id": "element-9dd8325ff97acccc3c3bb3725dc437e4"
+                  },
+                  "children": []
+                },
+                {
+                  "value": {
+                    "nodeType": "text",
+                    "nodeValue": "\r\n    ",
+                    "_id": "text-06a06b3310d46bfc67c55076addc8a24"
+                  },
+                  "children": []
+                },
+                {
+                  "value": {
+                    "nodeType": "element",
+                    "tagName": "meta",
+                    "attributes": {
+                      "name": "viewport",
+                      "content": "width=device-width, initial-scale=1.0"
+                    },
+                    "_id": "element-5688842a432f02364e371683e4f72802"
+                  },
+                  "children": []
+                },
+                {
+                  "value": {
+                    "nodeType": "text",
+                    "nodeValue": "\r\n    ",
+                    "_id": "text-6ed189f1798ecbaf3c959658909299cf"
+                  },
+                  "children": []
+                },
+                {
+                  "value": {
+                    "nodeType": "element",
+                    "tagName": "title",
+                    "attributes": {
+                      "data-text": "title"
+                    },
+                    "_id": "element-1010a344e39844bdcff716e821506b0b"
+                  },
+                  "children": []
+                },
+                {
+                  "value": {
+                    "nodeType": "text",
+                    "nodeValue": "\r\n    ",
+                    "_id": "text-0717dc638b1c98ac0ab5467acddaa566"
+                  },
+                  "children": []
+                },
+                {
+                  "value": {
+                    "nodeType": "element",
+                    "tagName": "fragment",
+                    "attributes": {
+                      "data-each": "headStyles"
+                    },
+                    "_id": "element-49008dca5ab5baf1f53fc2cd36caa93d"
+                  },
+                  "children": [
+                    {
+                      "value": {
+                        "nodeType": "text",
+                        "nodeValue": "\r\n      ",
+                        "_id": "text-a2f93aae9dfc30bcda34b8ed59721d16"
+                      },
+                      "children": []
+                    },
+                    {
+                      "value": {
+                        "nodeType": "element",
+                        "tagName": "fragment",
+                        "attributes": {
+                          "data-include": "style"
+                        },
+                        "_id": "element-7c6947256980d4f45367a34769b9a863"
+                      },
+                      "children": [
+                        {
+                          "value": {
+                            "nodeType": "text",
+                            "nodeValue": "\r\n    ",
+                            "_id": "text-71847bdd31c8bf45e1a50290d3dbb597"
+                          },
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "value": {
+                        "nodeType": "text",
+                        "nodeValue": "\r\n    ",
+                        "_id": "text-8823295eb9839b3adaa744303e91c538"
+                      },
+                      "children": []
+                    },
+                    {
+                      "value": {
+                        "nodeType": "element",
+                        "tagName": "fragment",
+                        "attributes": {
+                          "data-each": "headScripts"
+                        },
+                        "_id": "element-9a5456d59f91482d3be2b5faba01a069"
+                      },
+                      "children": [
+                        {
+                          "value": {
+                            "nodeType": "text",
+                            "nodeValue": "\r\n      ",
+                            "_id": "text-a6476fecba9098c60ea93483d5f2d5d9"
+                          },
+                          "children": []
+                        },
+                        {
+                          "value": {
+                            "nodeType": "element",
+                            "tagName": "fragment",
+                            "attributes": {
+                              "data-include": "script"
+                            },
+                            "_id": "element-7891765de41635996b7c71d5fae61674"
+                          },
+                          "children": [
+                            {
+                              "value": {
+                                "nodeType": "text",
+                                "nodeValue": "\r\n    ",
+                                "_id": "text-01f6065b4a427c68f39524ddde6bcdbf"
+                              },
+                              "children": []
+                            }
+                          ]
+                        },
+                        {
+                          "value": {
+                            "nodeType": "text",
+                            "nodeValue": "\r\n  ",
+                            "_id": "text-b670c24f1a127ab64eefb91258f7654f"
+                          },
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "value": {
+                "nodeType": "text",
+                "nodeValue": "\r\n  ",
+                "_id": "text-954459b09e647a82cfbaab8c1d7b5768"
+              },
+              "children": []
+            },
+            {
+              "value": {
+                "nodeType": "element",
+                "tagName": "body",
+                "attributes": {},
+                "_id": "element-e11a0efd9e9bdcab8762a104efa28ad1"
+              },
+              "children": [
+                {
+                  "value": {
+                    "nodeType": "text",
+                    "nodeValue": "\r\n    ",
+                    "_id": "text-2facffcb30246d021173c0525316eed2"
+                  },
+                  "children": []
+                },
+                {
+                  "value": {
+                    "nodeType": "element",
+                    "tagName": "div",
+                    "attributes": {
+                      "data-html": "body"
+                    },
+                    "_id": "element-2b801530096f1808f2f1797ee3b71a84"
+                  },
+                  "children": []
+                },
+                {
+                  "value": {
+                    "nodeType": "text",
+                    "nodeValue": "\r\n    ",
+                    "_id": "text-edd4f00149ac6751e430c9dbadd04254"
+                  },
+                  "children": []
+                },
+                {
+                  "value": {
+                    "nodeType": "element",
+                    "tagName": "fragment",
+                    "attributes": {
+                      "data-each": "scripts"
+                    },
+                    "_id": "element-3668db3bf44e032284cf9fd236880cae"
+                  },
+                  "children": [
+                    {
+                      "value": {
+                        "nodeType": "text",
+                        "nodeValue": "\r\n      ",
+                        "_id": "text-cd4e0be5e18fd234a6c6a746b2b6ea9d"
+                      },
+                      "children": []
+                    },
+                    {
+                      "value": {
+                        "nodeType": "element",
+                        "tagName": "fragment",
+                        "attributes": {
+                          "data-include": "script"
+                        },
+                        "_id": "element-d8bb19bdf0bd08281c29527f9f2a8933"
+                      },
+                      "children": [
+                        {
+                          "value": {
+                            "nodeType": "text",
+                            "nodeValue": "\r\n    ",
+                            "_id": "text-8587bceeb181f04ada4bd9d30fd75912"
+                          },
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "value": {
+                        "nodeType": "text",
+                        "nodeValue": "\r\n  ",
+                        "_id": "text-6ddee7c1120486a11e249e925eccde6f"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "value": {
+                "nodeType": "text",
+                "nodeValue": "\r\n",
+                "_id": "text-affa3db00ff14bed2e6d4be8e36d8152"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "value": {
+            "nodeType": "text",
+            "nodeValue": "\r\n",
+            "_id": "text-4d86c2de1b3385f9dfb1e28c3cddc388"
+          },
+          "children": []
+        }
+      ]
+    },
+    "defaultModel": {
+      "title": "New Document"
+    },
+    "schema": {
+      "id": "document",
+      "type": "object",
+      "properties": {
+        "title": {
+          "$ref": "nonEmptyString"
+        },
+        "headStyles": {
+          "type": "array",
+          "items": {
+            "$ref": "style"
+          }
+        },
+        "headScripts": {
+          "type": "array",
+          "items": {
+            "$ref": "script"
+          }
+        },
+        "scripts": {
+          "type": "array",
+          "items": {
+            "$ref": "script"
+          }
+        }
+      },
+      "required": [
+        "title"
+      ]
+    }
+  },
+  "script": {
+    "template": {
+      "value": {
+        "nodeType": "documentFragment",
+        "_id": "documentfragment-90232f37f8a008bb8461a5104733fa51"
+      },
+      "children": [
+        {
+          "value": {
+            "nodeType": "element",
+            "tagName": "fragment",
+            "attributes": {
+              "data-if": "scriptText"
+            },
+            "_id": "element-5b5a55c17dec8b0795a4dc2561ea7111"
+          },
+          "children": [
+            {
+              "value": {
+                "nodeType": "text",
+                "nodeValue": "\r\n  ",
+                "_id": "text-b168cdcb3be0697f5ff911dd6e7fb5d7"
+              },
+              "children": []
+            },
+            {
+              "value": {
+                "nodeType": "element",
+                "tagName": "script",
+                "attributes": {
+                  "data-html": "scriptText"
+                },
+                "_id": "element-be4d0fa781c233074d1b8013fbf4005e"
+              },
+              "children": [
+                {
+                  "value": {
+                    "nodeType": "text",
+                    "nodeValue": "\r\n  ",
+                    "_id": "text-bf571e4890fbc832c3e62f7634989cf0"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "value": {
+                "nodeType": "text",
+                "nodeValue": "\r\n",
+                "_id": "text-bfaf5907d8275e2bb3e412a873ecbb99"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "value": {
+            "nodeType": "text",
+            "nodeValue": "  \r\n",
+            "_id": "text-90107eaedfddcfad516b93cf25c0bc45"
+          },
+          "children": []
+        },
+        {
+          "value": {
+            "nodeType": "element",
+            "tagName": "fragment",
+            "attributes": {
+              "data-if": "scriptUri"
+            },
+            "_id": "element-e82a8c4dd14f51fd8c0cd44abe883dbb"
+          },
+          "children": [
+            {
+              "value": {
+                "nodeType": "text",
+                "nodeValue": "\r\n  ",
+                "_id": "text-36802a454e90e9e7e573e282e0c65d15"
+              },
+              "children": []
+            },
+            {
+              "value": {
+                "nodeType": "element",
+                "tagName": "script",
+                "attributes": {
+                  "data-tag": "scriptUri"
+                },
+                "_id": "element-4277de91d0a90f1e0e78e19c6eeccc54"
+              },
+              "children": []
+            },
+            {
+              "value": {
+                "nodeType": "text",
+                "nodeValue": "\r\n",
+                "_id": "text-1f78af5fd22e870d9861a9c31b8baccf"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "value": {
+            "nodeType": "text",
+            "nodeValue": "\r\n",
+            "_id": "text-3dfc3a4a7b5d4c766fa9f1edae1bcf6c"
+          },
+          "children": []
+        }
+      ]
+    },
+    "defaultModel": {
+      "scriptUri": {
+        "attr": [
+          "src",
+          ""
+        ]
+      }
+    },
+    "schema": {
+      "id": "scriptUri",
+      "type": "object",
+      "properties": {
+        "scriptUri": {
+          "type": "object",
+          "properties": {
+            "attr": {
+              "type": "array",
+              "minLength": 2,
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "attr"
+          ]
+        }
+      },
+      "required": [
+        "scriptUri"
+      ]
+    }
+  },
+  "style": {
+    "template": {
+      "value": {
+        "nodeType": "documentFragment",
+        "_id": "documentfragment-88c27f238fdc2629980d719ab05d8516"
+      },
+      "children": [
+        {
+          "value": {
+            "nodeType": "element",
+            "tagName": "fragment",
+            "attributes": {
+              "data-if": "text"
+            },
+            "_id": "element-ecaf9fddcec07f2c22332dad09377c86"
+          },
+          "children": [
+            {
+              "value": {
+                "nodeType": "text",
+                "nodeValue": "\r\n  ",
+                "_id": "text-f37a8b95fe375c386d08398656e10477"
+              },
+              "children": []
+            },
+            {
+              "value": {
+                "nodeType": "element",
+                "tagName": "script",
+                "attributes": {
+                  "data-html": "text"
+                },
+                "_id": "element-95b675e228e8eef4557d7e2d30c1f99f"
+              },
+              "children": [
+                {
+                  "value": {
+                    "nodeType": "text",
+                    "nodeValue": "\r\n  ",
+                    "_id": "text-0ad360556e43853c1baaf51715e4a6d1"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "value": {
+                "nodeType": "text",
+                "nodeValue": "\r\n",
+                "_id": "text-31c9483b1244c1a7eba6f19748e5ed95"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "value": {
+            "nodeType": "text",
+            "nodeValue": "  \r\n",
+            "_id": "text-d0a82bf1fa3e126cc64b759e5558d89e"
+          },
+          "children": []
+        },
+        {
+          "value": {
+            "nodeType": "element",
+            "tagName": "fragment",
+            "attributes": {
+              "data-if": "uri"
+            },
+            "_id": "element-939806f3b32bb2b5dfce99bcf2062246"
+          },
+          "children": [
+            {
+              "value": {
+                "nodeType": "text",
+                "nodeValue": "\r\n  ",
+                "_id": "text-96871be7cd6a8fc4f9f23b3f2c135183"
+              },
+              "children": []
+            },
+            {
+              "value": {
+                "nodeType": "element",
+                "tagName": "script",
+                "attributes": {
+                  "data-tag": "uri"
+                },
+                "_id": "element-6c7140da2e8c7fcc2e193b4936ecf896"
+              },
+              "children": []
+            },
+            {
+              "value": {
+                "nodeType": "text",
+                "nodeValue": "\r\n",
+                "_id": "text-36044e74a8ad48de140f6837a302993e"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "value": {
+            "nodeType": "text",
+            "nodeValue": "\r\n",
+            "_id": "text-64e4cc81ba647b6cb5bd58b6bbc4bf71"
+          },
+          "children": []
+        }
+      ]
+    },
+    "defaultModel": {
+      "text": ""
+    },
+    "schema": {
+      "id": "styleText",
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "text"
+      ]
+    }
+  }
+}
