@@ -1,0 +1,42 @@
+{
+  "htmlResource": {
+    "id": "htmlResource",
+    "oneOf": [
+      {
+        "$ref": "htmlResourceText"
+      },
+      {
+        "$ref": "htmlResourceSrc"
+      }
+    ]
+  },
+  "htmlResourceSrc": {
+    "id": "htmlResourceSrc",
+    "type": "object",
+    "properties": {
+      "src": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "src"
+    ]
+  },
+  "htmlResourceText": {
+    "id": "htmlResourceText",
+    "type": "object",
+    "properties": {
+      "text": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "text"
+    ]
+  },
+  "nonEmptyString": {
+    "id": "nonEmptyString",
+    "type": "string",
+    "pattern": "^(?!\\s*$).+"
+  }
+}

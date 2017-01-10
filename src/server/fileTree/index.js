@@ -82,8 +82,14 @@ FileTree.populateMime = tree => {
 }
 
 FileTree.populateData = tree => {
-  const Dom = require( 'mojule-dom' )
   const readFiles = require( '../readFiles' )
+  const transformJson = require( './transforms/json' )
+  const transformHtml = require( './transforms/html' )
+
+  const transformMap = {
+    'application/json': transformJson,
+    'text/html': transformHtml
+  }
 
   tree = FileTree.populateMime( tree )
 
@@ -95,11 +101,9 @@ FileTree.populateData = tree => {
         tree.walk( n => {
           const value = n.value()
 
-          if( value.mimeType === 'application/json' ){
-            fileData[ value.path ] = JSON.parse( fileData[ value.path ] )
-          } else if ( value.mimeType === 'text/html' ){
-            const dom = Dom( fileData[ value.path ] )
-            fileData[ value.path ] = dom.serialize()
+          if( value.mimeType in transformMap ){
+            const transform = transformMap[ value.mimeType ]
+            fileData[ value.path ] = transform( fileData[ value.path ] )
           }
 
           value.data = fileData[ value.path ]
