@@ -10,7 +10,7 @@ const readComponents = componentPath =>
       const components = {}
 
       const predicates = {
-        css: value => value.name.endsWith( 'css' ),
+        style: value => value.name.endsWith( 'css' ),
         template: value => value.name.endsWith( 'html' ),
         schema: value => value.name.endsWith( 'schema.json' ),
         defaultModel: value => !predicates.schema( value ) && value.name.endsWith( 'json' )
