@@ -37,13 +37,13 @@
     "template": {
       "value": {
         "nodeType": "documentFragment",
-        "_id": "documentfragment-0025fbd778691b892ecc64e6671f0f9a"
+        "_id": "documentfragment-c71461a42ec74737c97e28545c726946"
       },
       "children": [
         {
           "value": {
             "nodeType": "documentType",
-            "_id": "documentType-bf96f0c34293227b8024c67b0b2d7671",
+            "_id": "documentType-cc656f10e97963f7183a4ab1ccc2e2e6",
             "name": "html",
             "publicId": "",
             "systemId": ""
@@ -54,7 +54,7 @@
           "value": {
             "nodeType": "text",
             "nodeValue": "\r\n",
-            "_id": "text-6ad1f3346a52f7dc00114d5ba30d12e7"
+            "_id": "text-d3ae5309de76310ea5294875a4828061"
           },
           "children": []
         },
@@ -66,14 +66,14 @@
               "class": "no-js",
               "lang": "en"
             },
-            "_id": "element-9da8b70e6ada4cf32730839deda93e06"
+            "_id": "element-c1a51a2b1088ddf9275f87d061158494"
           },
           "children": [
             {
               "value": {
                 "nodeType": "text",
                 "nodeValue": "\r\n  ",
-                "_id": "text-fed0fe13c7fc7a1d3a8f31c0fa4cfb27"
+                "_id": "text-32f0391ee670220afa45b38fb6bc43fe"
               },
               "children": []
             },
@@ -82,14 +82,14 @@
                 "nodeType": "element",
                 "tagName": "head",
                 "attributes": {},
-                "_id": "element-6b9fada5ff3a99e86581b67fd2f53bbc"
+                "_id": "element-5def598681de41d3e85661e8e6d3481b"
               },
               "children": [
                 {
                   "value": {
                     "nodeType": "text",
                     "nodeValue": "\r\n    ",
-                    "_id": "text-f063da96f021f08125c95ed37b6aea68"
+                    "_id": "text-2d6efd770d8d679fac0da4571f8d65ff"
                   },
                   "children": []
                 },
@@ -100,7 +100,7 @@
                     "attributes": {
                       "charset": "utf-8"
                     },
-                    "_id": "element-8a06abcbd07d3fee45c07f63bf5f3d04"
+                    "_id": "element-07e76aee5374b813b3a0ceab315c78fe"
                   },
                   "children": []
                 },
@@ -108,7 +108,7 @@
                   "value": {
                     "nodeType": "text",
                     "nodeValue": "\r\n    ",
-                    "_id": "text-d385722c1a00ac524bfcc5a59251896d"
+                    "_id": "text-0733b74e7e0cb83dc2723e1ae22c0dc2"
                   },
                   "children": []
                 },
@@ -120,7 +120,7 @@
                       "name": "viewport",
                       "content": "width=device-width, initial-scale=1.0"
                     },
-                    "_id": "element-095bd9c88307b64043dda9f279450e32"
+                    "_id": "element-a767f579ab921191c40b1e8a212471fb"
                   },
                   "children": []
                 },
@@ -128,7 +128,7 @@
                   "value": {
                     "nodeType": "text",
                     "nodeValue": "\r\n    ",
-                    "_id": "text-66c18839a4531496b8729ea419c4a340"
+                    "_id": "text-1d91ed965c7db97105367495ea6bc002"
                   },
                   "children": []
                 },
@@ -139,7 +139,7 @@
                     "attributes": {
                       "data-text": "title"
                     },
-                    "_id": "element-8d964cd37a03f645245b8ebfd84194d9"
+                    "_id": "element-427198173852b17d20d1d141e4983a35"
                   },
                   "children": []
                 },
@@ -147,7 +147,7 @@
                   "value": {
                     "nodeType": "text",
                     "nodeValue": "\r\n    ",
-                    "_id": "text-ad1856c76577cbbfcf32bd198d8873a2"
+                    "_id": "text-229964529ce867174e18e834dcbc85ca"
                   },
                   "children": []
                 },
@@ -158,14 +158,14 @@
                     "attributes": {
                       "data-each": "headStyles"
                     },
-                    "_id": "element-7d3b4b1a216f150f554805b64901fb10"
+                    "_id": "element-1e472bb785889d0ac2350932c2aefe8e"
                   },
                   "children": [
                     {
                       "value": {
                         "nodeType": "text",
                         "nodeValue": "\r\n      ",
-                        "_id": "text-18e3eeaa59dd02a1702900ef40b7d0f9"
+                        "_id": "text-993ddfc8878ff80ddca54a31fbccf6cb"
                       },
                       "children": []
                     },
@@ -176,14 +176,14 @@
                         "attributes": {
                           "data-include": "style"
                         },
-                        "_id": "element-3643d68e3ee2e0416c7492a6dbd906d7"
+                        "_id": "element-95676a7864f430ebaac70ca8134931c9"
                       },
                       "children": [
                         {
                           "value": {
                             "nodeType": "text",
                             "nodeValue": "\r\n    ",
-                            "_id": "text-445e283ffaf4eee93e5f6ce745cfb395"
+                            "_id": "text-42adb0d1160e2de9e6793b7d03f8e10e"
                           },
                           "children": []
                         }
@@ -193,7 +193,7 @@
                       "value": {
                         "nodeType": "text",
                         "nodeValue": "\r\n    ",
-                        "_id": "text-eb1ed0c689c5a754bb00fed3a078baec"
+                        "_id": "text-664746320ec7a3eb07397d978adac8c3"
                       },
                       "children": []
                     },
@@ -204,14 +204,14 @@
                         "attributes": {
                           "data-each": "headScripts"
                         },
-                        "_id": "element-3b1c2d9ec15357f1389498483a8c3af1"
+                        "_id": "element-07bfab0b3eb06213e9007a31ac161c44"
                       },
                       "children": [
                         {
                           "value": {
                             "nodeType": "text",
                             "nodeValue": "\r\n      ",
-                            "_id": "text-e72d3dadfdacd30f8ca682ea8cd4d1af"
+                            "_id": "text-8914555c68afa0b652963ea43b283b96"
                           },
                           "children": []
                         },
@@ -222,14 +222,14 @@
                             "attributes": {
                               "data-include": "script"
                             },
-                            "_id": "element-3569cfe70b900e99880561bec524d240"
+                            "_id": "element-87a4e69f6c2039aa03ee0db4e336ec18"
                           },
                           "children": [
                             {
                               "value": {
                                 "nodeType": "text",
                                 "nodeValue": "\r\n    ",
-                                "_id": "text-468b38b404b4bcc72920e94607b27d1f"
+                                "_id": "text-3b88b8eb5caa9277fb95b89ea20df903"
                               },
                               "children": []
                             }
@@ -239,7 +239,7 @@
                           "value": {
                             "nodeType": "text",
                             "nodeValue": "\r\n  ",
-                            "_id": "text-32f0ee1af5f34858648fc3197a82b375"
+                            "_id": "text-a848ce69b56071888b26fbbdbe740b91"
                           },
                           "children": []
                         }
@@ -253,7 +253,7 @@
               "value": {
                 "nodeType": "text",
                 "nodeValue": "\r\n  ",
-                "_id": "text-c580a9c75a6c03416560c8179b46d9fd"
+                "_id": "text-931a885ac584e2f47a257e7f12bde761"
               },
               "children": []
             },
@@ -262,14 +262,14 @@
                 "nodeType": "element",
                 "tagName": "body",
                 "attributes": {},
-                "_id": "element-f196f432b1971325721b07f6fe52cae9"
+                "_id": "element-734204944c39fa6dc55d1d93671cea30"
               },
               "children": [
                 {
                   "value": {
                     "nodeType": "text",
                     "nodeValue": "\r\n    ",
-                    "_id": "text-7d669cdf289cc1f52868c8f157f7206a"
+                    "_id": "text-9717571c54e0cd03b031aeae976c183e"
                   },
                   "children": []
                 },
@@ -280,7 +280,7 @@
                     "attributes": {
                       "data-html": "body"
                     },
-                    "_id": "element-dd7d7a54b9ac44932abcd2a9e0390dd3"
+                    "_id": "element-9b2856b59863c776ec7d93d3c9ed3069"
                   },
                   "children": []
                 },
@@ -288,7 +288,7 @@
                   "value": {
                     "nodeType": "text",
                     "nodeValue": "\r\n    ",
-                    "_id": "text-a431d2c3d7f0ec4fd376d0ece35adcd5"
+                    "_id": "text-c0cdc5645ef8e18ca5ba9c024ec7e3f9"
                   },
                   "children": []
                 },
@@ -299,14 +299,14 @@
                     "attributes": {
                       "data-each": "scripts"
                     },
-                    "_id": "element-e2ef740354b9ffca64745a15559cff85"
+                    "_id": "element-69670b1f4f08d10747548204180b73ea"
                   },
                   "children": [
                     {
                       "value": {
                         "nodeType": "text",
                         "nodeValue": "\r\n      ",
-                        "_id": "text-fe84a4a0c5f3b3c50e590e81b4235cbd"
+                        "_id": "text-6d79d6377e76b1ec5d70376d7867dbe4"
                       },
                       "children": []
                     },
@@ -317,14 +317,14 @@
                         "attributes": {
                           "data-include": "script"
                         },
-                        "_id": "element-46ed58845ba4bfad6f35a176b1e87abc"
+                        "_id": "element-88eca1f8c212b4a1347e9ce84aa5e61c"
                       },
                       "children": [
                         {
                           "value": {
                             "nodeType": "text",
                             "nodeValue": "\r\n    ",
-                            "_id": "text-c3bb4cdb98703e888cf6791e05af5401"
+                            "_id": "text-1e9246c12d9ce59f9a9472bda1dc57a4"
                           },
                           "children": []
                         }
@@ -334,7 +334,7 @@
                       "value": {
                         "nodeType": "text",
                         "nodeValue": "\r\n  ",
-                        "_id": "text-bb016dd52d9634ca831a5e08a71b953e"
+                        "_id": "text-f2f466b1f26cc8a51f5ea199e5658264"
                       },
                       "children": []
                     }
@@ -346,7 +346,7 @@
               "value": {
                 "nodeType": "text",
                 "nodeValue": "\r\n",
-                "_id": "text-65a1e1fcafcb8f538f80d131c5941a9e"
+                "_id": "text-8c72ca9dab639dfbb71d5528cb8f3a52"
               },
               "children": []
             }
@@ -356,7 +356,7 @@
           "value": {
             "nodeType": "text",
             "nodeValue": "\r\n",
-            "_id": "text-2a6fa620c05ed8ca612d9d29e477fd99"
+            "_id": "text-f3071de8a23d9aca762e679bc8734d44"
           },
           "children": []
         }
@@ -365,7 +365,14 @@
   },
   "script": {
     "defaultModel": {
-      "text": ""
+      "src": {
+        "attr": [
+          "src",
+          {
+            "$value": "src"
+          }
+        ]
+      }
     },
     "schema": {
       "id": "script",
@@ -374,7 +381,7 @@
     "template": {
       "value": {
         "nodeType": "documentFragment",
-        "_id": "documentfragment-2cccf441e5ba87e577f0c88540fd5d34"
+        "_id": "documentfragment-f47a86e77ba8902110a2cc9d5c26115c"
       },
       "children": [
         {
@@ -384,14 +391,14 @@
             "attributes": {
               "data-if": "text"
             },
-            "_id": "element-4d2e0e0d206ab8d812f608a5dca8c216"
+            "_id": "element-cc20152d6b632fce8e639a891af6bc73"
           },
           "children": [
             {
               "value": {
                 "nodeType": "text",
                 "nodeValue": "\r\n  ",
-                "_id": "text-ad2f8c5d4590a7b47768e38ae1b60ff1"
+                "_id": "text-af3be26a5c1732c3c41a25409f3840a8"
               },
               "children": []
             },
@@ -402,14 +409,14 @@
                 "attributes": {
                   "data-html": "text"
                 },
-                "_id": "element-113ba3cab9125a63ef446d0bafe59db1"
+                "_id": "element-80e4b39ef5a31947aa964a5d6b10ee2c"
               },
               "children": [
                 {
                   "value": {
                     "nodeType": "text",
                     "nodeValue": "\r\n  ",
-                    "_id": "text-222bd06901d7e06b5602fbb8a80fc99a"
+                    "_id": "text-db7919a1538cb2d670068ff534cade5c"
                   },
                   "children": []
                 }
@@ -419,7 +426,7 @@
               "value": {
                 "nodeType": "text",
                 "nodeValue": "\r\n",
-                "_id": "text-3f8bc9248d20edae0455476f1610918d"
+                "_id": "text-73901d45654951a5dc624697724f13c5"
               },
               "children": []
             }
@@ -429,7 +436,7 @@
           "value": {
             "nodeType": "text",
             "nodeValue": "\r\n",
-            "_id": "text-56a16ca02b794519a0f9bd3b63fce5ee"
+            "_id": "text-42a4e8f0f4b8bd6cd2e1df9a2344eb21"
           },
           "children": []
         },
@@ -440,14 +447,14 @@
             "attributes": {
               "data-if": "src"
             },
-            "_id": "element-0fe02870187baade497a33f57137e3a0"
+            "_id": "element-00d520cee5b54e5f0890d1d62e46ce3f"
           },
           "children": [
             {
               "value": {
                 "nodeType": "text",
                 "nodeValue": "\r\n  ",
-                "_id": "text-fe6328b52cc9e076c198afea2244dc79"
+                "_id": "text-30092b0b24196554952613c78101200c"
               },
               "children": []
             },
@@ -458,7 +465,7 @@
                 "attributes": {
                   "data-tag": "src"
                 },
-                "_id": "element-614c907c44922f9585b125da7a1cdd06"
+                "_id": "element-d5f61e9cfe2c5e44b4c52d397109623a"
               },
               "children": []
             },
@@ -466,7 +473,7 @@
               "value": {
                 "nodeType": "text",
                 "nodeValue": "\r\n",
-                "_id": "text-64903e224a9972d11575c8796cafa343"
+                "_id": "text-180a36d2912ca8356787d20f998c8370"
               },
               "children": []
             }
@@ -476,7 +483,7 @@
           "value": {
             "nodeType": "text",
             "nodeValue": "\r\n",
-            "_id": "text-9be9114f5f8f4824c8227c009a97c7b1"
+            "_id": "text-943b7b5feeefab97aade25aaf6022fac"
           },
           "children": []
         }
@@ -485,7 +492,14 @@
   },
   "style": {
     "defaultModel": {
-      "text": ""
+      "src": {
+        "attr": [
+          "href",
+          {
+            "$value": "src"
+          }
+        ]
+      }
     },
     "schema": {
       "id": "style",
@@ -494,7 +508,7 @@
     "template": {
       "value": {
         "nodeType": "documentFragment",
-        "_id": "documentfragment-1608509f0fbd8f4f85933a7a22688ff8"
+        "_id": "documentfragment-9904e2dbd91bbff7a4c987016a0d9203"
       },
       "children": [
         {
@@ -504,14 +518,14 @@
             "attributes": {
               "data-if": "text"
             },
-            "_id": "element-ed68da8657881be96cb9309053ea0ca3"
+            "_id": "element-defce5ae8e0c7690278068baba65d6a2"
           },
           "children": [
             {
               "value": {
                 "nodeType": "text",
                 "nodeValue": "\r\n  ",
-                "_id": "text-c87fe3ab6d9eb311a6db90adb66c5dd4"
+                "_id": "text-bf676496716bf2709eaf881adae51128"
               },
               "children": []
             },
@@ -522,14 +536,14 @@
                 "attributes": {
                   "data-html": "text"
                 },
-                "_id": "element-bd90d0a01cd5be3af51253380ee07753"
+                "_id": "element-5f97a2933f229732855f7f7f8ec828b6"
               },
               "children": [
                 {
                   "value": {
                     "nodeType": "text",
                     "nodeValue": "\r\n  ",
-                    "_id": "text-0d0d5631ccfe22359a53e7c0d7f1ee2c"
+                    "_id": "text-5ebbdd31fc0d34eb84ee188a326322e7"
                   },
                   "children": []
                 }
@@ -539,7 +553,7 @@
               "value": {
                 "nodeType": "text",
                 "nodeValue": "\r\n",
-                "_id": "text-648e15f8aa926f63f853d8273fa7860a"
+                "_id": "text-eee1aa608a3ae4398c5b54468e4e5e16"
               },
               "children": []
             }
@@ -549,7 +563,7 @@
           "value": {
             "nodeType": "text",
             "nodeValue": "\r\n",
-            "_id": "text-037b58a2a49d42384628a2ffaf289b5c"
+            "_id": "text-d2d2451dd253876955297692590f2a90"
           },
           "children": []
         },
@@ -560,14 +574,14 @@
             "attributes": {
               "data-if": "src"
             },
-            "_id": "element-749348c9a50f2cfd1453f6f63be34792"
+            "_id": "element-cee1a5952a99c0d1a180827a7cd024d4"
           },
           "children": [
             {
               "value": {
                 "nodeType": "text",
                 "nodeValue": "\r\n  ",
-                "_id": "text-d2e693ddbab1d87a6b7a93fe74664d09"
+                "_id": "text-7d056a248027b5e6e0e1d9bd21fd522a"
               },
               "children": []
             },
@@ -576,9 +590,10 @@
                 "nodeType": "element",
                 "tagName": "link",
                 "attributes": {
+                  "rel": "stylesheet",
                   "data-tag": "src"
                 },
-                "_id": "element-a260d17a9d7f99608ee576ff4eeefdee"
+                "_id": "element-dfe4ca025a774fadd656e5aa2f10ec24"
               },
               "children": []
             },
@@ -586,7 +601,7 @@
               "value": {
                 "nodeType": "text",
                 "nodeValue": "\r\n",
-                "_id": "text-1c10e0e3c205be8a08eaec5ba7d1fd77"
+                "_id": "text-5c17ff05e87053c9d6c77933218effa4"
               },
               "children": []
             }
@@ -596,7 +611,28 @@
           "value": {
             "nodeType": "text",
             "nodeValue": "\r\n",
-            "_id": "text-6b34639bdc29fadf8660e688833e9ca8"
+            "_id": "text-e169520d7e6015892e878a7b08d67d2d"
+          },
+          "children": []
+        }
+      ]
+    }
+  },
+  "testview": {
+    "template": {
+      "value": {
+        "nodeType": "documentFragment",
+        "_id": "documentfragment-70f7b66c56b9bc8d892f69da164e760f"
+      },
+      "children": [
+        {
+          "value": {
+            "nodeType": "element",
+            "tagName": "p",
+            "attributes": {
+              "data-text": "message"
+            },
+            "_id": "element-e38812a4d2ed70f5b6a984db7b99b533"
           },
           "children": []
         }
