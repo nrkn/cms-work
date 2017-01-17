@@ -12,9 +12,10 @@
   "author": "Nik Coughlin <nrkn.com@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "1tree": "^0.4.0",
+    "1tree": "^0.4.1",
     "1tree-factory": "^0.1.2",
-    "1tree-json": "^0.1.0",
+    "1tree-json": "^0.1.1",
+    "1tree-schema": "^0.1.1",
     "dragula": "^3.7.2",
     "express": "^4.14.0",
     "html-node": "^0.1.0",
@@ -35,7 +36,7 @@
     "browserify": "^13.1.1",
     "gulp": "^3.9.1",
     "gulp-uglify": "^2.0.0",
-    "mocha": "^3.1.2",
+    "mocha": "^3.2.0",
     "run-sequence": "^1.2.2",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"

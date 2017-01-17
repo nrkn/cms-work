@@ -1,4 +1,13 @@
 {
+  "componentConfig": {
+    "id": "componentConfig",
+    "type": "object",
+    "properties": {
+      "containerSelector": {
+        "$ref": "nonEmptyString"
+      }
+    }
+  },
   "htmlResource": {
     "id": "htmlResource",
     "oneOf": [

@@ -1,7 +1,8 @@
 'use strict'
 
+// setup the drake (dragula instance) for our composer drag drop requirements
 const Drake = deps => {
-  const cloneSelector = '[data-toolbar] [data-dragsource="composer"]' 
+  const cloneSelector = '[data-toolbar] [data-dragsource="composer"]'
   const containerSelector = '[data-dragsource="composer"]'
   const { updateNode, dragula, find, ondrop } = deps
 
@@ -33,7 +34,7 @@ const Drake = deps => {
   drake.on( 'drop', ( el, containerEl, sourceContainerEl, nextEl ) => {
     const node = find.elNode( el )
     const parentNode = find.containerElNode( containerEl )
-    
+
     if( nextEl ){
       const referenceNode = find.elNode( nextEl )
       parentNode.insertBefore( node, referenceNode )
@@ -41,9 +42,9 @@ const Drake = deps => {
       parentNode.append( node )
     }
 
-    updateNode( node )    
-    
-    ondrop( node, parentNode, el, containerEl, sourceContainerEl, nextEl )    
+    updateNode( node )
+
+    ondrop( node, parentNode, el, containerEl, sourceContainerEl, nextEl )
   })
 
   return drake

@@ -1,5 +1,8 @@
 {
   "document": {
+    "config": {
+      "containerSelector": "[data-container]"
+    },
     "defaultModel": {
       "title": "New Document"
     },
@@ -37,13 +40,13 @@
     "template": {
       "value": {
         "nodeType": "documentFragment",
-        "_id": "documentfragment-c71461a42ec74737c97e28545c726946"
+        "_id": "documentfragment-81be3b805f79015db49b42e56c5b258a"
       },
       "children": [
         {
           "value": {
             "nodeType": "documentType",
-            "_id": "documentType-cc656f10e97963f7183a4ab1ccc2e2e6",
+            "_id": "documentType-98749420db8e138a254415dd6b4cb49d",
             "name": "html",
             "publicId": "",
             "systemId": ""
@@ -54,7 +57,7 @@
           "value": {
             "nodeType": "text",
             "nodeValue": "\r\n",
-            "_id": "text-d3ae5309de76310ea5294875a4828061"
+            "_id": "text-8808d143b12e119f782ed58ab40d4ef7"
           },
           "children": []
         },
@@ -66,14 +69,14 @@
               "class": "no-js",
               "lang": "en"
             },
-            "_id": "element-c1a51a2b1088ddf9275f87d061158494"
+            "_id": "element-fc351facc711cc152e0720044062d9df"
           },
           "children": [
             {
               "value": {
                 "nodeType": "text",
                 "nodeValue": "\r\n  ",
-                "_id": "text-32f0391ee670220afa45b38fb6bc43fe"
+                "_id": "text-287cf2e5a7c898621933478855cc48de"
               },
               "children": []
             },
@@ -82,14 +85,14 @@
                 "nodeType": "element",
                 "tagName": "head",
                 "attributes": {},
-                "_id": "element-5def598681de41d3e85661e8e6d3481b"
+                "_id": "element-3c72c6e0456a091b529b2ea8b7538a2e"
               },
               "children": [
                 {
                   "value": {
                     "nodeType": "text",
                     "nodeValue": "\r\n    ",
-                    "_id": "text-2d6efd770d8d679fac0da4571f8d65ff"
+                    "_id": "text-cf229d3aec86035a7843f68a7cdcd997"
                   },
                   "children": []
                 },
@@ -100,7 +103,7 @@
                     "attributes": {
                       "charset": "utf-8"
                     },
-                    "_id": "element-07e76aee5374b813b3a0ceab315c78fe"
+                    "_id": "element-953f8f8deef3792aa21227733560bdb0"
                   },
                   "children": []
                 },
@@ -108,7 +111,7 @@
                   "value": {
                     "nodeType": "text",
                     "nodeValue": "\r\n    ",
-                    "_id": "text-0733b74e7e0cb83dc2723e1ae22c0dc2"
+                    "_id": "text-e92cee2e6e60bf2539d2560adb9618f3"
                   },
                   "children": []
                 },
@@ -120,7 +123,7 @@
                       "name": "viewport",
                       "content": "width=device-width, initial-scale=1.0"
                     },
-                    "_id": "element-a767f579ab921191c40b1e8a212471fb"
+                    "_id": "element-3ae0461f40a30322125746e0690150c5"
                   },
                   "children": []
                 },
@@ -128,7 +131,7 @@
                   "value": {
                     "nodeType": "text",
                     "nodeValue": "\r\n    ",
-                    "_id": "text-1d91ed965c7db97105367495ea6bc002"
+                    "_id": "text-852d4a4fec9eda44e990114cef5ad809"
                   },
                   "children": []
                 },
@@ -139,7 +142,7 @@
                     "attributes": {
                       "data-text": "title"
                     },
-                    "_id": "element-427198173852b17d20d1d141e4983a35"
+                    "_id": "element-07d686e952c330a04aa1df216b05b8af"
                   },
                   "children": []
                 },
@@ -147,7 +150,7 @@
                   "value": {
                     "nodeType": "text",
                     "nodeValue": "\r\n    ",
-                    "_id": "text-229964529ce867174e18e834dcbc85ca"
+                    "_id": "text-f16575891daffb6249f2480e87c32017"
                   },
                   "children": []
                 },
@@ -158,14 +161,14 @@
                     "attributes": {
                       "data-each": "headStyles"
                     },
-                    "_id": "element-1e472bb785889d0ac2350932c2aefe8e"
+                    "_id": "element-73502899ea800ed9131e71b2b9cbd076"
                   },
                   "children": [
                     {
                       "value": {
                         "nodeType": "text",
                         "nodeValue": "\r\n      ",
-                        "_id": "text-993ddfc8878ff80ddca54a31fbccf6cb"
+                        "_id": "text-1091432145aa82f02f74225c76811b63"
                       },
                       "children": []
                     },
@@ -176,14 +179,14 @@
                         "attributes": {
                           "data-include": "style"
                         },
-                        "_id": "element-95676a7864f430ebaac70ca8134931c9"
+                        "_id": "element-df10d68fd85600f3a9e59011b5719eb7"
                       },
                       "children": [
                         {
                           "value": {
                             "nodeType": "text",
                             "nodeValue": "\r\n    ",
-                            "_id": "text-42adb0d1160e2de9e6793b7d03f8e10e"
+                            "_id": "text-fdac594796b6bf7152b28b54433f7cd2"
                           },
                           "children": []
                         }
@@ -193,7 +196,7 @@
                       "value": {
                         "nodeType": "text",
                         "nodeValue": "\r\n    ",
-                        "_id": "text-664746320ec7a3eb07397d978adac8c3"
+                        "_id": "text-e7a4f91c7888abc20d35868c1f638c49"
                       },
                       "children": []
                     },
@@ -204,14 +207,14 @@
                         "attributes": {
                           "data-each": "headScripts"
                         },
-                        "_id": "element-07bfab0b3eb06213e9007a31ac161c44"
+                        "_id": "element-4fc5e858fe7ef1020894331e8f0125ee"
                       },
                       "children": [
                         {
                           "value": {
                             "nodeType": "text",
                             "nodeValue": "\r\n      ",
-                            "_id": "text-8914555c68afa0b652963ea43b283b96"
+                            "_id": "text-80df7c48dba130c595a09ed2f5bbcfc9"
                           },
                           "children": []
                         },
@@ -222,14 +225,14 @@
                             "attributes": {
                               "data-include": "script"
                             },
-                            "_id": "element-87a4e69f6c2039aa03ee0db4e336ec18"
+                            "_id": "element-c700bde17a5c0319f1136a0bc2979927"
                           },
                           "children": [
                             {
                               "value": {
                                 "nodeType": "text",
                                 "nodeValue": "\r\n    ",
-                                "_id": "text-3b88b8eb5caa9277fb95b89ea20df903"
+                                "_id": "text-ad9d729be8d111d9d3185811f69dfa9e"
                               },
                               "children": []
                             }
@@ -239,7 +242,7 @@
                           "value": {
                             "nodeType": "text",
                             "nodeValue": "\r\n  ",
-                            "_id": "text-a848ce69b56071888b26fbbdbe740b91"
+                            "_id": "text-a08bc6f90715636c0915208413831091"
                           },
                           "children": []
                         }
@@ -253,7 +256,7 @@
               "value": {
                 "nodeType": "text",
                 "nodeValue": "\r\n  ",
-                "_id": "text-931a885ac584e2f47a257e7f12bde761"
+                "_id": "text-33e9da6b9ab06643a2406bf9ae054682"
               },
               "children": []
             },
@@ -262,14 +265,14 @@
                 "nodeType": "element",
                 "tagName": "body",
                 "attributes": {},
-                "_id": "element-734204944c39fa6dc55d1d93671cea30"
+                "_id": "element-7411df386a7aec5663661de94b261555"
               },
               "children": [
                 {
                   "value": {
                     "nodeType": "text",
                     "nodeValue": "\r\n    ",
-                    "_id": "text-9717571c54e0cd03b031aeae976c183e"
+                    "_id": "text-c122c64e0ce2a7690a40c94d399b7b4a"
                   },
                   "children": []
                 },
@@ -278,9 +281,10 @@
                     "nodeType": "element",
                     "tagName": "div",
                     "attributes": {
+                      "data-container": "",
                       "data-html": "body"
                     },
-                    "_id": "element-9b2856b59863c776ec7d93d3c9ed3069"
+                    "_id": "element-48ac9f15f1f2891feac61ca4042f9a41"
                   },
                   "children": []
                 },
@@ -288,7 +292,7 @@
                   "value": {
                     "nodeType": "text",
                     "nodeValue": "\r\n    ",
-                    "_id": "text-c0cdc5645ef8e18ca5ba9c024ec7e3f9"
+                    "_id": "text-99aac50f4c62752786e72709cea2c430"
                   },
                   "children": []
                 },
@@ -299,14 +303,14 @@
                     "attributes": {
                       "data-each": "scripts"
                     },
-                    "_id": "element-69670b1f4f08d10747548204180b73ea"
+                    "_id": "element-2acc60446eb9462e4796ca011154a093"
                   },
                   "children": [
                     {
                       "value": {
                         "nodeType": "text",
                         "nodeValue": "\r\n      ",
-                        "_id": "text-6d79d6377e76b1ec5d70376d7867dbe4"
+                        "_id": "text-4be1649b09c4ef83f315995fdf7d39ef"
                       },
                       "children": []
                     },
@@ -317,14 +321,14 @@
                         "attributes": {
                           "data-include": "script"
                         },
-                        "_id": "element-88eca1f8c212b4a1347e9ce84aa5e61c"
+                        "_id": "element-41a7dd835f4feda4c9b38471b4e82977"
                       },
                       "children": [
                         {
                           "value": {
                             "nodeType": "text",
                             "nodeValue": "\r\n    ",
-                            "_id": "text-1e9246c12d9ce59f9a9472bda1dc57a4"
+                            "_id": "text-375a21d3a2d706e46e8045550cfcc4a2"
                           },
                           "children": []
                         }
@@ -334,7 +338,7 @@
                       "value": {
                         "nodeType": "text",
                         "nodeValue": "\r\n  ",
-                        "_id": "text-f2f466b1f26cc8a51f5ea199e5658264"
+                        "_id": "text-06a6d9d7446a356ef1dc0af7ba3c5c59"
                       },
                       "children": []
                     }
@@ -346,7 +350,7 @@
               "value": {
                 "nodeType": "text",
                 "nodeValue": "\r\n",
-                "_id": "text-8c72ca9dab639dfbb71d5528cb8f3a52"
+                "_id": "text-41d01a33af1b494f27ffae5b98392d3b"
               },
               "children": []
             }
@@ -356,7 +360,7 @@
           "value": {
             "nodeType": "text",
             "nodeValue": "\r\n",
-            "_id": "text-f3071de8a23d9aca762e679bc8734d44"
+            "_id": "text-8dc67211068dc8d63f1f272e76a20259"
           },
           "children": []
         }
@@ -365,14 +369,7 @@
   },
   "script": {
     "defaultModel": {
-      "src": {
-        "attr": [
-          "src",
-          {
-            "$value": "src"
-          }
-        ]
-      }
+      "text": ""
     },
     "schema": {
       "id": "script",
@@ -381,7 +378,7 @@
     "template": {
       "value": {
         "nodeType": "documentFragment",
-        "_id": "documentfragment-f47a86e77ba8902110a2cc9d5c26115c"
+        "_id": "documentfragment-5e3d0c14fa3f26a90ba7030c7126f053"
       },
       "children": [
         {
@@ -391,14 +388,14 @@
             "attributes": {
               "data-if": "text"
             },
-            "_id": "element-cc20152d6b632fce8e639a891af6bc73"
+            "_id": "element-70c33c0c8e60293888120956edf6b395"
           },
           "children": [
             {
               "value": {
                 "nodeType": "text",
                 "nodeValue": "\r\n  ",
-                "_id": "text-af3be26a5c1732c3c41a25409f3840a8"
+                "_id": "text-12dd32dec0226fe28bc81d7aebb018d4"
               },
               "children": []
             },
@@ -409,14 +406,14 @@
                 "attributes": {
                   "data-html": "text"
                 },
-                "_id": "element-80e4b39ef5a31947aa964a5d6b10ee2c"
+                "_id": "element-a907290c40266b87dfdd97ce5818f4e3"
               },
               "children": [
                 {
                   "value": {
                     "nodeType": "text",
                     "nodeValue": "\r\n  ",
-                    "_id": "text-db7919a1538cb2d670068ff534cade5c"
+                    "_id": "text-1600fc757f0e18a134d7c4ac1230d0d1"
                   },
                   "children": []
                 }
@@ -426,7 +423,7 @@
               "value": {
                 "nodeType": "text",
                 "nodeValue": "\r\n",
-                "_id": "text-73901d45654951a5dc624697724f13c5"
+                "_id": "text-1bdcee502c03fc1ff45b6d1cc23282ae"
               },
               "children": []
             }
@@ -436,7 +433,7 @@
           "value": {
             "nodeType": "text",
             "nodeValue": "\r\n",
-            "_id": "text-42a4e8f0f4b8bd6cd2e1df9a2344eb21"
+            "_id": "text-c8adb04a3358a5bc22b0b8242cb66634"
           },
           "children": []
         },
@@ -447,14 +444,14 @@
             "attributes": {
               "data-if": "src"
             },
-            "_id": "element-00d520cee5b54e5f0890d1d62e46ce3f"
+            "_id": "element-f62d5ad1b244026ce05a2115086bffe4"
           },
           "children": [
             {
               "value": {
                 "nodeType": "text",
                 "nodeValue": "\r\n  ",
-                "_id": "text-30092b0b24196554952613c78101200c"
+                "_id": "text-6f8306b6667fe343fc892b05ddfb7dd6"
               },
               "children": []
             },
@@ -465,7 +462,7 @@
                 "attributes": {
                   "data-tag": "src"
                 },
-                "_id": "element-d5f61e9cfe2c5e44b4c52d397109623a"
+                "_id": "element-6f407a4a551e30674526468ff9f7aba3"
               },
               "children": []
             },
@@ -473,7 +470,7 @@
               "value": {
                 "nodeType": "text",
                 "nodeValue": "\r\n",
-                "_id": "text-180a36d2912ca8356787d20f998c8370"
+                "_id": "text-7f190eda87035aa8b43fad1888f399e7"
               },
               "children": []
             }
@@ -483,7 +480,7 @@
           "value": {
             "nodeType": "text",
             "nodeValue": "\r\n",
-            "_id": "text-943b7b5feeefab97aade25aaf6022fac"
+            "_id": "text-1b34c695f9a257e1cdbd7bec75e61304"
           },
           "children": []
         }
@@ -492,14 +489,7 @@
   },
   "style": {
     "defaultModel": {
-      "src": {
-        "attr": [
-          "href",
-          {
-            "$value": "src"
-          }
-        ]
-      }
+      "text": ""
     },
     "schema": {
       "id": "style",
@@ -508,7 +498,7 @@
     "template": {
       "value": {
         "nodeType": "documentFragment",
-        "_id": "documentfragment-9904e2dbd91bbff7a4c987016a0d9203"
+        "_id": "documentfragment-ebaff735993854c6b9bb100e4f12ed1d"
       },
       "children": [
         {
@@ -518,14 +508,14 @@
             "attributes": {
               "data-if": "text"
             },
-            "_id": "element-defce5ae8e0c7690278068baba65d6a2"
+            "_id": "element-22a174af1e8d5e84a240001c83264d04"
           },
           "children": [
             {
               "value": {
                 "nodeType": "text",
                 "nodeValue": "\r\n  ",
-                "_id": "text-bf676496716bf2709eaf881adae51128"
+                "_id": "text-eb9269044cffa6106f7ffbe6debaeaad"
               },
               "children": []
             },
@@ -536,14 +526,14 @@
                 "attributes": {
                   "data-html": "text"
                 },
-                "_id": "element-5f97a2933f229732855f7f7f8ec828b6"
+                "_id": "element-843e45b62dfb45475732f00a9fbae77c"
               },
               "children": [
                 {
                   "value": {
                     "nodeType": "text",
                     "nodeValue": "\r\n  ",
-                    "_id": "text-5ebbdd31fc0d34eb84ee188a326322e7"
+                    "_id": "text-54d694ec9b7b5ee6d786260f52a0e808"
                   },
                   "children": []
                 }
@@ -553,7 +543,7 @@
               "value": {
                 "nodeType": "text",
                 "nodeValue": "\r\n",
-                "_id": "text-eee1aa608a3ae4398c5b54468e4e5e16"
+                "_id": "text-40ac717d04bec2b99c3d8fc634e0e73f"
               },
               "children": []
             }
@@ -563,7 +553,7 @@
           "value": {
             "nodeType": "text",
             "nodeValue": "\r\n",
-            "_id": "text-d2d2451dd253876955297692590f2a90"
+            "_id": "text-4735c341337ee5c47cab8a5c7bf3bf45"
           },
           "children": []
         },
@@ -574,14 +564,14 @@
             "attributes": {
               "data-if": "src"
             },
-            "_id": "element-cee1a5952a99c0d1a180827a7cd024d4"
+            "_id": "element-0d90551a92cfb1295e36f886bc472da3"
           },
           "children": [
             {
               "value": {
                 "nodeType": "text",
                 "nodeValue": "\r\n  ",
-                "_id": "text-7d056a248027b5e6e0e1d9bd21fd522a"
+                "_id": "text-f8fd7cd692e2183cd226386a46b77010"
               },
               "children": []
             },
@@ -593,7 +583,7 @@
                   "rel": "stylesheet",
                   "data-tag": "src"
                 },
-                "_id": "element-dfe4ca025a774fadd656e5aa2f10ec24"
+                "_id": "element-b660f41a46c04762343af0e61d1b194a"
               },
               "children": []
             },
@@ -601,7 +591,7 @@
               "value": {
                 "nodeType": "text",
                 "nodeValue": "\r\n",
-                "_id": "text-5c17ff05e87053c9d6c77933218effa4"
+                "_id": "text-0974a023fbbcb11f7ff52fb2f8688991"
               },
               "children": []
             }
@@ -611,7 +601,7 @@
           "value": {
             "nodeType": "text",
             "nodeValue": "\r\n",
-            "_id": "text-e169520d7e6015892e878a7b08d67d2d"
+            "_id": "text-75f41f6122295699eb500556c0e76076"
           },
           "children": []
         }
@@ -622,7 +612,7 @@
     "template": {
       "value": {
         "nodeType": "documentFragment",
-        "_id": "documentfragment-70f7b66c56b9bc8d892f69da164e760f"
+        "_id": "documentfragment-12a52036500192e28eb7c83c8e7d60e7"
       },
       "children": [
         {
@@ -632,7 +622,7 @@
             "attributes": {
               "data-text": "message"
             },
-            "_id": "element-e38812a4d2ed70f5b6a984db7b99b533"
+            "_id": "element-2cb499b2ba579156152bfb6626fb7cf4"
           },
           "children": []
         }

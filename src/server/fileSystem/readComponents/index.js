@@ -10,10 +10,12 @@ const readComponents = componentPath =>
       const components = {}
 
       const predicates = {
-        style: value => value.name.endsWith( 'css' ),
-        template: value => value.name.endsWith( 'html' ),
-        schema: value => value.name.endsWith( 'schema.json' ),
-        defaultModel: value => !predicates.schema( value ) && value.name.endsWith( 'json' )
+        style: value => value.name === 'style.css',
+        template: value => value.name === 'template.html',
+        schema: value => value.name === 'schema.json',
+        defaultModel: value => value.name === 'defaultModel.json',
+        config: value => value.name === 'config.json',
+        transform: value => value.name === 'transform.json'
       }
 
       tree.walk( ( node, parent, depth ) => {

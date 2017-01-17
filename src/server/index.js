@@ -12,7 +12,7 @@ const start = resolve => {
 
   // routing
   app.get( '/', ( req, res ) => {
-    res.template( 'testview', { message: 'Hello, world!' } )
+    res.template( 'testview', { message: 'Hello, world!', title: 'Test View' } )
   })
 
   app.listen( 3000, () => {

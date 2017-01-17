@@ -1,40 +1,39 @@
 'use strict'
 
 const Templating = require( 'mojule-templating' )
+const validator = require( '../validator' )
 
-const extractTemplates = components => {
-  const templates = {}
+const extractFromComponents = ( components, propertyName ) => {
+  const extracted = {}
   const componentNames = Object.keys( components )
 
   componentNames.forEach( name => {
     const component = components[ name ]
 
-    if( !component.template ) return
+    if( !component[ propertyName ] ) return
 
-    templates[ name ] = component.template
+    extracted[ name ] = component[ propertyName ]
   })
 
-  return templates
+  return extracted
 }
 
-const extractDefaultModels = components => {
-  const models = {}
-  const componentNames = Object.keys( components )
+const ensureModel = ( model, name ) => {
+  const schemaNames = validator.getSchemaUris()
 
-  componentNames.forEach( name => {
-    const component = components[ name ]
+  if( !schemaNames.includes( name ) ) return
 
-    if( !component.defaultModel ) return
+  const result = validator.validateMultiple( model, name )
 
-    models[ name ] = component.defaultModel
-  })
+  if( result.valid ) return
 
-  return models
+  const message = `Template model validation failed for ${ name }: ${ JSON.stringify( result.errors ) }`
+  throw new Error( message )
 }
 
 const Templates = components => {
-  const templates = extractTemplates( components )
-  const defaultModels = extractDefaultModels( components )
+  const templates = extractFromComponents( components, 'template' )
+  const defaultModels = extractFromComponents( components, 'defaultModel' )
 
   const templating = Templating( templates )
 
@@ -44,15 +43,20 @@ const Templates = components => {
 
       if( name !== 'document' ){
         const templateModel = Object.assign( {}, defaultModels[ name ] || {}, model )
+
+        ensureModel( templateModel, name )
+
         const body = templating( name, templateModel ).stringify()
         Object.assign( documentModel, { body } )
       }
 
+      ensureModel( documentModel, 'document' )
+
       const dom = templating( 'document', documentModel )
 
-      return callback( null, dom )
+      callback( null, dom )
     } catch( e ){
-      return callback( e )
+      callback( e )
     }
   }
 

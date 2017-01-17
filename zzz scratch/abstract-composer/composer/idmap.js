@@ -1,5 +1,9 @@
 'use strict'
 
+/*
+  cache that maps between tree nodes and their DOM representations using the id
+  attribute
+*/
 const IdMap = tree => {
   const idMap = new Map()
 
@@ -14,7 +18,7 @@ const IdMap = tree => {
   }
 
   const refresh = node => {
-    node.walk( n => idMap.set( n.id(), n ) )  
+    node.walk( n => idMap.set( n.id(), n ) )
   }
 
   refresh( tree )
