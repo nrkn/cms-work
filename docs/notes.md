@@ -38,10 +38,10 @@ Really annoying when debugging
 
 But use cases it allows makes it awesome
 
-Add get properties `_value` and `_children`, that return clones - being getters
+We added properties `_value` and `_children`, that return clones - being getters
 they won't incur overhead unless called but debugger will see them
 
-Could also simplify the fn (not fun to step through!) so that all plugins,
+Could simplify the fn (not fun to step through!) so that all plugins,
 builtins etc take same initial signature, or even just:
 
 ```javascript
@@ -53,7 +53,7 @@ builtins etc take same initial signature, or even just:
 
 ## 1tree-json & 1tree-schema
 
-- Convert to adapter
+- Convert to adapter or patch the tree in `toTree` (probs the latter)
 - Implement empty, accepts
 
 ## 1tree-component
