@@ -2,7 +2,6 @@
 
 const FileTree = require( '../fileTree' )
 const readFiles = require( '../readFiles' )
-const path = require( 'path' )
 
 const readSchemas = schemaPath =>
   FileTree( schemaPath )

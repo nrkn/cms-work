@@ -2,6 +2,47 @@
 
 const { toTree, toJson } = require( '1tree-json' )
 
+const processValues = ( model, repTree ) => {
+  const propertyNodes = repTree.findAll( n =>
+    n.value().propertyName === '$value'
+  )
+
+  propertyNodes.forEach( propertyNode => {
+    const objectNode = propertyNode.getParent()
+    const objectNodeParent = objectNode.getParent()
+
+    const value = propertyNode.value()
+    const sourcePropertyName = value.nodeValue
+    const sourceValue = model[ sourcePropertyName ]
+
+    const newValueNode = toTree( sourceValue )
+
+    objectNodeParent.replaceChild( newValueNode, objectNode )
+  })
+}
+
+const processIfs = ( model, repTree ) => {
+  const propertyNodes = repTree.findAll( n =>
+    n.value().propertyName === '$if'
+  )
+
+  propertyNodes.forEach( propertyNode => {
+    const objectNode = propertyNode.getParent()
+    const objectNodeParent = objectNode.getParent()
+
+    const ifArgNodes = propertyNode.getChildren()
+
+    const isValue = ifArgNodes[ 0 ].value().nodeValue
+
+    if( isValue ){
+      const ifValueNode = ifArgNodes[ 1 ]
+      objectNodeParent.insertBefore( ifValueNode, objectNode )
+    }
+
+    objectNode.remove()
+  })
+}
+
 const transformMapper = ( model, transform ) => {
   const clone = Object.assign( {}, model )
 
@@ -12,22 +53,8 @@ const transformMapper = ( model, transform ) => {
 
     const repTree = toTree( replacement )
 
-    const propertyNodes = repTree.findAll( n =>
-      n.value().propertyName === '$value'
-    )
-
-    propertyNodes.forEach( propertyNode => {
-      const objectNode = propertyNode.getParent()
-      const objectNodeParent = objectNode.getParent()
-
-      const value = propertyNode.value()
-      const sourcePropertyName = value.nodeValue
-      const sourceValue = model[ sourcePropertyName ]
-
-      const newValueNode = toTree( sourceValue )
-
-      objectNodeParent.replaceChild( newValueNode, objectNode )
-    })
+    processValues( model, repTree )
+    processIfs( model, repTree )
 
     const replacementObj = toJson( repTree )
 

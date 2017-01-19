@@ -1,24 +1,10 @@
 'use strict'
 
 const Templating = require( 'mojule-templating' )
-const validator = require( '../validator' )
+const Validator = require( 'mtype-tv4' )
+const componentTransformMapper = require( '../components/componentTransformMapper' )
 
-const extractFromComponents = ( components, propertyName ) => {
-  const extracted = {}
-  const componentNames = Object.keys( components )
-
-  componentNames.forEach( name => {
-    const component = components[ name ]
-
-    if( !component[ propertyName ] ) return
-
-    extracted[ name ] = component[ propertyName ]
-  })
-
-  return extracted
-}
-
-const ensureModel = ( model, name ) => {
+const ensureModel = ( validator, model, name ) => {
   const schemaNames = validator.getSchemaUris()
 
   if( !schemaNames.includes( name ) ) return
@@ -31,11 +17,11 @@ const ensureModel = ( model, name ) => {
   throw new Error( message )
 }
 
-const Templates = components => {
-  const templates = extractFromComponents( components, 'template' )
-  const defaultModels = extractFromComponents( components, 'defaultModel' )
+const Templates = dependencies => {
+  const { components, templates, defaultModels, schemas } = dependencies
 
   const templating = Templating( templates )
+  const validator = Validator( schemas )
 
   const renderTemplate = ( name, model, callback ) => {
     try {
@@ -44,15 +30,19 @@ const Templates = components => {
       if( name !== 'document' ){
         const templateModel = Object.assign( {}, defaultModels[ name ] || {}, model )
 
-        ensureModel( templateModel, name )
+        ensureModel( validator, templateModel, name )
 
-        const body = templating( name, templateModel ).stringify()
+        const viewModel = componentTransformMapper( dependencies, name, templateModel )
+
+        const body = templating( name, viewModel ).stringify()
         Object.assign( documentModel, { body } )
       }
 
-      ensureModel( documentModel, 'document' )
+      ensureModel( validator, documentModel, 'document' )
 
-      const dom = templating( 'document', documentModel )
+      const viewModel = componentTransformMapper( dependencies, 'document', documentModel )
+
+      const dom = templating( 'document', viewModel )
 
       callback( null, dom )
     } catch( e ){

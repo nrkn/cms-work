@@ -10,6 +10,21 @@
   one, bring one in from some module or whatever
 - Probably need an `options.json` as well
 
+### Use a tree for rendering:
+
+```javascript
+{
+  value: {
+    name: 'document',
+    model: { ... },
+    childContainer: '[data-container]'
+  },
+  children: [
+
+  ]
+}
+```
+
 ## 1tree
 
 - `registerNodeType`

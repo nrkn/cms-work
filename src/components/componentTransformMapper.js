@@ -28,6 +28,10 @@ const mapComponents = ( dependencies, componentName, model ) => {
     return transformMapper( model, transform )
   }
 
+  if( !transform && !componentSchema ){
+    return model
+  }
+
   const componentSchemaTree = treeSchema.toTree( componentSchema )
   const refComponents = findRefComponents( componentSchemaTree )
 
@@ -49,8 +53,8 @@ const mapComponents = ( dependencies, componentName, model ) => {
       const modelArray = treeJson.toJson( modelNode )
 
       const transformed = modelArray.map( item =>
-        //mapComponents( dependencies, componentName, item )
-        transformMapper( item, componentTransform )
+        mapComponents( dependencies, componentName, item )
+        //transformMapper( item, componentTransform )
       )
 
       const transformedNode = treeJson.toTree( transformed )
