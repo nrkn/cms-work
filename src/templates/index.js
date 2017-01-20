@@ -17,24 +17,31 @@ const ensureModel = ( validator, model, name ) => {
   throw new Error( message )
 }
 
+
 const Templates = dependencies => {
   const { components, templates, defaultModels, schemas } = dependencies
 
   const templating = Templating( templates )
   const validator = Validator( schemas )
 
+  const renderComponent = ( name, model ) => {
+    const templateModel = Object.assign( {}, defaultModels[ name ] || {}, model )
+
+    ensureModel( validator, templateModel, name )
+
+    const viewModel = componentTransformMapper( dependencies, name, templateModel )
+
+    return templating( name, viewModel )
+  }
+
+  //TODO I believe that this doesn't need to use callbacks anymore
   const renderTemplate = ( name, model, callback ) => {
     try {
       const documentModel = Object.assign( {}, defaultModels.document, model )
 
       if( name !== 'document' ){
-        const templateModel = Object.assign( {}, defaultModels[ name ] || {}, model )
+        const body = renderComponent( name, model ).stringify()
 
-        ensureModel( validator, templateModel, name )
-
-        const viewModel = componentTransformMapper( dependencies, name, templateModel )
-
-        const body = templating( name, viewModel ).stringify()
         Object.assign( documentModel, { body } )
       }
 
@@ -50,7 +57,7 @@ const Templates = dependencies => {
     }
   }
 
-  return renderTemplate
+  return { renderTemplate, renderComponent }
 }
 
 module.exports = Templates

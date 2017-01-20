@@ -20,36 +20,25 @@ const initApp = ( dependencies, resolve ) => {
 
   // routing
   app.get( '/', ( req, res ) => {
-    const model = {
-      preview: '<strong>Test</strong> Preview',
-      title: 'cool title bro',
-      isChildrenCollapsed: true,
-      children: [
-        {
-          "id": "child1",
-          "title": "child 1 title",
-          "treeType": "treeType1",
-          "nodeType": "nodeType1",
-          "depth": 0,
-          "isEmpty": true,
-          "isCollapsed": true,
-          children: [
+    const Tree = require( '1tree' )
+    const treeToComposerTree = require( '../composer-tree/defaultTreeToComposerTree' )
+    const fsTreeRaw = req.dependencies.datas[ 'data-small' ]
+    const fsTree = Tree( fsTreeRaw )
 
-          ]
-        },
-        {
-          "id": "child2",
-          "title": "child 2 title",
-          "treeType": "treeType2",
-          "nodeType": "nodeType2",
-          "depth": 1,
-          "isEmpty": true,
-          "isCollapsed": true
-        }
-      ]
+    const fsComposerTree = treeToComposerTree( fsTree )
+
+    const documentValue = {
+      name: 'document',
+      model: {
+        documentTitle: 'Cool Story Bro!'
+      }
     }
 
-    res.template( 'composer-main', model )
+    const documentNode = Tree.createRoot( documentValue )
+
+    documentNode.append( fsComposerTree )
+
+    res.component( documentNode )
   })
 
   app.listen( 3000, () => {
