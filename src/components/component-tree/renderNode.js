@@ -23,16 +23,16 @@ const RenderNode = dependencies => {
       children.forEach( childNode => {
         const childDom = renderNode( childNode )
 
-        if( dom.nodeName() === 'ul' || dom.nodeName() === 'ol' ){
-          const liNode = dom.createNode( '<li></li>' )
+        if( childContainer.nodeName() === 'ul' || childContainer.nodeName() === 'ol' ){
+          const liNode = dom.parse( '<li></li>' )
 
-          liNode.append( childNode )
-          dom.append( liNode )
+          liNode.append( childDom )
+          childContainer.append( liNode )
 
           return
         }
 
-        dom.append( childNode )
+        childContainer.append( childDom )
       })
     }
 
