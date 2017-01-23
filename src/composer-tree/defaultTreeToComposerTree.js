@@ -26,7 +26,7 @@ const mapNodeToComposerNodeModel = ( node, depth = 0 ) => {
   return model
 }
 
-const mapNodeToComposerNode = ( node, createNode, depth = 0 ) => {
+const mapNodeToComposerNode = ( node, depth = 0 ) => {
   const model = mapNodeToComposerNodeModel( node, depth )
 
   const value = {
@@ -34,19 +34,30 @@ const mapNodeToComposerNode = ( node, createNode, depth = 0 ) => {
     model
   }
 
-  const componentNode = createNode( value )
+  const componentNode = node.createNode( value )
 
   const children = node.getChildren()
 
   children.forEach( childNode => {
-    const componentChildNode = mapNodeToComposerNode( childNode, node.createNode, depth + 1 )
+    const componentChildNode = mapNodeToComposerNode( childNode, depth + 1 )
     componentNode.append( componentChildNode )
   })
 
   return componentNode
 }
 
-const mapTreeToComposerTree = tree =>
-  mapNodeToComposerNode( tree, Tree.createRoot )
+const mapTreeToComposerTree = tree => {
+  const rootNodeValue = {
+    name: 'composer'
+  }
+
+  const composerRootNode = Tree.createRoot( rootNodeValue )
+  const composerNodes = mapNodeToComposerNode( tree )
+
+  composerRootNode.append( composerNodes )
+
+  return composerRootNode
+}
+
 
 module.exports = mapTreeToComposerTree

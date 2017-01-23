@@ -36,7 +36,7 @@ const initApp = ( dependencies, resolve ) => {
 
     const documentNode = Tree.createRoot( documentValue )
 
-    documentNode.append( fsComposerTree )
+    //documentNode.append( fsComposerTree )
 
     res.component( documentNode )
   })

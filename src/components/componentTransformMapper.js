@@ -54,7 +54,6 @@ const mapComponents = ( dependencies, componentName, model ) => {
 
       const transformed = modelArray.map( item =>
         mapComponents( dependencies, componentName, item )
-        //transformMapper( item, componentTransform )
       )
 
       const transformedNode = treeJson.toTree( transformed )

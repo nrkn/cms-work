@@ -15,6 +15,14 @@ const processValues = ( model, repTree ) => {
     const sourcePropertyName = value.nodeValue
     const sourceValue = model[ sourcePropertyName ]
 
+    if( sourceValue === undefined )
+      throw new Error(
+        'Tried to transform using a value not present in model: ' +
+        sourcePropertyName +
+        '; ' +
+        JSON.stringify( model )
+      )
+
     const newValueNode = toTree( sourceValue )
 
     objectNodeParent.replaceChild( newValueNode, objectNode )
