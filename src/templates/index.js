@@ -17,7 +17,6 @@ const ensureModel = ( validator, model, name ) => {
   throw new Error( message )
 }
 
-
 const Templates = dependencies => {
   const { components, templates, defaultModels, schemas } = dependencies
 

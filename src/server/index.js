@@ -30,7 +30,12 @@ const initApp = ( dependencies, resolve ) => {
     const documentValue = {
       name: 'document',
       model: {
-        documentTitle: 'Cool Story Bro!'
+        documentTitle: 'Cool Story Bro!',
+        "headStyles": [
+          {
+            "src": "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+          }
+        ]
       }
     }
 
