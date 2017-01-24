@@ -2,7 +2,7 @@
 
 const treeSchema = require( '1tree-schema' )
 const treeJson = require( '1tree-json' )
-const transformMapper = require( './transformMapper' )
+const transformMapper = require( 'mojule-transform' )
 const utils = require( 'mojule-utils' )
 
 const { clone } = utils

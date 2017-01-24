@@ -5,7 +5,7 @@ const Drake = require( './drake' )
 const Find = require( './find' )
 
 const Composer = ( deps, state ) => {
-  const { dragula, morphdom, document } = deps
+  const { dragula, morphdom, document, renderNode } = deps
   const { tree, options } = state
 
   const idMap = IdMap( tree )
@@ -13,16 +13,16 @@ const Composer = ( deps, state ) => {
 
   const composerView = document.querySelector( options.selector )
 
-  composerView.innerHTML = tree.render()
+  morphdom( composerView, tree.stringify() )
 
   composerView.addEventListener( 'click', e => {
     const el = e.target
 
-    if( el.matches( 'header[data-toolbar]' ) ){
+    if( el.matches( '.composer-node__toolbar' ) ){
       el.parentNode.classList.toggle( 'collapsed' )
 
       const isCollapsed = el.parentNode.matches( '.collapsed' )
-      const isNode = el.parentNode.matches( '[data-node]' )
+      const isNode = el.parentNode.matches( '.composer-node' )
 
       const node = isNode ?
         idMap.findById( el.parentNode.id ) :
@@ -31,7 +31,7 @@ const Composer = ( deps, state ) => {
       const key = isNode ? 'isCollapsed' : 'isChildrenCollapsed'
 
       toggle( node, key, isCollapsed )
-    } else if( el.matches( '[data-delete]' ) ){
+    } else if( el.matches( '.composer-node__delete' ) ){
       const shouldDelete = window.confirm( 'Are you sure?' )
 
       if( !shouldDelete ) return
@@ -46,7 +46,9 @@ const Composer = ( deps, state ) => {
       const parentEl = document.getElementById( parentNode.id() )
       const depth = parentEl.dataset.depth * 1
 
-      updateView( parentEl, parentNode.render( 'node', { depth } ) )
+      const html = renderNode( parentNode, { depth } )
+
+      updateView( parentEl, html )
     }
   })
 
@@ -54,7 +56,7 @@ const Composer = ( deps, state ) => {
     const template = document.createElement( 'template' )
     template.innerHTML = html
 
-    const newEl = template.content.querySelector( '[data-node]' )
+    const newEl = template.content.querySelector( '.composer-node' )
 
     const result = morphdom( el, newEl )
   }
@@ -71,7 +73,7 @@ const Composer = ( deps, state ) => {
       depth = parentEl.dataset.depth * 1 + 1
     }
 
-    const newElHtml = node.render( 'node', { depth } )
+    const newElHtml = renderNode( node, { depth } )
 
     updateView( nodeEl, newElHtml )
   }

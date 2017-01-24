@@ -2,8 +2,8 @@
 
 // functions for finding different tree node types in the composer DOM
 const Find = idMap => {
-  const nodeEl = el => el.querySelector( '[data-node]' )
-  const containerEl = el => el.closest( '[data-node]' )
+  const nodeEl = el => el.querySelector( '.composer-node' )
+  const containerEl = el => el.closest( '.composer-node' )
   const elNode = el => idMap.findById( nodeEl( el ).id )
   const containerElNode = el => idMap.findById( containerEl( el ).id )
 

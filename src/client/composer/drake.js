@@ -2,7 +2,7 @@
 
 // setup the drake (dragula instance) for our composer drag drop requirements
 const Drake = deps => {
-  const cloneSelector = '[data-toolbar] [data-dragsource="composer"]'
+  const cloneSelector = '.composer-node__toolbar [data-dragsource="composer"]'
   const containerSelector = '[data-dragsource="composer"]'
   const { updateNode, dragula, find, ondrop } = deps
 
