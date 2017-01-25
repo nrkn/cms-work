@@ -1,0 +1,39 @@
+{
+  "nodeTag": [
+    {
+      "$if": [
+        { "$value": "isCollapsed" },
+        { "addClass": "composer-node--collapsed" }
+      ]
+    },
+    {
+      "$if": [
+        { "$value": "isEmpty" },
+        { "addClass": "composer-node--empty" }
+      ]
+    },
+    {
+      "attr": [ "id", { "$value": "id" } ]
+    },
+    {
+      "attr": [ "data-treeType", { "$value": "treeType" } ]
+    },
+    {
+      "attr": [ "data-nodeType", { "$value": "nodeType" } ]
+    },
+    {
+      "attr": [ "data-depth", { "$value": "depth" } ]
+    }
+  ],
+  "childWrapperTag": [
+    {
+      "$if": [
+        { "$value": "isChildrenCollapsed" },
+        { "addClass": "composer-node__children--collapsed" }
+      ]
+    },
+    {
+      "attr": [ "id", { "$value": "id" } ]
+    }
+  ]
+}

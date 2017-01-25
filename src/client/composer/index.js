@@ -92,7 +92,7 @@ const Composer = ( deps, state ) => {
     tree.walk( ( current, parent, depth ) => {
       const indent = '  '.repeat( depth )
       const value = current.value()
-      const name = value.name || value.type
+      const name = value.name || value.nodeType || value.type
 
       console.log( indent + name + '#' + current.id() )
     })

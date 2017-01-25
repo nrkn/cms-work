@@ -1,0 +1,17 @@
+{
+  "id": "composer-node",
+  "type": "object",
+  "properties": {
+    "id": { "$ref": "nonEmptyString" },
+    "title": { "$ref": "nonEmptyString" },
+    "treeType": { "$ref": "nonEmptyString" },
+    "nodeType": { "$ref": "nonEmptyString" },
+    "depth": { "type": "integer" },
+    "isEmpty": { "type": "boolean" },
+    "isCollapsed": { "type": "boolean" },
+    "isChildrenCollapsed": { "type": "boolean" },
+    "preview": { "$ref": "nonEmptyString" },
+    "childrenTitle": { "$ref": "nonEmptyString" }
+  },
+  "required": [ "id", "title", "treeType", "nodeType", "depth", "preview", "childrenTitle" ]
+}
