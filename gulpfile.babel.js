@@ -23,7 +23,7 @@ gulp.task( 'generateDependencies', () => {
 })
 
 gulp.task( 'browserify', () => {
-  var bundler = browserify( './src/client/index.js' )
+  var bundler = browserify( './src/client/index.js', {debug: true} )
 
   bundler.transform( babelify )
 

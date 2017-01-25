@@ -20,7 +20,7 @@ const composerDependencies = {
   dragula, morphdom, document, renderNode
 }
 
-const treeRaw = componentDependencies.datas[ 'data-small' ]
+const treeRaw = componentDependencies.datas[ 'mojule-fs' ]
 const tree = Tree( treeRaw )
 const options = {
   selector: '.composer'
