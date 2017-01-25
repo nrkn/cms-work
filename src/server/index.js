@@ -21,11 +21,6 @@ const initApp = ( dependencies, resolve ) => {
   // routing
   app.get( '/', ( req, res ) => {
     const Tree = require( '1tree' )
-    const treeToComposerTree = require( '../composer-tree/defaultTreeToComposerTree' )
-    const fsTreeRaw = req.dependencies.datas[ 'data-small' ]
-    const fsTree = Tree( fsTreeRaw )
-
-    const fsComposerTree = treeToComposerTree( fsTree )
 
     const documentValue = {
       name: 'document',
@@ -35,13 +30,21 @@ const initApp = ( dependencies, resolve ) => {
           {
             "src": "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
           }
+        ],
+        "scripts": [
+          {
+            "src": "/client/index.js"
+          }
         ]
       }
     }
 
     const documentNode = Tree.createRoot( documentValue )
 
-    documentNode.append( fsComposerTree )
+    const composerValue = { name: 'composer' }
+    const composerNode = documentNode.createNode( composerValue )
+
+    documentNode.append( composerNode )
 
     res.component( documentNode )
   })

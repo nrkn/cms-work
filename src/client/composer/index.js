@@ -13,7 +13,9 @@ const Composer = ( deps, state ) => {
 
   const composerView = document.querySelector( options.selector )
 
-  morphdom( composerView, tree.stringify() )
+  const initialDom = renderNode( tree )
+
+  morphdom( composerView, initialDom.stringify() )
 
   composerView.addEventListener( 'click', e => {
     const el = e.target
@@ -46,7 +48,8 @@ const Composer = ( deps, state ) => {
       const parentEl = document.getElementById( parentNode.id() )
       const depth = parentEl.dataset.depth * 1
 
-      const html = renderNode( parentNode, { depth } )
+      const nodeDom = renderNode( parentNode, { depth } )
+      const html = nodeDom.stringify()
 
       updateView( parentEl, html )
     }
@@ -73,7 +76,8 @@ const Composer = ( deps, state ) => {
       depth = parentEl.dataset.depth * 1 + 1
     }
 
-    const newElHtml = renderNode( node, { depth } )
+    const newElDom = renderNode( node, { depth } )
+    const newElHtml = newElDom.stringify()
 
     updateView( nodeEl, newElHtml )
   }

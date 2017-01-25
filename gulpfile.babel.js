@@ -8,8 +8,19 @@ const source = require( 'vinyl-source-stream' )
 const runSequence = require( 'run-sequence' )
 const fs = require( 'fs' )
 const pify = require( 'pify' )
+const getDependencies = require( './src/server/fileSystem/getDependencies' )
 
 const writeFile = pify( fs.writeFile )
+
+gulp.task( 'generateDependencies', () => {
+  return getDependencies( './data' )
+    .then( dependencies => {
+      const json = JSON.stringify( dependencies )
+
+      // TODO figure out wtf to do with this path
+      return writeFile( './dist/dependencies.json', json, 'utf8' )
+    })
+})
 
 gulp.task( 'browserify', () => {
   var bundler = browserify( './src/client/index.js' )
@@ -24,5 +35,5 @@ gulp.task( 'browserify', () => {
 })
 
 gulp.task( 'default', cb =>
-  runSequence( 'browserify', cb )
+  runSequence( 'generateDependencies', 'browserify', cb )
 )
