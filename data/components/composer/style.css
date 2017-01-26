@@ -1,5 +1,5 @@
 .composer {
-  line-height: 2em;
+  line-height: 2;
 }
 
 .composer-node {
@@ -15,6 +15,10 @@
   color: #fff;
   padding: 0 0.5em;
   box-shadow: 0 0.025rem 0.5rem rgba( 0, 0, 0, 0.5 );
+}
+
+.composer-node__title {
+  line-height: 2;
 }
 
 .composer-node__children > .composer-node__toolbar {
@@ -42,7 +46,8 @@
   padding: 1em;
 }
 
-.composer-node.collapsed > .composer-node__main {
+.composer-node--collapsed > .composer-node__main,
+.composer-node__children--collapsed > .composer-node__main {
   height: 0;
   padding: 0;
 }

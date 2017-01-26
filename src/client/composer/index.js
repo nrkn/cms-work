@@ -18,19 +18,23 @@ const Composer = ( deps, state ) => {
   morphdom( composerView, initialDom.stringify() )
 
   composerView.addEventListener( 'click', e => {
-    const el = e.target
+    let el = e.target
+
+    if( el.matches( '.composer-node__title, .composer-node__delete > i' ) )
+      el = el.parentNode
 
     if( el.matches( '.composer-node__toolbar' ) ){
-      el.parentNode.classList.toggle( 'collapsed' )
-
-      const isCollapsed = el.parentNode.matches( '.collapsed' )
       const isNode = el.parentNode.matches( '.composer-node' )
+      const key = isNode ? 'isCollapsed' : 'isChildrenCollapsed'
+      const collapsedClass = isNode ? 'composer-node--collapsed' : 'composer-node__children--collapsed'
+
+      el.parentNode.classList.toggle( collapsedClass )
 
       const node = isNode ?
         idMap.findById( el.parentNode.id ) :
         find.containerElNode( el.parentNode )
 
-      const key = isNode ? 'isCollapsed' : 'isChildrenCollapsed'
+      const isCollapsed = el.parentNode.matches( '.composer-node--collapsed, .composer-node__children--collapsed' )
 
       toggle( node, key, isCollapsed )
     } else if( el.matches( '.composer-node__delete' ) ){
@@ -38,19 +42,19 @@ const Composer = ( deps, state ) => {
 
       if( !shouldDelete ) return
 
-      const id = el.parentNode.parentNode.id
-
+      const composerNodeEl = el.closest( '.composer-node' )
+      const id = composerNodeEl.id
       const node = idMap.findById( id )
       const parentNode = node.getParent()
+      const parentEl = document.getElementById( parentNode.id() )
 
       node.remove()
 
-      const parentEl = document.getElementById( parentNode.id() )
       const depth = parentEl.dataset.depth * 1
-
       const nodeDom = renderNode( parentNode, { depth } )
       const html = nodeDom.stringify()
 
+      //not working?!
       updateView( parentEl, html )
     }
   })
@@ -87,6 +91,7 @@ const Composer = ( deps, state ) => {
   const ondrop = ( ...args ) => {
     if( dropHandler ) dropHandler( ...args )
 
+    /*
     console.log( '\n\n\n' )
 
     tree.walk( ( current, parent, depth ) => {
@@ -96,6 +101,7 @@ const Composer = ( deps, state ) => {
 
       console.log( indent + name + '#' + current.id() )
     })
+    */
   }
 
   const drakeDeps = { dragula, updateNode, find, ondrop }
