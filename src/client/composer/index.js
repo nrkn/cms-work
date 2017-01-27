@@ -1,17 +1,39 @@
 'use strict'
 
+const dragula = require( 'dragula' )
+const morphdom = require( 'morphdom' )
 const IdMap = require( './idmap' )
 const Drake = require( './drake' )
 const Find = require( './find' )
 
-const Composer = ( deps, state ) => {
-  const { dragula, morphdom, document, renderNode } = deps
-  const { tree, options } = state
+const defaultOptions = {
+  document: typeof window === 'undefined' ? null : window.document,
+  dragula,
+  morphdom,
+  selector: '.composer'
+}
+
+const Composer = ( tree, renderNode, options ) => {
+  options = Object.assign( {}, defaultOptions, options )
+
+  const { document, dragula, morphdom, selector } = options
+
+  if( typeof document !== 'object' ){
+    throw new Error( 'A document instance is required' )
+  }
+
+  if( typeof renderNode !== 'function' ){
+    throw new Error( 'A renderNode function is required' )
+  }
+
+  if( typeof selector !== 'string' ){
+    throw new Error( 'A selector for the composer root is required' )
+  }
 
   const idMap = IdMap( tree )
   const find = Find( idMap )
 
-  const composerView = document.querySelector( options.selector )
+  const composerView = document.querySelector( selector )
 
   const initialDom = renderNode( tree )
 
@@ -24,48 +46,51 @@ const Composer = ( deps, state ) => {
       el = el.parentNode
 
     if( el.matches( '.composer-node__toolbar' ) ){
-      const isNode = el.parentNode.matches( '.composer-node' )
-      const key = isNode ? 'isCollapsed' : 'isChildrenCollapsed'
-      const collapsedClass = isNode ? 'composer-node--collapsed' : 'composer-node__children--collapsed'
-
-      el.parentNode.classList.toggle( collapsedClass )
-
-      const node = isNode ?
-        idMap.findById( el.parentNode.id ) :
-        find.containerElNode( el.parentNode )
-
-      const isCollapsed = el.parentNode.matches( '.composer-node--collapsed, .composer-node__children--collapsed' )
-
-      toggle( node, key, isCollapsed )
+      toggleEl( el )
     } else if( el.matches( '.composer-node__delete' ) ){
       const shouldDelete = window.confirm( 'Are you sure?' )
 
       if( !shouldDelete ) return
 
-      const composerNodeEl = el.closest( '.composer-node' )
-      const id = composerNodeEl.id
-      const node = idMap.findById( id )
-      const parentNode = node.getParent()
-      const parentEl = document.getElementById( parentNode.id() )
-
-      node.remove()
-
-      const depth = parentEl.dataset.depth * 1
-      const nodeDom = renderNode( parentNode, { depth } )
-      const html = nodeDom.stringify()
-
-      //not working?!
-      updateView( parentEl, html )
+      removeEl( el )
     }
   })
 
-  const updateView = ( el, html ) => {
-    const template = document.createElement( 'template' )
-    template.innerHTML = html
+  const toggleEl = el => {
+    const isNode = el.parentNode.matches( '.composer-node' )
+    const key = isNode ? 'isCollapsed' : 'isChildrenCollapsed'
+    const collapsedClass = isNode ? 'composer-node--collapsed' : 'composer-node__children--collapsed'
 
-    const newEl = template.content.querySelector( '.composer-node' )
+    el.parentNode.classList.toggle( collapsedClass )
 
-    const result = morphdom( el, newEl )
+    const node = isNode ?
+      idMap.findById( el.parentNode.id ) :
+      find.containerElNode( el.parentNode )
+
+    const isCollapsed = el.parentNode.matches( '.composer-node--collapsed, .composer-node__children--collapsed' )
+
+    toggle( node, key, isCollapsed )
+  }
+
+  const removeEl = el => {
+    const nodeEl = el.closest( '.composer-node' )
+    const id = nodeEl.id
+    const node = idMap.findById( id )
+    const parentNode = node.getParent()
+
+    node.remove()
+    /*
+      It may seem as though by just removing the node, the parentNode will be
+      regenerated correctly, however this is not the case sometimes, like when
+      the node is the first child of the element. Not sure if problem with
+      morphdom or if I've made some mistaken assumption somewhere, but in any
+      case also removing the node's element representation from the DOM ensures
+      that this works correctly. Not removing the DOM node and calling
+      updateNode twice also works - go figure :/
+    */
+    nodeEl.remove()
+
+    updateNode( parentNode )
   }
 
   const updateNode = node => {
@@ -83,25 +108,13 @@ const Composer = ( deps, state ) => {
     const newElDom = renderNode( node, { depth } )
     const newElHtml = newElDom.stringify()
 
-    updateView( nodeEl, newElHtml )
+    morphdom( nodeEl, newElHtml )
   }
 
   let dropHandler
 
   const ondrop = ( ...args ) => {
     if( dropHandler ) dropHandler( ...args )
-
-    /*
-    console.log( '\n\n\n' )
-
-    tree.walk( ( current, parent, depth ) => {
-      const indent = '  '.repeat( depth )
-      const value = current.value()
-      const name = value.name || value.nodeType || value.type
-
-      console.log( indent + name + '#' + current.id() )
-    })
-    */
   }
 
   const drakeDeps = { dragula, updateNode, find, ondrop }

@@ -28,22 +28,11 @@ const isEmptyPlugin = fn => {
 
 const Tree = TreeFactory( isEmptyPlugin )
 
-const dragula = require( 'dragula' )
-const morphdom = require( 'morphdom' )
 const componentDependencies = require( '../../dist/dependencies.json' )
 const RenderNode = require( '../composer-tree/renderNode' )
 const renderNode = RenderNode( componentDependencies )
 
-const composerDependencies = {
-  dragula, morphdom, document, renderNode
-}
-
 const treeRaw = componentDependencies.datas[ 'data-small' ]
 const tree = Tree( treeRaw )
-const options = {
-  selector: '.composer'
-}
 
-const composerState = { tree, options }
-
-const composerApi = Composer( composerDependencies, composerState )
+const composerApi = Composer( tree, renderNode )
