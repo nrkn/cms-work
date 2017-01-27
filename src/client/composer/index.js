@@ -13,22 +13,19 @@ const defaultOptions = {
   selector: '.composer'
 }
 
+const validateObj = ( obj, name, typeName ) => {
+  if( typeof obj !== typeName )
+    throw new Error( `A ${ name } ${ typeName } is required` )
+}
+
 const Composer = ( tree, renderNode, options ) => {
   options = Object.assign( {}, defaultOptions, options )
 
   const { document, dragula, morphdom, selector } = options
 
-  if( typeof document !== 'object' ){
-    throw new Error( 'A document instance is required' )
-  }
-
-  if( typeof renderNode !== 'function' ){
-    throw new Error( 'A renderNode function is required' )
-  }
-
-  if( typeof selector !== 'string' ){
-    throw new Error( 'A selector for the composer root is required' )
-  }
+  validateObj( document, 'document', 'object' )
+  validateObj( renderNode, 'renderNode', 'function' )
+  validateObj( selector, 'selector', 'string' )
 
   const idMap = IdMap( tree )
   const find = Find( idMap )
@@ -132,7 +129,12 @@ const Composer = ( tree, renderNode, options ) => {
     remove: () => composerView.innerHTML = '',
     tree: () => tree,
     idMap: () => idMap,
-    dropHandler: handler => dropHandler = handler
+    dropHandler: handler => {
+      if( typeof handler === 'function' )
+        dropHandler = handler
+
+      return dropHandler
+    }
   }
 
   return api

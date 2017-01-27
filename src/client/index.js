@@ -14,6 +14,8 @@ properly as and where needed
 //const Tree = require( '1tree' )
 const TreeFactory = require( '1tree-factory' )
 
+//in reality this would be implemented by the specific tree type, this is just a
+//hack for testing
 const isEmptyPlugin = fn => {
   const isEmpty = ( fn, node ) => {
     const value = fn.value( node )
