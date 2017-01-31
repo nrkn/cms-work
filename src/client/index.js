@@ -20,7 +20,7 @@ const isEmptyPlugin = fn => {
   const isEmpty = ( fn, node ) => {
     const value = fn.value( node )
 
-    return value.nodeType === 'file'
+    return value.nodeType === 'file' || value.nodeType === 'text'
   }
 
   isEmpty.def = fn.isEmpty.def

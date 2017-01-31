@@ -18,6 +18,15 @@ const validateObj = ( obj, name, typeName ) => {
     throw new Error( `A ${ name } ${ typeName } is required` )
 }
 
+/*
+  TODO
+
+  * the expand/collapse children actions should be disabled if that action is
+    not possible or necessary
+  * the tree or options or something should be able to override the actions
+    eg not all nodes may have all actions
+
+*/
 const Composer = ( tree, renderNode, options ) => {
   options = Object.assign( {}, defaultOptions, options )
 
@@ -36,21 +45,50 @@ const Composer = ( tree, renderNode, options ) => {
 
   morphdom( composerView, initialDom.stringify() )
 
-  composerView.addEventListener( 'click', e => {
-    let el = e.target
+  /*
+   TODO the functions should take the actual el node, not the clicked node, any
+   logic inside the various fns below for finding the el node should be moved
+   here
+  */
+  const clickHandler = {
+    '.composer-node__title, .composer-node__action > i':
+      el => el.parentNode,
 
-    if( el.matches( '.composer-node__title, .composer-node__delete > i' ) )
-      el = el.parentNode
-
-    if( el.matches( '.composer-node__toolbar' ) ){
+    '.composer-node__toolbar': el => {
       toggleEl( el )
-    } else if( el.matches( '.composer-node__delete' ) ){
+    },
+
+    '.composer-node__delete': el => {
       const shouldDelete = window.confirm( 'Are you sure?' )
 
-      if( !shouldDelete ) return
+      if( shouldDelete )
+        removeEl( el )
+    },
 
-      removeEl( el )
+    '.composer-node__collapse-children': el => {
+      collapseElChildren( el )
+    },
+
+    '.composer-node__expand-children': el => {
+      expandElChildren( el )
     }
+  }
+
+  const clickSelectors = Object.keys( clickHandler )
+
+  const handleClick = el => {
+    const selector = clickSelectors.find( sel => el.matches( sel ) )
+
+    if( selector ){
+      el = clickHandler[ selector ]( el )
+    }
+
+    if( el )
+      handleClick( el )
+  }
+
+  composerView.addEventListener( 'click', e => {
+    handleClick( e.target )
   })
 
   const toggleEl = el => {
@@ -67,6 +105,29 @@ const Composer = ( tree, renderNode, options ) => {
     const isCollapsed = el.parentNode.matches( '.composer-node--collapsed, .composer-node__children--collapsed' )
 
     toggle( node, key, isCollapsed )
+    updateNode( node )
+  }
+
+  const collapseElChildren = el => {
+    const containerElNode = find.containerElNode( el )
+    const children = containerElNode.getChildren()
+
+    children.forEach( node => {
+      toggle( node, 'isCollapsed', true )
+    })
+
+    updateNode( containerElNode )
+  }
+
+  const expandElChildren = el => {
+    const containerElNode = find.containerElNode( el )
+    const children = containerElNode.getChildren()
+
+    children.forEach( node => {
+      toggle( node, 'isCollapsed', false )
+    })
+
+    updateNode( containerElNode )
   }
 
   const removeEl = el => {
@@ -88,6 +149,10 @@ const Composer = ( tree, renderNode, options ) => {
     nodeEl.remove()
 
     updateNode( parentNode )
+  }
+
+  const toggle = ( node, key, isCollapsed ) => {
+    node.meta( key, isCollapsed )
   }
 
   const updateNode = node => {
@@ -117,13 +182,6 @@ const Composer = ( tree, renderNode, options ) => {
   const drakeDeps = { dragula, updateNode, find, ondrop }
 
   const drake = Drake( drakeDeps )
-
-  const toggle = ( node, key, isCollapsed ) => {
-    node.meta( key, isCollapsed )
-
-    if( !isCollapsed )
-      updateNode( node )
-  }
 
   const api = {
     remove: () => composerView.innerHTML = '',

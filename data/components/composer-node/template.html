@@ -1,7 +1,9 @@
 <div class="composer-node" data-tag="nodeTag">
   <header class="composer-node__toolbar">
     <span class="composer-node__title" data-text="title"></span>
-    <span class="composer-node__delete"><i class="fa fa-trash"></i></span>
+    <ul class="composer-node__actions">
+      <li><span class="composer-node__action composer-node__delete"><i class="fa fa-trash fa-lg"></i></span></li>
+    </ul>
   </header>
 
   <div class="composer-node__main">
@@ -13,9 +15,12 @@
       <div class="composer-node__children" data-tag="childWrapperTag">
         <header class="composer-node__toolbar">
           <span class="composer-node__title" data-text="childrenTitle"></span>
+          <ul class="composer-node__actions">
+            <li><span class="composer-node__action composer-node__collapse-children"><i class="fa fa-minus-square fa-lg"></i></span></li>
+            <li><span class="composer-node__action composer-node__expand-children"><i class="fa fa-plus-square fa-lg"></i></span></li>
+          </ul>
         </header>
-        <ul data-dragsource="composer">
-        </ul>
+        <ul data-dragsource="composer"></ul>
       </div>
     </fragment>
   </div>
