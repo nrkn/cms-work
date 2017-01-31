@@ -29,6 +29,7 @@
     "mtype-node-level": "^0.1.0",
     "mtype-node-localstorage": "^0.1.0",
     "mtype-tv4": "^0.1.0",
+    "node-sass": "^4.4.0",
     "pify": "^2.3.0"
   },
   "devDependencies": {
