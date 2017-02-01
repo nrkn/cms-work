@@ -1,5 +1,6 @@
 cache/*
 uploads/*
+static/cache/*
 scratch
 
 #Configuration - API keys etc

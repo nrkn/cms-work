@@ -6,6 +6,13 @@
 
 html {
   font-family: sans-serif;
+  font-size: 16pt;
+}
+
+body {
+  background: #fff;
+  color: #000;
+  padding: 1rem;
 }
 
 .gu-unselectable {
@@ -59,15 +66,13 @@ html {
 $lighten-hue: 40deg;
 $darken-hue: 210deg;
 
-$adjust-hue: 5%;
+$adjust-hue: 20%;
 $adjust-saturation: 5%;
 $adjust-lightness: 5%;
 
 $adjust-hue-gradient-highlight: $adjust-hue / 2;
 $adjust-saturation-gradient-highlight: $adjust-saturation / 2;
 $adjust-lightness-gradient-highlight: $adjust-lightness / 2;
-
-$adjust-hue-border-highlight: $adjust-hue * -1;
 
 @function shift-hue( $from-hue, $to-hue, $amount ){
   $from-color: hsl( $from-hue, 100%, 50% );
@@ -123,6 +128,7 @@ $adjust-hue-border-highlight: $adjust-hue * -1;
     $adjust-saturation
   );
 
+  background: $base-color;
   background: linear-gradient(
     to bottom,
     $gradient-highlight,
