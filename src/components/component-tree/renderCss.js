@@ -1,7 +1,7 @@
 'use strict'
 
 const RenderCss = dependencies => {
-  const { styles } = dependencies
+  const { styles, transformCss } = dependencies
 
   const renderCss = root => {
     let css = ''
@@ -24,6 +24,9 @@ const RenderCss = dependencies => {
         css += ' '
       }
     })
+
+    if( typeof transformCss === 'function' )
+      css = transformCss( css )
 
     return css
   }

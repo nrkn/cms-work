@@ -1,5 +1,6 @@
 'use strict'
 
+const sass = require( 'node-sass' )
 const Templates = require( '../../templates' )
 const RenderComponent = require( '../../components/component-tree/renderNode' )
 
@@ -8,6 +9,10 @@ const templateEngineMiddleware = ( req, res, next ) => {
     return next()
 
   const { dependencies } = req
+
+  dependencies.transformCss = css =>
+    sass.renderSync({ data: css }).css.toString()
+
   const templates = Templates( dependencies )
   const renderComponent = RenderComponent( dependencies )
 

@@ -1,6 +1,5 @@
 'use strict'
 
-const sass = require( 'node-sass' )
 const FileTree = require( '../fileTree' )
 const readFiles = require( '../readFiles' )
 
@@ -9,14 +8,6 @@ const readComponents = componentPath =>
     .then( FileTree.populateData )
     .then( tree => {
       const components = {}
-
-      const mapperPredicates = {
-        style: value => value.name === 'style.scss',
-      }
-
-      const mappers = {
-        style: data => sass.renderSync({ data })
-      }
 
       const predicates = {
         style: value => value.name === 'style.css' || value.name === 'style.scss',
@@ -39,19 +30,8 @@ const readComponents = componentPath =>
           const propertyName = Object.keys( predicates )
             .find( key => predicates[ key ]( value ) )
 
-          if( propertyName ){
-            let data = value.data
-
-            const hasMapper =
-              propertyName in mapperPredicates &&
-              mapperPredicates[ propertyName ]( value )
-
-            if( hasMapper )
-              data = mappers[ propertyName ]( data )
-
-            component[ propertyName ] = data
-          }
-
+          if( propertyName )
+            component[ propertyName ] = value.data
         }
       })
 

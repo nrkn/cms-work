@@ -3,46 +3,19 @@
   font-size: 1rem;
 }
 
-/*
-  primary hue is 210
-    all greys used as a base color should bias slightly towards this hue
-
-  color schemes
-    based on a base hsl
-    background:
-      start = brighter( desaturated( yellower( base ) ) )
-      middle = base
-      end = darker( saturated( bluer( base ) ) )
-    border:
-      highlight = brighter( desaturated( yellower( start ) ) )
-      shadow = darker( saturated( bluer( background end ) ) )
-    shadow:
-      box = black with alpha
-      text = darker( saturated( bluer( border shadow ) ) )
-
-    blue = 210
-    yellow = 40
-    adjustments when scale 100 = 5
-    adjustments for color = 18
-
-    try to use colors that have some wriggle room for increasing/decreasing
-    both saturation and lightness, eg don't start too close to 0% or 100%
-*/
+$toolbar-color: hsl( 210, 15%, 40% );
+$toolbar-children-color: hsl( 210, 85%, 37% );
+$toolbar-empty-color: hsl( 210, 10%, 88% );
+$main-color: hsl( 210, 5%, 95% );
+$children-color: hsl( 210, 95%, 95% );
+$action-color: hsl(210, 85%, 60% );
+$action-delete-color: hsl( 0, 83%, 50% );
 
 .composer-node__toolbar {
   min-height: 3rem;
 
   color: hsl( 210, 10%, 95% );
-  background: linear-gradient(
-    to bottom,
-    hsl( 201, 13%, 43% ),
-    hsl( 210, 15%, 40% ),
-    hsl( 210, 20%, 35% )
-  );
-  border: 0.0625rem solid hsl( 192, 10%, 45% );
-  border-bottom: 0.0625rem solid hsl( 210, 25%, 30% );
-  border-right: 0.0625rem solid hsl( 210, 25%, 30% );
-  text-shadow: 0.0625rem 0.0625rem 0 hsl( 210, 30%, 25% );
+  @include colorize-el( $toolbar-color );
   box-shadow: 0.125rem 0.125rem 0.5rem rgba( 0, 0, 0, 0.25 );
 }
 
@@ -52,31 +25,13 @@
 }
 
 .composer-node__children > .composer-node__toolbar {
-  background: linear-gradient(
-    to bottom,
-    hsl( 201, 83%, 40% ),
-    hsl( 210, 85%, 37% ),
-    hsl( 210, 90%, 32% )
-  );
-  border: 0.0625rem solid hsl( 192, 80%, 42% );
-  border-bottom: 0.0625rem solid hsl( 210, 95%, 27% );
-  border-right: 0.0625rem solid hsl( 210, 95%, 27% );
-  text-shadow: 0.0625rem 0.0625rem 0 hsl( 210, 100%, 22% );
+  @include colorize-el( $toolbar-children-color );
   box-shadow: 0.125rem 0.125rem 0.5rem rgba( 0, 0, 0, 0.25 );
 }
 
 .composer-node--empty > .composer-node__toolbar {
   color: hsl( 210, 85%, 15% );
-  background: linear-gradient(
-    to bottom,
-    hsl( 201, 8%, 92% ),
-    hsl( 210, 10%, 88% ),
-    hsl( 210, 15%, 83% )
-  );
-  border: 0.0625rem solid hsl( 192, 5%, 93% );
-  border-bottom: 0.0625rem solid hsl( 210, 20%, 78% );
-  border-right: 0.0625rem solid hsl( 210, 20%, 78% );
-  text-shadow: 0.0625rem 0.0625rem 0 hsl( 210, 25%, 73% );
+  @include colorize-el( $toolbar-empty-color );
   box-shadow: 0.125rem 0.125rem 0.5rem rgba( 0, 0, 0, 0.25 );
 }
 
@@ -103,12 +58,7 @@
   margin: 0.25rem;
   margin-top: 0;
 
-  background: linear-gradient(
-    to bottom,
-    hsl( 201, 3%, 98% ),
-    hsl( 210, 5%, 95% ),
-    hsl( 210, 10%, 90% )
-  );
+  @include colorize-el-background( $main-color );
   box-shadow: 0.125rem 0.125rem 0.5rem rgba( 0, 0, 0, 0.25 );
 }
 
@@ -124,12 +74,7 @@
 .composer-node__children {
   overflow: hidden;
 
-  background: linear-gradient(
-    to bottom,
-    hsl( 201, 93%, 98% ),
-    hsl( 210, 95%, 95% ),
-    hsl( 210, 100%, 90% )
-  );
+  @include colorize-el-background( $children-color );
   box-shadow: inset 0.125rem 0.125rem 0.5rem rgba( 0, 0, 0, 0.25 );
 }
 
@@ -171,16 +116,7 @@
   cursor: default;
 
   color: hsl( 210, 5%, 95% );
-  background: linear-gradient(
-    to bottom,
-    hsl( 201, 83%, 63% ),
-    hsl(210, 85%, 60% ),
-    hsl( 210, 90%, 55% )
-  );
-  border: 0.0625rem solid hsl( 192, 80%, 65% );
-  border-bottom: 0.0625rem solid hsl( 210, 95%, 50% );
-  border-right: 0.0625rem solid hsl( 210, 95%, 50% );
-  text-shadow: 0.0625rem 0.0625rem 0 hsl( 210, 100%, 45% );
+  @include colorize-el( $action-color );
   box-shadow: 0.0625rem 0.0625rem 0.25rem rgba( 0, 0, 0, 0.25 );
 }
 
@@ -194,15 +130,6 @@
 
 .composer-node__delete {
   color: hsl( 0, 5%, 95% );
-  background: linear-gradient(
-    to bottom,
-    hsl( 9, 80%, 53% ),
-    hsl( 0, 83%, 50% ),
-    hsl( 342, 88%, 45% )
-  );
-  border: 0.0625rem solid hsl( 18, 78%, 55% );
-  border-bottom: 0.0625rem solid hsl( 324, 93%, 40% );
-  border-right: 0.0625rem solid hsl( 324, 93%, 40% );
-  text-shadow: 0.0625rem 0.0625rem 0 hsl( 306, 98%, 35% );
+  @include colorize-el( $action-delete-color );
   box-shadow: 0.0625rem 0.0625rem 0.25rem rgba( 0, 0, 0, 0.25 );
 }
