@@ -10,12 +10,6 @@ $main-color: hsl( 210, 5%, 95% );
 $children-color: hsl( 210, 95%, 95% );
 $action-color: hsl(210, 85%, 60% );
 $action-delete-color: hsl( 0, 83%, 50% );
-$progress-color: hsl( 210, 5%, 95% );
-$progress-bar-color: hsl( 150, 85%, 40% );
-
-$progress-width: 20rem;
-$progress-height: 4rem;
-$progress-padding: 1rem;
 
 .composer-node__toolbar {
   min-height: 3rem;
@@ -140,61 +134,3 @@ $progress-padding: 1rem;
   box-shadow: $small-shadow;
 }
 
-.composer__progress {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: $progress-width;
-  height: $progress-height;
-  margin-left: $progress-width / -2;
-  margin-top: $progress-height / -2;
-  padding: $progress-padding;
-
-  @include colorize-el( $progress-color );
-  box-shadow: $large-shadow;
-}
-
-.composer__progress > progress {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-
-  width: $progress-width - $progress-padding * 2;
-  height: $progress-height - $progress-padding * 2;
-
-  border: none;
-  background: #fff;
-  color: $progress-bar-color;
-  box-shadow: inset $tiny-shadow;
-}
-
-.composer__progress > progress::-webkit-progress-bar {
-  border: none;
-  background: #fff;
-  box-shadow: inset $tiny-shadow;
-}
-
-.composer__progress > progress::-webkit-progress-value {
-  @include colorize-el( $progress-bar-color );
-}
-
-.composer__progress > progress::-moz-progress-bar {
-  @include colorize-el( $progress-bar-color );
-}
-
-.composer__progress--hidden {
-  display: none;
-}
-
-.composer__modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba( 255, 255, 255, 0.5 );
-}
-
-.composer__modal--hidden {
-  display: none;
-}

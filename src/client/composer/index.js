@@ -2,7 +2,9 @@
 
 const dragula = require( 'dragula' )
 const morphdom = require( 'morphdom' )
-const IdMap = require( './idmap' )
+const IdMap = require( '../idmap' )
+const enforceType = require( '../enforceType' )
+const queueTasks = require( '../queueTasks' )
 const Drake = require( './drake' )
 const Find = require( './find' )
 
@@ -11,48 +13,6 @@ const defaultOptions = {
   dragula,
   morphdom,
   selector: '.composer'
-}
-
-const validateObj = ( obj, name, typeName ) => {
-  if( typeof obj !== typeName )
-    throw new Error( `A ${ name } ${ typeName } is required` )
-}
-
-const progressContainerEl = document.querySelector( '.composer__progress' )
-const progressEl = progressContainerEl.querySelector( 'progress' )
-const modalEl = document.querySelector( '.composer__modal' )
-
-const bigTask = ( items, fn ) => {
-  const max = items.length
-  let current = 0
-
-  modalEl.classList.remove( 'composer__modal--hidden' )
-
-  progressContainerEl.classList.remove( 'composer__progress--hidden' )
-  progressEl.setAttribute( 'max', max )
-  progressEl.setAttribute( 'value', current )
-
-  items = items.slice()
-
-  const next = () => {
-    if( items.length === 0 ){
-      modalEl.classList.add( 'composer__modal--hidden' )
-      progressContainerEl.classList.add( 'composer__progress--hidden' )
-
-      return
-    }
-
-    const item = items.shift()
-
-    fn( item )
-    current++
-    progressEl.setAttribute( 'value', current )
-    progressEl.innerHTML = `${ current } / ${ max }`
-
-    window.setTimeout( next, 0 )
-  }
-
-  next()
 }
 
 /*
@@ -69,9 +29,9 @@ const Composer = ( tree, renderNode, options ) => {
 
   const { document, dragula, morphdom, selector } = options
 
-  validateObj( document, 'document', 'object' )
-  validateObj( renderNode, 'renderNode', 'function' )
-  validateObj( selector, 'selector', 'string' )
+  enforceType( document, 'document', 'object' )
+  enforceType( renderNode, 'renderNode', 'function' )
+  enforceType( selector, 'selector', 'string' )
 
   const idMap = IdMap( tree )
   const find = Find( idMap )
@@ -151,7 +111,7 @@ const Composer = ( tree, renderNode, options ) => {
     const containerElNode = find.containerElNode( el )
     const children = containerElNode.getChildren().slice()
 
-    bigTask( children, node => {
+    queueTasks( children, node => {
       toggle( node, 'isCollapsed', true )
       updateNode( node )
     })
@@ -161,7 +121,7 @@ const Composer = ( tree, renderNode, options ) => {
     const containerElNode = find.containerElNode( el )
     const children = containerElNode.getChildren().slice()
 
-    bigTask( children, node => {
+    queueTasks( children, node => {
       toggle( node, 'isCollapsed', false )
       updateNode( node )
     })

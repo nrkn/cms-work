@@ -175,3 +175,69 @@ $large-shadow: 0.25rem 0.25rem 1rem rgba( 0, 0, 0, 0.25 );
 $medium-shadow: 0.125rem 0.125rem 0.5rem rgba( 0, 0, 0, 0.25 );
 $small-shadow: 0.0625rem 0.0625rem 0.25rem rgba( 0, 0, 0, 0.25 );
 $tiny-shadow: 0.03125rem 0.03125rem 0.125rem rgba( 0, 0, 0, 0.25 );
+
+$progress-width: 20rem;
+$progress-height: 4rem;
+$progress-padding: 1rem;
+
+$progress-color: hsl( 210, 5%, 95% );
+$progress-bar-color: hsl( 150, 85%, 40% );
+
+.progress {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: $progress-width;
+  height: $progress-height;
+  margin-left: $progress-width / -2;
+  margin-top: $progress-height / -2;
+  padding: $progress-padding;
+
+  @include colorize-el( $progress-color );
+  box-shadow: $large-shadow;
+}
+
+.progress > progress {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  width: $progress-width - $progress-padding * 2;
+  height: $progress-height - $progress-padding * 2;
+
+  border: none;
+  background: #fff;
+  color: $progress-bar-color;
+  box-shadow: inset $tiny-shadow;
+}
+
+.progress > progress::-webkit-progress-bar {
+  border: none;
+  background: #fff;
+  box-shadow: inset $tiny-shadow;
+}
+
+.progress > progress::-webkit-progress-value {
+  @include colorize-el( $progress-bar-color );
+}
+
+.progress > progress::-moz-progress-bar {
+  @include colorize-el( $progress-bar-color );
+}
+
+.progress--hidden {
+  display: none;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba( 255, 255, 255, 0.5 );
+}
+
+.modal--hidden {
+  display: none;
+}
