@@ -31,7 +31,7 @@ const isEmptyPlugin = fn => {
 const Tree = TreeFactory( isEmptyPlugin )
 
 const componentDependencies = require( '../../dist/dependencies.json' )
-const RenderNode = require( '../composer-tree/renderNode' )
+const RenderNode = require( '../render-composer/renderNode' )
 const renderNode = RenderNode( componentDependencies )
 
 const treeRaw = componentDependencies.datas[ 'mojule-fs' ]

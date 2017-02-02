@@ -1,40 +1,40 @@
 {
   "value": {
     "nodeType": "toolbar",
-    "name": "Composer"
+    "title": "Composer"
   },
   "children": [
     {
       "value": {
         "nodeType": "toolbar-group",
-        "name": "File"
+        "title": "File"
       },
       "children": [
         {
           "value": {
             "nodeType": "toolbar-button",
-            "name": "New"
+            "title": "New"
           },
           "children": []
         },
         {
           "value": {
             "nodeType": "toolbar-button",
-            "name": "Open"
+            "title": "Open"
           },
           "children": []
         },
         {
           "value": {
             "nodeType": "toolbar-button",
-            "name": "Save"
+            "title": "Save"
           },
           "children": []
         },
         {
           "value": {
             "nodeType": "toolbar-button",
-            "name": "Publish"
+            "title": "Publish"
           },
           "children": []
         }
@@ -43,33 +43,33 @@
     {
       "value": {
         "nodeType": "toolbar-group",
-        "name": "Create"
+        "title": "Create"
       },
       "children": [
         {
           "value": {
             "nodeType": "toolbar-group",
-            "name": "Container"
+            "title": "Container"
           },
           "children": [
             {
               "value": {
                 "nodeType": "toolbar-button",
-                "name": "Box"
+                "title": "Box"
               },
               "children": []
             },
             {
               "value": {
                 "nodeType": "toolbar-button",
-                "name": "Grid"
+                "title": "Grid"
               },
               "children": []
             },
             {
               "value": {
                 "nodeType": "toolbar-button",
-                "name": "Columns"
+                "title": "Columns"
               },
               "children": []
             }
@@ -78,27 +78,27 @@
         {
           "value": {
             "nodeType": "toolbar-group",
-            "name": "Leaf"
+            "title": "Leaf"
           },
           "children": [
             {
               "value": {
                 "nodeType": "toolbar-button",
-                "name": "Header"
+                "title": "Header"
               },
               "children": []
             },
             {
               "value": {
                 "nodeType": "toolbar-button",
-                "name": "Text"
+                "title": "Text"
               },
               "children": []
             },
             {
               "value": {
                 "nodeType": "toolbar-button",
-                "name": "Image"
+                "title": "Image"
               },
               "children": []
             }
@@ -109,14 +109,14 @@
     {
       "value": {
         "nodeType": "toolbar-group",
-        "name": "Edit"
+        "title": "Edit"
       },
       "children": []
     },
     {
       "value": {
         "nodeType": "toolbar-group",
-        "name": "View"
+        "title": "View"
       },
       "children": []
     }

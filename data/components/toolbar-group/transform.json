@@ -1,0 +1,28 @@
+{
+  "nodeTag": [
+    {
+      "$if": [
+        { "$value": "isCollapsed" },
+        { "addClass": "toolbar-group--collapsed" }
+      ]
+    },
+    {
+      "$if": [
+        { "$value": "isEmpty" },
+        { "addClass": "toolbar-group--empty" }
+      ]
+    },
+    {
+      "attr": [ "id", { "$value": "id" } ]
+    },
+    {
+      "attr": [ "data-treeType", { "$value": "treeType" } ]
+    },
+    {
+      "attr": [ "data-nodeType", { "$value": "nodeType" } ]
+    },
+    {
+      "attr": [ "data-depth", { "$value": "depth" } ]
+    }
+  ]
+}
