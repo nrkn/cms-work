@@ -34,7 +34,11 @@ const componentDependencies = require( '../../dist/dependencies.json' )
 const RenderNode = require( '../composer-tree/renderNode' )
 const renderNode = RenderNode( componentDependencies )
 
-const treeRaw = componentDependencies.datas[ 'data-small' ]
+const treeRaw = componentDependencies.datas[ 'mojule-fs' ]
 const tree = Tree( treeRaw )
+
+const modulesNodes = tree.findAll( n => n.value().name === 'node_modules' )
+
+modulesNodes.forEach( n => n.remove() )
 
 const composerApi = Composer( tree, renderNode )

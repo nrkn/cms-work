@@ -18,6 +18,43 @@ const validateObj = ( obj, name, typeName ) => {
     throw new Error( `A ${ name } ${ typeName } is required` )
 }
 
+const progressContainerEl = document.querySelector( '.composer__progress' )
+const progressEl = progressContainerEl.querySelector( 'progress' )
+const modalEl = document.querySelector( '.composer__modal' )
+
+const bigTask = ( items, fn ) => {
+  const max = items.length
+  let current = 0
+
+  modalEl.classList.remove( 'composer__modal--hidden' )
+
+  progressContainerEl.classList.remove( 'composer__progress--hidden' )
+  progressEl.setAttribute( 'max', max )
+  progressEl.setAttribute( 'value', current )
+
+  items = items.slice()
+
+  const next = () => {
+    if( items.length === 0 ){
+      modalEl.classList.add( 'composer__modal--hidden' )
+      progressContainerEl.classList.add( 'composer__progress--hidden' )
+
+      return
+    }
+
+    const item = items.shift()
+
+    fn( item )
+    current++
+    progressEl.setAttribute( 'value', current )
+    progressEl.innerHTML = `${ current } / ${ max }`
+
+    window.setTimeout( next, 0 )
+  }
+
+  next()
+}
+
 /*
   TODO
 
@@ -43,7 +80,7 @@ const Composer = ( tree, renderNode, options ) => {
 
   const initialDom = renderNode( tree )
 
-  morphdom( composerView, initialDom.stringify() )
+  composerView.innerHTML = initialDom.stringify()
 
   /*
    TODO the functions should take the actual el node, not the clicked node, any
@@ -85,10 +122,12 @@ const Composer = ( tree, renderNode, options ) => {
 
     if( el )
       handleClick( el )
+
+    return false
   }
 
   composerView.addEventListener( 'click', e => {
-    handleClick( e.target )
+    return handleClick( e.target )
   })
 
   const toggleEl = el => {
@@ -110,24 +149,22 @@ const Composer = ( tree, renderNode, options ) => {
 
   const collapseElChildren = el => {
     const containerElNode = find.containerElNode( el )
-    const children = containerElNode.getChildren()
+    const children = containerElNode.getChildren().slice()
 
-    children.forEach( node => {
+    bigTask( children, node => {
       toggle( node, 'isCollapsed', true )
+      updateNode( node )
     })
-
-    updateNode( containerElNode )
   }
 
   const expandElChildren = el => {
     const containerElNode = find.containerElNode( el )
-    const children = containerElNode.getChildren()
+    const children = containerElNode.getChildren().slice()
 
-    children.forEach( node => {
+    bigTask( children, node => {
       toggle( node, 'isCollapsed', false )
+      updateNode( node )
     })
-
-    updateNode( containerElNode )
   }
 
   const removeEl = el => {
