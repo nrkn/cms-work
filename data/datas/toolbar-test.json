@@ -6,34 +6,34 @@
   "children": [
     {
       "value": {
-        "nodeType": "toolbarFolder",
+        "nodeType": "toolbar-group",
         "name": "File"
       },
       "children": [
         {
           "value": {
-            "nodeType": "toolbarButton",
+            "nodeType": "toolbar-button",
             "name": "New"
           },
           "children": []
         },
         {
           "value": {
-            "nodeType": "toolbarButton",
+            "nodeType": "toolbar-button",
             "name": "Open"
           },
           "children": []
         },
         {
           "value": {
-            "nodeType": "toolbarButton",
+            "nodeType": "toolbar-button",
             "name": "Save"
           },
           "children": []
         },
         {
           "value": {
-            "nodeType": "toolbarButton",
+            "nodeType": "toolbar-button",
             "name": "Publish"
           },
           "children": []
@@ -42,33 +42,33 @@
     },
     {
       "value": {
-        "nodeType": "toolbarFolder",
+        "nodeType": "toolbar-group",
         "name": "Create"
       },
       "children": [
         {
           "value": {
-            "nodeType": "toolbarFolder",
+            "nodeType": "toolbar-group",
             "name": "Container"
           },
           "children": [
             {
               "value": {
-                "nodeType": "toolbarButton",
+                "nodeType": "toolbar-button",
                 "name": "Box"
               },
               "children": []
             },
             {
               "value": {
-                "nodeType": "toolbarButton",
+                "nodeType": "toolbar-button",
                 "name": "Grid"
               },
               "children": []
             },
             {
               "value": {
-                "nodeType": "toolbarButton",
+                "nodeType": "toolbar-button",
                 "name": "Columns"
               },
               "children": []
@@ -77,27 +77,27 @@
         },
         {
           "value": {
-            "nodeType": "toolbarFolder",
+            "nodeType": "toolbar-group",
             "name": "Leaf"
           },
           "children": [
             {
               "value": {
-                "nodeType": "toolbarButton",
+                "nodeType": "toolbar-button",
                 "name": "Header"
               },
               "children": []
             },
             {
               "value": {
-                "nodeType": "toolbarButton",
+                "nodeType": "toolbar-button",
                 "name": "Text"
               },
               "children": []
             },
             {
               "value": {
-                "nodeType": "toolbarButton",
+                "nodeType": "toolbar-button",
                 "name": "Image"
               },
               "children": []
@@ -108,14 +108,14 @@
     },
     {
       "value": {
-        "nodeType": "toolbarFolder",
+        "nodeType": "toolbar-group",
         "name": "Edit"
       },
       "children": []
     },
     {
       "value": {
-        "nodeType": "toolbarFolder",
+        "nodeType": "toolbar-group",
         "name": "View"
       },
       "children": []
