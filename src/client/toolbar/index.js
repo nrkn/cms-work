@@ -25,7 +25,56 @@ const Toolbar = ( tree, renderNode, options ) => {
 
   view.innerHTML = dom.stringify()
 
-  //events here
+  /*
+   TODO the functions should take the actual el node, not the clicked node, any
+   logic inside the various fns below for finding the el node should be moved
+   here
+  */
+  const clickHandler = {
+    '.toolbar-group > header > span': el => el.parentNode,
+    '.toolbar-group > header': el => {
+      toggleEl( el )
+    }
+  }
+
+  const clickSelectors = Object.keys( clickHandler )
+
+  const handleClick = el => {
+    const selector = clickSelectors.find( sel => el.matches( sel ) )
+
+    if( selector ){
+      el = clickHandler[ selector ]( el )
+    }
+
+    if( el )
+      handleClick( el )
+
+    return false
+  }
+
+  view.addEventListener( 'click', e => {
+    return handleClick( e.target )
+  })
+
+  const toggleEl = el => {
+    const groupEl = el.closest( '.toolbar-group' )
+
+    if( !groupEl.matches( '.toolbar-group--collapsed' ))
+      return
+
+    const depth = groupEl.dataset.depth
+    const parentGroup = groupEl.parentNode.closest( '.toolbar-group' )
+
+    const siblings = Array.from(
+      parentGroup.querySelectorAll( `.toolbar-group[data-depth="${depth}"]` )
+    ).filter( sibling => sibling !== groupEl )
+
+    siblings.forEach( sibling => {
+      sibling.classList.add( 'toolbar-group--collapsed' )
+    })
+
+    groupEl.classList.remove( 'toolbar-group--collapsed' )
+  }
 
   const api = {
     remove: () => view.innerHTML = '',

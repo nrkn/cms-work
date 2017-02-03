@@ -17,9 +17,25 @@ const groupToModel = ( node, options ) => {
   const nodeType = node.nodeType()
   const title = value.name || ''
 
+  let isFirstChild = false
+  if( depth === 1 ){
+    const parentNode = node.getParent()
+    const parentFirstChild = parentNode.firstChild()
+
+    if( parentFirstChild ){
+      isFirstChild = id === parentFirstChild.id()
+    }
+  }
+
   let isCollapsed = node.meta( 'isCollapsed' )
 
-  isCollapsed = typeof isCollapsed === 'boolean' ? isCollapsed : depth > 0
+  /*
+    unless the user has collapsed the node, the first child at depth 1 is
+    always expanded
+  */
+  if( typeof isCollapsed !== 'boolean' ){
+    isCollapsed = depth > 0 && !isFirstChild
+  }
 
   const model = {
     id, title, treeType, nodeType, depth, isCollapsed
