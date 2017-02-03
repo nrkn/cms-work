@@ -1,0 +1,16 @@
+{
+  "nodeTag": [
+    {
+      "attr": [ "id", { "$value": "id" } ]
+    },
+    {
+      "attr": [ "data-treeType", { "$value": "treeType" } ]
+    },
+    {
+      "attr": [ "data-nodeType", { "$value": "nodeType" } ]
+    },
+    {
+      "attr": [ "data-depth", { "$value": "depth" } ]
+    }
+  ]
+}

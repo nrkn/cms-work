@@ -41,6 +41,11 @@ const initApp = ( dependencies, resolve ) => {
 
     const documentNode = Tree.createRoot( documentValue )
 
+    const toolbarValue = { name: 'toolbar' }
+    const toolbarNode = documentNode.createNode( toolbarValue )
+
+    documentNode.append( toolbarNode )
+
     const composerValue = { name: 'composer' }
     const composerNode = documentNode.createNode( composerValue )
 

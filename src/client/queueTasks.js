@@ -27,11 +27,12 @@ const queueTasks = ( items, fn ) => {
     const item = items.shift()
 
     fn( item )
+
     current++
     progressEl.setAttribute( 'value', current )
     progressEl.innerHTML = `${ current } / ${ max }`
 
-    window.setTimeout( next, 0 )
+    window.setImmediate( next )
   }
 
   next()
