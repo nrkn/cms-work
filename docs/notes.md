@@ -27,10 +27,25 @@
 
 ## 1tree
 
-- `registerNodeType`
-- `equals`
+- `equals` - implementation is a.get() === b.get()
 - `indexOf`
-- are children sliced atm in default adapter?
+- `slug` - returns a unique-within-siblings string for building paths. The
+  default implementation is simply indexOf - so paths would look like 0/1/2/0
+  etc.
+- `getPath`, `findForPath` (naming?) - uses slugs
+- are children sliced atm in default adapter? (don't think so - performance)
+- consider making class/tags a base feature and not just in dom - classes are
+  effectively the same thing as tags!
+- `schema` - add to base as an empty schema `{}` that will always validate true
+- `validate` - using schema
+- `attributes` - again, move from dom to support all - attribute values always
+  need to be strings for serialization, this allows eg form posts, various
+  scenarios - *if* the schema is present, we know how to map these strings to
+  and from their true data types
+- `dataMap` - may need to be on dom instead - uses a transform map(?) and schema
+  to allow properties in the `value: {}` object to be mapped to data- attributes
+  eg the use of attributes that don't appear in the `attr: {}` object
+- `registerNodeType` - yes, no, maybe - other ways to deal with this?
 
 ### 1tree wrap-nodes plugin
 
