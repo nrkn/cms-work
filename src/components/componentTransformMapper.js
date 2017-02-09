@@ -1,7 +1,7 @@
 'use strict'
 
-const treeSchema = require( '1tree-schema' )
-const treeJson = require( '1tree-json' )
+const SchemaTree = require( '1tree-schema' )
+const JsonTree = require( '1tree-json' )
 const transformMapper = require( 'mojule-transform' )
 const utils = require( 'mojule-utils' )
 
@@ -10,7 +10,7 @@ const { clone } = utils
 const mapComponents = ( dependencies, componentName, model ) => {
   model = clone( model )
 
-  const modelTree = treeJson.toTree( model )
+  const modelTree = JsonTree( model )
 
   const { componentNames, schemas, transforms } = dependencies
 
@@ -32,7 +32,7 @@ const mapComponents = ( dependencies, componentName, model ) => {
     return model
   }
 
-  const componentSchemaTree = treeSchema.toTree( componentSchema )
+  const componentSchemaTree = SchemaTree( componentSchema )
   const refComponents = findRefComponents( componentSchemaTree )
 
   refComponents.forEach( refComponentNode => {
@@ -42,21 +42,21 @@ const mapComponents = ( dependencies, componentName, model ) => {
 
     if( !componentTransform ) return
 
-    const refNodePath = treeSchema.pathFromNode( refComponentNode )
-    const modelNode = treeJson.nodeFromPath( modelTree, refNodePath )
+    const refNodePath = refComponentNode.getPath()
+    const modelNode = modelTree.atPath( refNodePath )
 
     if( !modelNode ) return
 
     const modelNodeValue = modelNode.value()
 
     if( value.arrayItem ){
-      const modelArray = treeJson.toJson( modelNode )
+      const modelArray = modelNode.toJson()
 
       const transformed = modelArray.map( item =>
         mapComponents( dependencies, componentName, item )
       )
 
-      const transformedNode = treeJson.toTree( transformed )
+      const transformedNode = JsonTree( transformed )
       const modelNodeParent = modelNode.getParent()
 
       if( modelNodeValue.propertyName ){
@@ -71,7 +71,7 @@ const mapComponents = ( dependencies, componentName, model ) => {
     }
   })
 
-  model = treeJson.toJson( modelTree )
+  model = JsonTree( modelTree )
 
   if( transform )
     model = transformMapper( model, transform )
