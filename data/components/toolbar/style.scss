@@ -14,8 +14,11 @@ $toolbar-button-color: hsl(210, 85%, 60% );
 }
 
 .toolbar-group {
+  /*
   display: flex;
   flex-direction: row;
+  */
+  display: inline-block;
 
   padding: 0.25rem;
 
@@ -28,10 +31,15 @@ $toolbar-button-color: hsl(210, 85%, 60% );
 }
 
 .toolbar-group > header {
-  display: flex;
+  //display: flex;
+  display: block;
 
   padding-right: 0.25rem;
   align-items: center;
+}
+
+.toolbar-group[data-depth="0"] > header {
+  display: none;
 }
 
 .toolbar-group__children {

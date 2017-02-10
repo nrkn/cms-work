@@ -31,7 +31,9 @@ const Toolbar = ( tree, renderNode, options ) => {
    here
   */
   const clickHandler = {
-    '.toolbar-group > header > span': el => el.parentNode,
+    '.toolbar-group > header > span': el => {
+      toggleEl( el.parentNode )
+    },
     '.toolbar-group > header': el => {
       toggleEl( el )
     }
@@ -43,13 +45,9 @@ const Toolbar = ( tree, renderNode, options ) => {
     const selector = clickSelectors.find( sel => el.matches( sel ) )
 
     if( selector ){
-      el = clickHandler[ selector ]( el )
+      clickHandler[ selector ]( el )
+      return false
     }
-
-    if( el )
-      handleClick( el )
-
-    return false
   }
 
   view.addEventListener( 'click', e => {

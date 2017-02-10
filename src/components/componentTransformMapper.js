@@ -2,92 +2,15 @@
 
 const SchemaTree = require( '1tree-schema' )
 const JsonTree = require( '1tree-json' )
-//const transformMapper = require( 'mojule-transform' )
+const transformMapper = require( 'mojule-transform' )
 const utils = require( 'mojule-utils' )
 
 const { clone } = utils
 
-// old versions for debugging
-const oldSchemaTree = require( '../../zzz scratch/old-versions/1tree-schema' )
-const oldJsonTree = require( '../../zzz scratch/old-versions/1tree-json' )
-const runOld = false
-
-let transformMapper
-if( runOld ){
-  transformMapper = require( '../../zzz scratch/old-versions/mojule-transform' )
-} else {
-  transformMapper = require( 'mojule-transform' )
-}
-
-const toJsonTree = obj => {
-  if( runOld ){
-    return oldJsonTree.toTree( obj )
-  } else {
-    return JsonTree( obj )
-  }
-}
-
-const fromJsonTree = tree => {
-  if( runOld ){
-    return oldJsonTree.toJson( tree )
-  } else {
-    return tree.toJson()
-  }
-}
-
-const toSchemaTree = obj => {
-  if( runOld ){
-    return oldSchemaTree.toTree( obj )
-  } else {
-    return SchemaTree( obj )
-  }
-}
-
-const fromSchemaTree = tree => {
-  if( runOld ){
-    return oldSchemaTree.toJson( tree )
-  } else {
-    return tree.toSchema()
-  }
-}
-
-const getJsonPath = node => {
-  if( runOld ){
-    return oldJsonTree.pathFromNode( node )
-  } else {
-    return node.getPath()
-  }
-}
-
-const getSchemaPath = node => {
-  if( runOld ){
-    return oldSchemaTree.pathFromNode( node )
-  } else {
-    return node.getPath()
-  }
-}
-
-const getJsonNode = ( tree, path ) => {
-  if( runOld ){
-    return oldJsonTree.nodeFromPath( tree, path )
-  } else {
-    return tree.atPath( path )
-  }
-}
-
-const getSchemaNode = ( tree, path ) => {
-  if( runOld ){
-    return oldSchemaTree.nodeFromPath( tree, path )
-  } else {
-    return tree.atPath( path )
-  }
-}
-
 const mapComponents = ( dependencies, componentName, model ) => {
   model = clone( model )
 
-  //const modelTree = JsonTree( model )
-  const modelTree = toJsonTree( model )
+  const modelTree = JsonTree( model )
 
   const { componentNames, schemas, transforms } = dependencies
 
@@ -109,8 +32,7 @@ const mapComponents = ( dependencies, componentName, model ) => {
     return model
   }
 
-  //const componentSchemaTree = SchemaTree( componentSchema )
-  const componentSchemaTree = toSchemaTree( componentSchema )
+  const componentSchemaTree = SchemaTree( componentSchema )
   const refComponents = findRefComponents( componentSchemaTree )
 
   refComponents.forEach( refComponentNode => {
@@ -120,31 +42,26 @@ const mapComponents = ( dependencies, componentName, model ) => {
 
     if( !componentTransform ) return
 
-    //const refNodePath = refComponentNode.getPath()
-    //const refNodePath = refComponentNode.getParent().getPath()
-    let refNodePath
-    if( runOld ){
-      refNodePath = getSchemaPath( refComponentNode )
-    } else {
-      refNodePath = getSchemaPath( refComponentNode.getParent() )
-    }
-    //const modelNode = modelTree.atPath( refNodePath )
-    const modelNode = getJsonNode( modelTree, refNodePath )
+    /*
+      Important to remember that schema paths do not necessarily match up to
+      model - this will work for now, but need to investigate and consider a
+      more robust solution
+    */
+    const refNodePath = refComponentNode.getParent().getPath()
+    const modelNode = modelTree.atPath( refNodePath )
 
     if( !modelNode ) return
 
     const modelNodeValue = modelNode.value()
 
     if( value.arrayItem ){
-      //const modelArray = modelNode.toJson()
-      const modelArray = fromJsonTree( modelNode )
+      const modelArray = modelNode.toJson()
 
       const transformed = modelArray.map( item =>
         mapComponents( dependencies, componentName, item )
       )
 
-      //const transformedNode = JsonTree( transformed )
-      const transformedNode = toJsonTree( transformed )
+      const transformedNode = JsonTree( transformed )
       const modelNodeParent = modelNode.getParent()
 
       if( modelNodeValue.propertyName ){
@@ -159,8 +76,7 @@ const mapComponents = ( dependencies, componentName, model ) => {
     }
   })
 
-  //model = modelTree.toJson()
-  model = fromJsonTree( modelTree )
+  model = modelTree.toJson()
 
   if( transform )
     model = transformMapper( model, transform )
