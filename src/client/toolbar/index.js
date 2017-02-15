@@ -31,12 +31,6 @@ const Toolbar = ( tree, renderNode, options ) => {
    here
   */
   const clickHandler = {
-    '.toolbar-group > header > span': el => {
-      toggleEl( el.parentNode )
-    },
-    '.toolbar-group > header': el => {
-      toggleEl( el )
-    }
   }
 
   const clickSelectors = Object.keys( clickHandler )
@@ -53,26 +47,6 @@ const Toolbar = ( tree, renderNode, options ) => {
   view.addEventListener( 'click', e => {
     return handleClick( e.target )
   })
-
-  const toggleEl = el => {
-    const groupEl = el.closest( '.toolbar-group' )
-
-    if( !groupEl.matches( '.toolbar-group--collapsed' ))
-      return
-
-    const depth = groupEl.dataset.depth
-    const parentGroup = groupEl.parentNode.closest( '.toolbar-group' )
-
-    const siblings = Array.from(
-      parentGroup.querySelectorAll( `.toolbar-group[data-depth="${depth}"]` )
-    ).filter( sibling => sibling !== groupEl )
-
-    siblings.forEach( sibling => {
-      sibling.classList.add( 'toolbar-group--collapsed' )
-    })
-
-    groupEl.classList.remove( 'toolbar-group--collapsed' )
-  }
 
   const api = {
     remove: () => view.innerHTML = '',
