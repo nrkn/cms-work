@@ -1,0 +1,11 @@
+{
+  "button": [
+    { "addClasses": [ "button", "button--icon" ] },
+    { "addClasses": { "$value": "buttonClasses" } },
+    { "attr": [ "data-action", { "$value": "action" } ] }
+  ],
+  "icon": [
+    { "addClasses": [ "fa", "fa-fw", "fa-lg", { "$value": "iconName" } ] },
+    { "addClasses": { "$value": "iconClasses" } }
+  ]
+}

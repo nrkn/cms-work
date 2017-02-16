@@ -1,0 +1,33 @@
+$header-bar-color: hsl( 210, 15%, 40% );
+
+.header-bar {
+  min-height: 3rem;
+
+  color: hsl( 210, 10%, 95% );
+  @include colorize-el( $header-bar-color );
+  box-shadow: $medium-shadow;
+}
+
+.header-bar__title {
+  line-height: 3;
+  padding: 0 1rem;
+}
+
+.header-bar__actions {
+  display: block;
+  float: right;
+}
+
+.header-bar__actions > li {
+  display: block;
+  float: left;
+}
+
+.header-bar__actions .button {
+  display: block;
+  margin: 0.5rem 0;
+}
+
+.header-bar__actions li:last-child .button {
+  margin-right: 0.5rem;
+}

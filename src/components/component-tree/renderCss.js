@@ -1,17 +1,14 @@
 'use strict'
 
 const RenderCss = dependencies => {
-  const { styles, transformCss } = dependencies
+  const { styles, transformCss, configs } = dependencies
 
   const renderCss = root => {
     let css = ''
 
     const alreadyAdded = new Set()
 
-    root.walk( node => {
-      const value = node.value()
-      const componentName = value.name
-
+    const appendCss = componentName => {
       if( alreadyAdded.has( componentName ) )
         return
 
@@ -19,10 +16,22 @@ const RenderCss = dependencies => {
 
       const style = styles[ componentName ]
 
-      if( typeof style === 'string' ){
+      if( typeof style === 'string' ) {
         css += style
         css += ' '
       }
+
+      const config = configs[ componentName ]
+
+      if( config && Array.isArray( config.include ) )
+        config.include.forEach( appendCss )
+    }
+
+    root.walk( node => {
+      const value = node.value()
+      const componentName = value.name
+
+      appendCss( componentName )
     })
 
     if( typeof transformCss === 'function' )

@@ -6,6 +6,14 @@
     "title": { "$ref": "nonEmptyString" },
     "treeType": { "$ref": "nonEmptyString" },
     "nodeType": { "$ref": "nonEmptyString" },
+    "nodeActions": {
+      "type": "array",
+      "items": { "$ref": "button-icon" }
+    },
+    "childActions": {
+      "type": "array",
+      "items": { "$ref": "button-icon" }
+    },
     "depth": { "type": "integer" },
     "isEmpty": { "type": "boolean" },
     "isCollapsed": { "type": "boolean" },

@@ -30,9 +30,30 @@ const nodeToModel = ( node, options ) => {
   const preview = escapeHtml( JSON.stringify( value ) )
   const childrenTitle = `${ depth }: children`
 
+  const nodeActions = [
+    {
+      "action": "delete",
+      "iconName": "fa-trash",
+      "buttonClasses": [
+        "button--delete"
+      ]
+    }
+  ]
+
+  const childActions = [
+    {
+      "action": "collapse-all",
+      "iconName": "fa-minus-square"
+    },
+    {
+      "action": "expand-all",
+      "iconName": "fa-plus-square"
+    }
+  ]
+
   const model = {
     id, title, treeType, nodeType, depth, isEmpty, isCollapsed,
-    isChildrenCollapsed, preview, childrenTitle
+    isChildrenCollapsed, preview, childrenTitle, nodeActions, childActions
   }
 
   return model

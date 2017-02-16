@@ -21,6 +21,9 @@ const Toolbar = ( tree, renderNode, options ) => {
 
   const idMap = IdMap( tree )
   const view = document.querySelector( selector )
+
+  if( !view ) return
+
   const dom = renderNode( tree )
 
   view.innerHTML = dom.stringify()

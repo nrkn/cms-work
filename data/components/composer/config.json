@@ -1,3 +1,4 @@
 {
-  "containerSelector": ".composer"
+  "containerSelector": ".composer",
+  "include": [ "composer-node" ]
 }

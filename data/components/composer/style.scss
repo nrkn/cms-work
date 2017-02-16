@@ -105,32 +105,11 @@ $action-delete-color: hsl( 0, 83%, 50% );
   float: left;
 }
 
-.composer-node__action {
+.composer-node__actions .button {
   display: block;
-  padding: 0;
-  font-size: 1rem;
-  line-height: 1.875rem;
-  width: 1.875rem;
   margin: 0.5rem 0;
-  text-align: center;
-  cursor: default;
-
-  color: hsl( 210, 5%, 95% );
-  @include colorize-el( $action-color );
-  box-shadow: $small-shadow;
 }
 
-.composer-node__action--disabled {
-  opacity: 0.5;
-}
-
-.composer-node__actions > li:last-child .composer-node__action {
+.composer-node__actions li:last-child .button {
   margin-right: 0.5rem;
 }
-
-.composer-node__delete {
-  color: hsl( 0, 5%, 95% );
-  @include colorize-el( $action-delete-color );
-  box-shadow: $small-shadow;
-}
-

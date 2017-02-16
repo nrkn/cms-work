@@ -38,6 +38,8 @@ const Composer = ( tree, renderNode, options ) => {
 
   const composerView = document.querySelector( selector )
 
+  if( !composerView ) return
+
   const initialDom = renderNode( tree )
 
   composerView.innerHTML = initialDom.stringify()
@@ -55,18 +57,18 @@ const Composer = ( tree, renderNode, options ) => {
       toggleEl( el )
     },
 
-    '.composer-node__delete': el => {
+    '.composer-node__actions [data-action="delete"]': el => {
       const shouldDelete = window.confirm( 'Are you sure?' )
 
       if( shouldDelete )
         removeEl( el )
     },
 
-    '.composer-node__collapse-children': el => {
+    '.composer-node__actions [data-action="collapse-all"]': el => {
       collapseElChildren( el )
     },
 
-    '.composer-node__expand-children': el => {
+    '.composer-node__actions [data-action="expand-all"]': el => {
       expandElChildren( el )
     }
   }

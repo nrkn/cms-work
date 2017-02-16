@@ -1,0 +1,16 @@
+{
+  "id": "header-bar",
+  "type": "object",
+  "properties": {
+    "title": { "$ref": "nonEmptyString" },
+    "actions": {
+      "type": "array",
+      "items": { "$ref": "button-icon" }
+    },
+    "classes": {
+      "type": "array",
+      "items": { "$ref": "nonEmptyString" }
+    }
+  },
+  "required": [ "title" ]
+}

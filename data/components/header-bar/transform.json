@@ -1,0 +1,6 @@
+{
+  "header": [
+    { "addClass": "header-bar" },
+    { "addClasses": { "$value": "classes" } }
+  ]
+}

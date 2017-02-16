@@ -1,0 +1,17 @@
+{
+  "id": "button-icon",
+  "type": "object",
+  "properties": {
+    "action": { "$ref": "nonEmptyString" },
+    "iconName": { "$ref": "nonEmptyString" },
+    "buttonClasses": {
+      "type": "array",
+      "items": { "$ref": "nonEmptyString" }
+    },
+    "iconClasses": {
+      "type": "array",
+      "items": { "$ref": "nonEmptyString" }
+    }
+  },
+  "required": [ "action", "iconName" ]
+}
