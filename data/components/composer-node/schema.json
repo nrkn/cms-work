@@ -3,23 +3,15 @@
   "type": "object",
   "properties": {
     "id": { "$ref": "nonEmptyString" },
-    "title": { "$ref": "nonEmptyString" },
     "treeType": { "$ref": "nonEmptyString" },
     "nodeType": { "$ref": "nonEmptyString" },
-    "nodeActions": {
-      "type": "array",
-      "items": { "$ref": "button-icon" }
-    },
-    "childActions": {
-      "type": "array",
-      "items": { "$ref": "button-icon" }
-    },
+    "nodeHeader": { "$ref": "header-bar" },
+    "childrenHeader": { "$ref": "header-bar" },
     "depth": { "type": "integer" },
     "isEmpty": { "type": "boolean" },
     "isCollapsed": { "type": "boolean" },
     "isChildrenCollapsed": { "type": "boolean" },
-    "preview": { "$ref": "nonEmptyString" },
-    "childrenTitle": { "$ref": "nonEmptyString" }
+    "preview": { "$ref": "nonEmptyString" }
   },
-  "required": [ "id", "title", "treeType", "nodeType", "depth", "preview", "childrenTitle" ]
+  "required": [ "id", "treeType", "nodeType", "nodeHeader", "childrenHeader", "depth", "preview" ]
 }

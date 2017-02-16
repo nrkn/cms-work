@@ -47,7 +47,11 @@ const mapComponents = ( dependencies, componentName, model ) => {
       model - this will work for now, but need to investigate and consider a
       more robust solution
     */
-    const refNodePath = refComponentNode.getParent().getPath()
+    const refPathNode = value.arrayItem ?
+      refComponentNode.getParent() :
+      refComponentNode
+
+    const refNodePath = refPathNode.getPath()
     const modelNode = modelTree.atPath( refNodePath )
 
     if( !modelNode ) return
@@ -71,8 +75,23 @@ const mapComponents = ( dependencies, componentName, model ) => {
       }
 
       modelNodeParent.replaceChild( transformedNode, modelNode  )
+    } else if( value.propertyName ){
+      const model = modelNode.toJson()
+
+      const transformed = mapComponents( dependencies, componentName, model )
+
+      const transformedNode = JsonTree( transformed )
+      const modelNodeParent = modelNode.getParent()
+
+      if( modelNodeValue.propertyName ){
+        const transformedNodeValue = transformedNode.value()
+        transformedNodeValue.propertyName = modelNodeValue.propertyName
+        transformedNode.value( transformedNodeValue )
+      }
+
+      modelNodeParent.replaceChild( transformedNode, modelNode  )
     } else {
-      throw new Error( 'Non arrayitem not implemented yet' )
+      throw new Error( 'Only array items and object properties are implemented' )
     }
   })
 

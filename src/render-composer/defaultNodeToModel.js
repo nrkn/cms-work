@@ -51,9 +51,19 @@ const nodeToModel = ( node, options ) => {
     }
   ]
 
+  const nodeHeader = {
+    title,
+    actions: nodeActions
+  }
+
+  const childrenHeader = {
+    title: childrenTitle,
+    actions: childActions
+  }
+
   const model = {
-    id, title, treeType, nodeType, depth, isEmpty, isCollapsed,
-    isChildrenCollapsed, preview, childrenTitle, nodeActions, childActions
+    id, treeType, nodeType, depth, isEmpty, isCollapsed, isChildrenCollapsed,
+    preview, nodeHeader, childrenHeader
   }
 
   return model
