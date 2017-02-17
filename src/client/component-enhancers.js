@@ -9,8 +9,8 @@ window.enhanceInputChanged = el => {
     const siblings = document.querySelectorAll( `input[type="radio"][name="${ name }"]` )
 
     Array.from( siblings ).forEach( radio => {
-      const inputRadioIcon = radio.closest( '.input-radio-icon' )
-      inputRadioIcon.classList.remove( 'input-radio-icon--selected' )
+      const radioComponent = radio.closest( '.input-radio-icon' )
+      radioComponent.classList.remove( 'input-radio-icon--selected' )
     })
 
     inputRadioIcon.classList.add( 'input-radio-icon--selected' )
