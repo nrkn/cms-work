@@ -1,0 +1,119 @@
+{
+  "value": {
+    "nodeType": "palette-group",
+    "title": "Composer"
+  },
+  "children": [
+    {
+      "value": {
+        "nodeType": "palette",
+        "title": "File"
+      },
+      "children": [
+        {
+          "value": {
+            "nodeType": "palette-item",
+            "component": {
+              "name": "button-text",
+              "model": {
+                "action": "new",
+                "title": "New"
+              }
+            }
+          },
+          "children": []
+        },
+        {
+          "value": {
+            "nodeType": "palette-item",
+            "component": {
+              "name": "button-text",
+              "model": {
+                "action": "open",
+                "title": "Open"
+              }
+            }
+          },
+          "children": []
+        },
+        {
+          "value": {
+            "nodeType": "palette-item",
+            "component": {
+              "name": "button-text",
+              "model": {
+                "action": "save",
+                "title": "Save"
+              }
+            }
+          },
+          "children": []
+        },
+        {
+          "value": {
+            "nodeType": "palette-item",
+            "component": {
+              "name": "button-text",
+              "model": {
+                "action": "publish",
+                "title": "Publish"
+              }
+            }
+          },
+          "children": []
+        }
+      ]
+    },
+
+    {
+      "value": {
+        "nodeType": "palette-group",
+        "title": "Create"
+      },
+      "children": [
+        {
+          "value": {
+            "nodeType": "palette",
+            "title": "Container"
+          },
+          "children": [
+            {
+              "value": {
+                "nodeType": "palette-item",
+                "component": {
+                  "name": "button-text",
+                  "model": {
+                    "action": "box",
+                    "title": "Box"
+                  }
+                }
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "value": {
+            "nodeType": "palette",
+            "title": "Leaf"
+          },
+          "children": [
+            {
+              "value": {
+                "nodeType": "palette-item",
+                "component": {
+                  "name": "button-text",
+                  "model": {
+                    "action": "image",
+                    "title": "Image"
+                  }
+                }
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

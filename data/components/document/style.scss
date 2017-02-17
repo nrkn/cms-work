@@ -44,24 +44,6 @@ body {
   filter: alpha(opacity=20);
 }
 
-.ratio {
-  width: 4rem;
-  text-align: center;
-  position: relative;
-}
-
-.ratio .shim {
-  padding-bottom: 100%;
-}
-
-.ratio .viewport {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-
 $lighten-hue: 40deg;
 $darken-hue: 210deg;
 

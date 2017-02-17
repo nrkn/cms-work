@@ -1,4 +1,5 @@
 $header-bar-color: hsl( 210, 15%, 40% );
+$header-bar-color-children: hsl( 210, 85%, 40% );
 
 .header-bar {
   min-height: 3rem;
@@ -30,4 +31,8 @@ $header-bar-color: hsl( 210, 15%, 40% );
 
 .header-bar__actions li:last-child .button {
   margin-right: 0.5rem;
+}
+
+.header-bar--children {
+  @include colorize-el( $header-bar-color-children );
 }

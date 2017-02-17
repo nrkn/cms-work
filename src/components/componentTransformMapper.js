@@ -90,8 +90,6 @@ const mapComponents = ( dependencies, componentName, model ) => {
       }
 
       modelNodeParent.replaceChild( transformedNode, modelNode  )
-    } else {
-      throw new Error( 'Only array items and object properties are implemented' )
     }
   })
 

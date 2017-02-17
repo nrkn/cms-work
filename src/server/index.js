@@ -41,6 +41,68 @@ const initApp = ( dependencies, resolve ) => {
 
     const documentNode = Tree.createRoot( documentValue )
 
+    const rowValue = {
+      name: 'row'
+    }
+    const rowNode = documentNode.createNode( rowValue )
+    documentNode.append( rowNode )
+
+    const radio1Value = {
+      name: 'input-radio-icon',
+      model: {
+        name: 'menu',
+        title: 'File',
+        iconName: 'fa-file'
+      }
+    }
+    const radio1Node = documentNode.createNode( radio1Value )
+    rowNode.append( radio1Node )
+
+    const radio2Value = {
+      name: 'input-radio-icon',
+      model: {
+        name: 'menu',
+        title: 'Open',
+        iconName: 'fa-folder',
+        isSelected: true
+      }
+    }
+    const radio2Node = documentNode.createNode( radio2Value )
+    rowNode.append( radio2Node )
+
+    const radio3Value = {
+      name: 'input-radio-icon',
+      model: {
+        name: 'menu',
+        title: 'Save',
+        iconName: 'fa-floppy-o'
+      }
+    }
+    const radio3Node = documentNode.createNode( radio3Value )
+    rowNode.append( radio3Node )
+
+    const radio4Value = {
+      name: 'input-radio-icon',
+      model: {
+        name: 'menu',
+        title: 'Long name that should get cut off',
+        iconName: 'fa-floppy-o'
+      }
+    }
+    const radio4Node = documentNode.createNode( radio4Value )
+    rowNode.append( radio4Node )
+
+    /*
+    const buttonTextValue = {
+      name: 'button-text',
+      model: {
+        title: 'New File',
+        action: 'new'
+      }
+    }
+    const buttonTextNode = documentNode.createNode( buttonTextValue )
+    documentNode.append( buttonTextNode )
+
     const headerBarValue = {
       name: 'header-bar',
       model: {
@@ -61,29 +123,6 @@ const initApp = ( dependencies, resolve ) => {
 
     const headerBarNode = documentNode.createNode( headerBarValue )
     documentNode.append( headerBarNode )
-    /*
-    const buttonNodeValue = {
-      name: "button-icon",
-      model: {
-        action: "collapse-all",
-        iconName: "fa-minus-square"
-      }
-    }
-    const minusButtonNode = documentNode.createNode( buttonNodeValue )
-    documentNode.append( minusButtonNode )
-
-    const trashNodeValue = {
-      name: "button-icon",
-      model: {
-        action: "delete",
-        iconName: "fa-trash",
-        iconClasses: ["fa-lg"],
-        buttonClasses: ["button--delete"]
-      }
-    }
-    const trashNode = documentNode.createNode( trashNodeValue )
-    documentNode.append( trashNode )
-    */
 
     const toolbarValue = { name: 'toolbar' }
     const toolbarNode = documentNode.createNode( toolbarValue )
@@ -92,6 +131,7 @@ const initApp = ( dependencies, resolve ) => {
     const composerValue = { name: 'composer' }
     const composerNode = documentNode.createNode( composerValue )
     documentNode.append( composerNode )
+    */
 
     res.component( documentNode )
   })

@@ -1,0 +1,6 @@
+{
+  "icon": [
+    { "addClasses": [ "fa", { "$value": "iconName" } ] },
+    { "addClasses": { "$value": "iconClasses" } }
+  ]
+}

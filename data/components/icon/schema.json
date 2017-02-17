@@ -1,0 +1,12 @@
+{
+  "id": "icon",
+  "type": "object",
+  "properties": {
+    "iconName": { "$ref": "nonEmptyString" },
+    "iconClasses": {
+      "type": "array",
+      "items": { "$ref": "nonEmptyString" }
+    }
+  },
+  "required": [ "iconName" ]
+}

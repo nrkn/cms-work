@@ -4,6 +4,7 @@ const Composer = require( './composer' )
 const Toolbar = require( './toolbar' )
 
 require( './polyfills' )
+require( './component-enhancers' )
 
 window.mojule = { Composer, Toolbar }
 

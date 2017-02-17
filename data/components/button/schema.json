@@ -1,0 +1,13 @@
+{
+  "id": "button",
+  "type": "object",
+  "properties": {
+    "action": { "$ref": "nonEmptyString" },
+    "buttonClasses": {
+      "type": "array",
+      "items": { "$ref": "nonEmptyString" }
+    },
+    "isDisabled": { "type": "boolean" }
+  },
+  "required": [ "action" ]
+}

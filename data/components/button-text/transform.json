@@ -1,6 +1,6 @@
 {
   "button": [
-    { "addClasses": [ "button", "button--icon" ] },
+    { "addClasses": [ "button", "button--text" ] },
     { "addClasses": { "$value": "buttonClasses" } },
     {
       "$if": [
@@ -9,9 +9,5 @@
       ]
     },
     { "attr": [ "data-action", { "$value": "action" } ] }
-  ],
-  "icon": [
-    { "addClasses": [ "fa", "fa-fw", "fa-lg", { "$value": "iconName" } ] },
-    { "addClasses": { "$value": "iconClasses" } }
   ]
 }

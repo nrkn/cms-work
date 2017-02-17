@@ -1,5 +1,5 @@
 <div class="composer-node" data-tag="nodeTag">
-  <fragment data-context="nodeHeader">
+  <fragment data-if="nodeHeader">
     <fragment data-include="header-bar" />
   </fragment>
 
@@ -10,7 +10,7 @@
 
     <fragment data-not="isEmpty">
       <div class="composer-node__children" data-tag="childWrapperTag">
-        <fragment data-context="childrenHeader">
+        <fragment data-if="childrenHeader">
           <fragment data-include="header-bar" />
         </fragment>
         <ul data-dragsource="composer"></ul>

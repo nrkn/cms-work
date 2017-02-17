@@ -40,14 +40,19 @@ const nodeToModel = ( node, options ) => {
     }
   ]
 
+  const isCollapsable = children.length > 0
+  const isExpandable = children.length > 0
+
   const childActions = [
     {
       "action": "collapse-all",
-      "iconName": "fa-minus-square"
+      "iconName": "fa-minus-square",
+      "isDisabled": !isCollapsable
     },
     {
       "action": "expand-all",
-      "iconName": "fa-plus-square"
+      "iconName": "fa-plus-square",
+      "isDisabled": !isExpandable
     }
   ]
 
@@ -58,7 +63,8 @@ const nodeToModel = ( node, options ) => {
 
   const childrenHeader = {
     title: childrenTitle,
-    actions: childActions
+    actions: childActions,
+    classes: [ 'header-bar--children' ]
   }
 
   const model = {

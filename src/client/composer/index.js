@@ -50,25 +50,25 @@ const Composer = ( tree, renderNode, options ) => {
    here
   */
   const clickHandler = {
-    '.composer-node__title, .composer-node__action > i':
-      el => el.parentNode,
+    // do nothing
+    '.button--disabled': () => {},
 
-    '.composer-node__toolbar': el => {
+    '.header-bar, .header-bar__title': el => {
       toggleEl( el )
     },
 
-    '.composer-node__actions [data-action="delete"]': el => {
+    '[data-action="delete"]': el => {
       const shouldDelete = window.confirm( 'Are you sure?' )
 
       if( shouldDelete )
         removeEl( el )
     },
 
-    '.composer-node__actions [data-action="collapse-all"]': el => {
+    '[data-action="collapse-all"]': el => {
       collapseElChildren( el )
     },
 
-    '.composer-node__actions [data-action="expand-all"]': el => {
+    '[data-action="expand-all"]': el => {
       expandElChildren( el )
     }
   }
@@ -79,11 +79,8 @@ const Composer = ( tree, renderNode, options ) => {
     const selector = clickSelectors.find( sel => el.matches( sel ) )
 
     if( selector ){
-      el = clickHandler[ selector ]( el )
+      clickHandler[ selector ]( el )
     }
-
-    if( el )
-      handleClick( el )
 
     return false
   }

@@ -1,0 +1,27 @@
+{
+  "label": [
+    { "addClass": "input-radio-icon" },
+    { "attr": [ "title", { "$value": "title" } ] },
+    {
+      "$if": [
+        { "$value": "isSelected" },
+        { "addClass": "input-radio-icon--selected" }
+      ]
+    }
+  ],
+  "input": [
+    { "attr": [ "name", { "$value": "name" } ] },
+    { "attr": [ "value", { "$value": "title" } ] },
+    { "attr": [ "type", "radio" ] },
+    {
+      "$if": [
+        { "$value": "isSelected" },
+        { "attr": [ "checked", "" ] }
+      ]
+    }
+  ],
+  "icon": [
+    { "addClasses": [ "fa", "fa-fw", "fa-3x", { "$value": "iconName" } ] },
+    { "addClasses": { "$value": "iconClasses" } }
+  ]
+}

@@ -1,0 +1,43 @@
+$input-radio-icon-color: hsl( 210, 5%, 95% );
+$input-radio-icon-selected-color: hsl(210, 85%, 60% );
+
+.input-radio-icon {
+  display: block;
+  padding: 0.25rem;
+  width: 6rem;
+  height: 6rem;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+
+  color: #222;
+  @include colorize-el( $input-radio-icon-color );
+}
+
+.input-radio-icon--selected {
+  color: #fff;
+  @include colorize-el( $input-radio-icon-selected-color );
+}
+
+.input-radio-icon i {
+  margin: 0.5rem;
+  margin-bottom: 0;
+}
+
+.input-radio-icon__title {
+  position: absolute;
+  left: 0.25rem;
+  right: 0.25rem;
+  bottom: 0.25rem;
+  padding: 0.25rem;
+  height: 1.5rem;
+  line-height: 1.5;
+  font-size: 0.9375rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.input-radio-icon__title input, .input-radio-icon__title span {
+  display: inline;
+}

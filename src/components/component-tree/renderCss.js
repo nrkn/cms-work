@@ -14,17 +14,17 @@ const RenderCss = dependencies => {
 
       alreadyAdded.add( componentName )
 
+      const config = configs[ componentName ]
+
+      if( config && Array.isArray( config.include ) )
+        config.include.forEach( appendCss )
+
       const style = styles[ componentName ]
 
       if( typeof style === 'string' ) {
         css += style
         css += ' '
       }
-
-      const config = configs[ componentName ]
-
-      if( config && Array.isArray( config.include ) )
-        config.include.forEach( appendCss )
     }
 
     root.walk( node => {
