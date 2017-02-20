@@ -1,0 +1,4 @@
+{
+  "containerSelector": ".link-list",
+  "inherit": "link-list"
+}

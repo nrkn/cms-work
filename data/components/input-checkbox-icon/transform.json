@@ -2,7 +2,7 @@
   "label": [
     { "addClasses": [
       "input-selectable-icon",
-      "input-selectable-icon--radio"
+      "input-selectable-icon--checkbox"
     ] },
     { "attr": [ "title", { "$value": "title" } ] },
     {
@@ -15,7 +15,7 @@
   "input": [
     { "attr": [ "name", { "$value": "name" } ] },
     { "attr": [ "value", { "$value": "title" } ] },
-    { "attr": [ "type", "radio" ] },
+    { "attr": [ "type", "checkbox" ] },
     {
       "$if": [
         { "$value": "isSelected" },

@@ -1,0 +1,17 @@
+{
+  "id": "link",
+  "type": "object",
+  "properties": {
+    "title": {
+      "$ref": "nonEmptyString"
+    },
+    "uri": {
+      "$ref": "nonEmptyString",
+      "format": "uri"
+    }
+  },
+  "required": [
+    "title",
+    "uri"
+  ]
+}

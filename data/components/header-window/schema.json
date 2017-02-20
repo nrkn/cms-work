@@ -1,0 +1,8 @@
+{
+  "id": "header-window",
+  "type": "object",
+  "properties": {
+    "bar": { "$ref": "header-bar" }
+  },
+  "required": [ "bar" ]
+}

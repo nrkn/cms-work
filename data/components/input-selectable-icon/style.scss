@@ -1,7 +1,7 @@
-$input-radio-icon-color: hsl( 210, 5%, 95% );
-$input-radio-icon-selected-color: hsl(210, 85%, 60% );
+$input-selectable-icon-color: hsl( 210, 5%, 95% );
+$input-selectable-icon-selected-color: hsl(210, 85%, 60% );
 
-.input-radio-icon {
+.input-selectable-icon {
   display: block;
   padding: 0.25rem;
   width: 6rem;
@@ -11,20 +11,20 @@ $input-radio-icon-selected-color: hsl(210, 85%, 60% );
   overflow: hidden;
 
   color: #222;
-  @include colorize-el( $input-radio-icon-color );
+  @include colorize-el( $input-selectable-icon-color );
 }
 
-.input-radio-icon--selected {
+.input-selectable-icon--selected {
   color: #fff;
-  @include colorize-el( $input-radio-icon-selected-color );
+  @include colorize-el( $input-selectable-icon-selected-color );
 }
 
-.input-radio-icon i {
+.input-selectable-icon i {
   margin: 0.5rem;
   margin-bottom: 0;
 }
 
-.input-radio-icon__title {
+.input-selectable-icon__title {
   position: absolute;
   left: 0.25rem;
   right: 0.25rem;
@@ -38,6 +38,6 @@ $input-radio-icon-selected-color: hsl(210, 85%, 60% );
   text-overflow: ellipsis;
 }
 
-.input-radio-icon__title input, .input-radio-icon__title span {
+.input-selectable-icon__title input, .input-selectable-icon__title span {
   display: inline;
 }

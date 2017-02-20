@@ -10,7 +10,7 @@ const { clone } = utils
 const mapComponents = ( dependencies, componentName, model ) => {
   model = clone( model )
 
-  const modelTree = JsonTree( model )
+  let modelTree = JsonTree( model )
 
   const { componentNames, schemas, transforms } = dependencies
 
@@ -38,9 +38,6 @@ const mapComponents = ( dependencies, componentName, model ) => {
   refComponents.forEach( refComponentNode => {
     const value = refComponentNode.value()
     const componentName = value.$ref
-    const componentTransform = transforms[ componentName ]
-
-    if( !componentTransform ) return
 
     /*
       Important to remember that schema paths do not necessarily match up to
@@ -77,9 +74,7 @@ const mapComponents = ( dependencies, componentName, model ) => {
       modelNodeParent.replaceChild( transformedNode, modelNode  )
     } else if( value.propertyName ){
       const model = modelNode.toJson()
-
       const transformed = mapComponents( dependencies, componentName, model )
-
       const transformedNode = JsonTree( transformed )
       const modelNodeParent = modelNode.getParent()
 
@@ -90,6 +85,18 @@ const mapComponents = ( dependencies, componentName, model ) => {
       }
 
       modelNodeParent.replaceChild( transformedNode, modelNode  )
+    } else {
+      const model = modelNode.toJson()
+      const transformed = mapComponents( dependencies, componentName, model )
+      const transformedNode = JsonTree( transformed )
+      const modelNodeParent = modelNode.getParent()
+
+      if( modelNodeParent ){
+        modelNodeParent.replaceChild( transformedNode, modelNode  )
+      }
+      else {
+        modelTree = transformedNode
+      }
     }
   })
 

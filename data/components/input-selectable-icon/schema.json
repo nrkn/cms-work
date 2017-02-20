@@ -1,0 +1,11 @@
+{
+  "id": "input-selectable-icon",
+  "type": "object",
+  "$ref": "icon",
+  "properties": {
+    "name": { "$ref": "nonEmptyString" },
+    "title": { "$ref": "nonEmptyString" },
+    "isSelected": { "type": "boolean" }
+  },
+  "required": [ "name", "title" ]
+}

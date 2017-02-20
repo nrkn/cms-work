@@ -1,4 +1,4 @@
 {
-  "id": "input-radio-icon",
+  "id": "input-checkbox-icon",
   "$ref": "input-selectable-icon"
 }

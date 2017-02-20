@@ -16,8 +16,8 @@ const RenderCss = dependencies => {
 
       const config = configs[ componentName ]
 
-      if( config && Array.isArray( config.include ) )
-        config.include.forEach( appendCss )
+      if( config && config.inherit )
+        appendCss( config.inherit )
 
       const style = styles[ componentName ]
 

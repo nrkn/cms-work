@@ -1,0 +1,10 @@
+$header-window-main-color: hsl( 210, 5%, 95% );
+
+.header-window__main {
+  padding: 0.75rem;
+  margin: 0.25rem;
+  margin-top: 0;
+
+  @include colorize-el-background( $header-window-main-color );
+  box-shadow: $medium-shadow;
+}

@@ -3,25 +3,24 @@
 const Templating = require( 'mojule-templating' )
 const Validator = require( 'mtype-tv4' )
 const componentTransformMapper = require( '../components/componentTransformMapper' )
-
-const ensureModel = ( validator, model, name ) => {
-  const schemaNames = validator.getSchemaUris()
-
-  if( !schemaNames.includes( name ) ) return
-
-  const result = validator.validateMultiple( model, name )
-
-  if( result.valid ) return
-
-  const message = `Template model validation failed for ${ name }: ${ JSON.stringify( result.errors ) }`
-  throw new Error( message )
-}
+const ensureModel = require( '../schema/ensureModel' )
 
 const Templates = dependencies => {
-  const { components, templates, defaultModels, schemas } = dependencies
+  const { components, templates, defaultModels, schemas, configs } = dependencies
 
   const templating = Templating( templates )
   const validator = Validator( schemas )
+
+  const resolveTemplateName = name => {
+    if( templates[ name ] ) return name
+
+    const config = configs[ name ]
+
+    if( config && config.inherit )
+      return resolveTemplateName( config.inherit )
+
+    throw new Error( `Could not resolve template name for ${ name }` )
+  }
 
   const renderComponent = ( name, model ) => {
     const templateModel = Object.assign( {}, defaultModels[ name ] || {}, model )
@@ -29,6 +28,8 @@ const Templates = dependencies => {
     ensureModel( validator, templateModel, name )
 
     const viewModel = componentTransformMapper( dependencies, name, templateModel )
+
+    name = resolveTemplateName( name )
 
     return templating( name, viewModel )
   }

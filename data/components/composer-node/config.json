@@ -1,4 +1,4 @@
 {
   "containerSelector": ".composer-node__children > ul",
-  "include": [ "header-bar" ]
+  "inherit": "header-bar"
 }

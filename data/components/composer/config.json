@@ -1,4 +1,4 @@
 {
   "containerSelector": ".composer",
-  "include": [ "composer-node" ]
+  "inherit": "composer-node"
 }
