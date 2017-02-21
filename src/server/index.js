@@ -102,9 +102,9 @@ const initApp = ( dependencies, resolve ) => {
       title: 'This is a great toolbar!',
       actions: [
         {
-          action: "delete",
-          iconName: 'fa-trash',
-          buttonClasses: [ 'button--delete' ]
+          action: "close",
+          iconName: 'fa-close',
+          buttonClasses: [ 'button--alert' ]
         }
       ]
     }
@@ -113,18 +113,14 @@ const initApp = ( dependencies, resolve ) => {
 
     const documentNode =
       Document( document, [
-        /*
-        HeaderBar( bar ),
-        Row( radios.map( InputRadioIcon ) ),
-        Row( checkboxes.map( InputCheckboxIcon ) ),
-        LinkList( links.map( Link ) ),
         Breadcrumb( links.map( Link ) ),
-        */
-        //Composer(),
         HeaderWindow( window, [
-          Row( radios.map( InputRadioIcon ) ),
-          Row( checkboxes.map( InputCheckboxIcon ) ),
-        ])
+          Row( radios.map( InputRadioIcon ) )
+        ]),
+        HeaderWindow( window, [
+          Row( checkboxes.map( InputCheckboxIcon ) )
+        ]),
+        Composer()
       ]
     )
 

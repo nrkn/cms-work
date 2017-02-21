@@ -1,0 +1,152 @@
+$lighten-hue: 40deg;
+$darken-hue: 210deg;
+
+$adjust-hue: 15%;
+$adjust-saturation: 4%;
+$adjust-lightness: 4%;
+
+$adjust-hue-gradient-highlight: $adjust-hue / 2;
+$adjust-saturation-gradient-highlight: $adjust-saturation / 2;
+$adjust-lightness-gradient-highlight: $adjust-lightness / 2;
+
+@function shift-hue( $from-hue, $to-hue, $amount ){
+  $from-color: hsl( $from-hue, 100%, 50% );
+  $to-color: hsl( $to-hue, 100%, 50% );
+  $mixed: mix( $to-color, $from-color, $amount );
+  $new-hue: hue( $mixed );
+
+  @return $new-hue;
+}
+
+@function advanced-lighten( $from-color, $hue-amount:$adjust-hue, $saturation-amount:$adjust-saturation, $lightness-amount:$adjust-lightness ){
+  $hue: hue( $from-color );
+  $new-hue: shift-hue( $hue, $lighten-hue, $hue-amount );
+
+  $light-and-saturation: lighten(
+    desaturate(
+      $from-color,
+      $saturation-amount
+    ),
+    $lightness-amount
+  );
+
+  @return change-color( $light-and-saturation, $hue: $new-hue );
+}
+
+@function advanced-darken( $from-color, $hue-amount:$adjust-hue, $saturation-amount:$adjust-saturation, $lightness-amount:$adjust-lightness ){
+  $hue: hue( $from-color );
+  $new-hue: shift-hue( $hue, $darken-hue, $hue-amount );
+
+  $light-and-saturation: darken(
+    saturate(
+      $from-color,
+      $saturation-amount
+    ),
+    $lightness-amount
+  );
+
+  @return change-color( $light-and-saturation, $hue: $new-hue );
+}
+
+@mixin colorize-el-background( $base-color ){
+  $gradient-highlight: advanced-lighten(
+    $base-color,
+    $adjust-hue-gradient-highlight,
+    $adjust-lightness-gradient-highlight,
+    $adjust-saturation-gradient-highlight
+  );
+  $gradient-base: $base-color;
+  $gradient-shadow: advanced-darken(
+    $base-color,
+    $adjust-hue,
+    $adjust-lightness,
+    $adjust-saturation
+  );
+
+  background: $base-color;
+  background: linear-gradient(
+    to bottom,
+    $gradient-highlight,
+    $gradient-base,
+    $gradient-shadow
+  );
+}
+
+@mixin colorize-el-border( $base-color ){
+  $gradient-shadow: advanced-darken(
+    $base-color,
+    $adjust-hue,
+    $adjust-lightness,
+    $adjust-saturation
+  );
+
+  $border-highlight: advanced-lighten(
+    $base-color,
+    $adjust-hue,
+    $adjust-lightness,
+    $adjust-saturation
+  );
+  $border-shadow: advanced-darken(
+    $gradient-shadow,
+    $adjust-hue,
+    $adjust-lightness,
+    $adjust-saturation
+  );
+
+  border: 0.0625rem solid $border-highlight;
+  border-bottom: 0.0625rem solid $border-shadow;
+  border-right: 0.0625rem solid $border-shadow;
+}
+
+@mixin colorize-el-border-inset( $base-color ){
+  $gradient-shadow: advanced-darken(
+    $base-color,
+    $adjust-hue,
+    $adjust-lightness,
+    $adjust-saturation
+  );
+
+  $border-highlight: advanced-lighten(
+    $base-color,
+    $adjust-hue,
+    $adjust-lightness,
+    $adjust-saturation
+  );
+  $border-shadow: advanced-darken(
+    $gradient-shadow,
+    $adjust-hue,
+    $adjust-lightness,
+    $adjust-saturation
+  );
+
+  border: 0.0625rem solid $border-shadow;
+  border-bottom: 0.0625rem solid $border-highlight;
+  border-right: 0.0625rem solid $border-highlight;
+}
+
+@mixin colorize-el( $base-color ){
+  $gradient-shadow: advanced-darken(
+    $base-color,
+    $adjust-hue,
+    $adjust-lightness,
+    $adjust-saturation
+  );
+
+  $border-shadow: advanced-darken(
+    $gradient-shadow,
+    $adjust-hue,
+    $adjust-lightness,
+    $adjust-saturation
+  );
+
+  $text-shadow: advanced-darken(
+    $border-shadow,
+    $adjust-hue,
+    $adjust-lightness,
+    $adjust-saturation
+  );
+
+  @include colorize-el-background( $base-color );
+  @include colorize-el-border( $base-color );
+  text-shadow: 0.0625rem 0.0625rem 0 $text-shadow;
+}

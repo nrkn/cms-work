@@ -1,3 +1,4 @@
 {
-  "containerSelector": "body > [data-container]"
+  "containerSelector": "body > [data-container]",
+  "inherit": "theme"
 }

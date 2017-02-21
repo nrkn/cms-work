@@ -35,7 +35,7 @@ const nodeToModel = ( node, options ) => {
       "action": "delete",
       "iconName": "fa-trash",
       "buttonClasses": [
-        "button--delete"
+        "button--alert"
       ]
     }
   ]
@@ -64,7 +64,7 @@ const nodeToModel = ( node, options ) => {
   const childrenHeader = {
     title: childrenTitle,
     actions: childActions,
-    classes: [ 'header-bar--children' ]
+    classes: [ 'children-bar' ]
   }
 
   const model = {

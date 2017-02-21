@@ -1,36 +1,19 @@
-$toolbar-color: hsl( 210, 15%, 40% );
 $toolbar-children-color: hsl( 210, 85%, 40% );
 $toolbar-empty-color: hsl( 210, 10%, 90% );
-$main-color: hsl( 210, 5%, 95% );
 $children-color: hsl( 210, 95%, 95% );
-$action-color: hsl(210, 85%, 60% );
-$action-delete-color: hsl( 0, 83%, 50% );
 
-.composer-node__toolbar {
-  min-height: 3rem;
-
-  color: hsl( 210, 10%, 95% );
-  @include colorize-el( $toolbar-color );
-  box-shadow: $medium-shadow;
+.composer-node > .header-bar .header-bar__title::before,
+.composer-node__children > .header-bar .header-bar__title::before {
+  content: "▴";
+  padding-right: 0.5rem;
 }
 
-.composer-node__title {
-  line-height: 3;
-  padding: 0 1rem;
+.composer-node--collapsed > .header-bar .header-bar__title::before,
+.composer-node__children--collapsed > .header-bar .header-bar__title::before {
+  content: "▾";
 }
 
-.composer-node__children > .composer-node__toolbar {
-  @include colorize-el( $toolbar-children-color );
-  box-shadow: $medium-shadow;
-}
-
-.composer-node--empty > .composer-node__toolbar {
-  color: hsl( 210, 85%, 15% );
-  @include colorize-el( $toolbar-empty-color );
-  box-shadow: $medium-shadow;
-}
-
-.composer-node:not( [data-depth="0"] ) > .composer-node__toolbar {
+.composer-node:not( [data-depth="0"] ) > .header-bar {
   cursor: move;
 }
 
@@ -39,9 +22,8 @@ $action-delete-color: hsl( 0, 83%, 50% );
   overflow: hidden;
   padding: 0.5rem;
 
-  color: #111;
-  background: #fff;
-  box-shadow: inset $tiny-shadow;
+  color: $near-white-color;
+  @include colorize-el-background( $near-black-color );
 }
 
 .composer-node__view:last-child {
@@ -53,7 +35,7 @@ $action-delete-color: hsl( 0, 83%, 50% );
   margin: 0.25rem;
   margin-top: 0;
 
-  @include colorize-el-background( $main-color );
+  @include colorize-el-background( $panel-color );
   box-shadow: $medium-shadow;
 }
 
@@ -90,21 +72,17 @@ $action-delete-color: hsl( 0, 83%, 50% );
   padding: 0;
 }
 
-.composer-node__actions {
-  display: block;
-  float: right;
+.composer-node > .header-bar {
+  color: $near-white-color;
+  @include colorize-el( $secondary-color );
 }
 
-.composer-node__actions > li {
-  display: block;
-  float: left;
+.composer-node--empty > .header-bar {
+  color: $near-black-color;
+  @include colorize-el( $toolbar-empty-color );
 }
 
-.composer-node__actions .button {
-  display: block;
-  margin: 0.5rem 0;
-}
-
-.composer-node__actions li:last-child .button {
-  margin-right: 0.5rem;
+.children-bar {
+  color: $near-white-color;
+  @include colorize-el( $toolbar-children-color );
 }

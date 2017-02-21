@@ -1,0 +1,32 @@
+// palette
+$primary-color: hsl(210, 85%, 60% );
+$secondary-color: hsl( 210, 15%, 40% );
+$success-color: hsl( 150, 85%, 40% );
+$warning-color: hsl( 40, 100%, 50% );
+$alert-color: hsl( 0, 85%, 50% );
+$near-white-color: hsl( 210, 5%, 95% );
+$light-grey-color: hsl( 210, 5%, 80% );
+$near-black-color: hsl( 210, 85%, 15% );
+
+// derived colors (from palette)
+$button-color: $primary-color;
+$button-color-hover: advanced-lighten( $button-color );
+$button-color-active: advanced-darken( $button-color );
+$button-alert-color: $alert-color;
+$button-alert-color-hover: advanced-lighten( $button-alert-color );
+$button-alert-color-active: advanced-darken( $button-alert-color );
+
+$panel-color: $near-white-color;
+
+$input-color: advanced-lighten( $near-white-color );
+$input-color-hover: advanced-darken( $near-white-color );
+
+$toolbar-color: $light-grey-color;
+
+$highlight-color: $primary-color;
+
+// shadows
+$large-shadow: 0.25rem 0.25rem 1rem rgba( 0, 0, 0, 0.25 );
+$medium-shadow: 0.125rem 0.125rem 0.5rem rgba( 0, 0, 0, 0.25 );
+$small-shadow: 0.0625rem 0.0625rem 0.25rem rgba( 0, 0, 0, 0.25 );
+$tiny-shadow: 0.03125rem 0.03125rem 0.125rem rgba( 0, 0, 0, 0.25 );

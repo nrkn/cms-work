@@ -1,12 +1,11 @@
 'use strict'
 
 const Composer = require( './composer' )
-const Toolbar = require( './toolbar' )
 
 require( './polyfills' )
 require( './component-enhancers' )
 
-window.mojule = { Composer, Toolbar }
+window.mojule = { Composer }
 
 /*
 TODO this is test code to get the composer up and running, needs to be init'ed
@@ -37,7 +36,7 @@ const getComposerApi = () => {
   const RenderNode = require( '../render-composer/renderNode' )
   const renderNode = RenderNode( componentDependencies )
 
-  const treeRaw = componentDependencies.datas[ 'data-small' ]
+  const treeRaw = componentDependencies.datas[ 'mojule-fs' ]
   const tree = Tree( treeRaw )
 
   const modulesNodes = tree.findAll( n => n.value().name === 'node_modules' )
@@ -47,17 +46,4 @@ const getComposerApi = () => {
   return Composer( tree, renderNode )
 }
 
-const getToolbarApi = () => {
-  const Tree = require( '../trees/toolbar-tree' )
-
-  const RenderNode = require( '../render-toolbar/renderNode' )
-  const renderNode = RenderNode( componentDependencies )
-
-  const treeRaw = componentDependencies.datas[ 'toolbar-test' ]
-  const tree = Tree( treeRaw )
-
-  return Toolbar( tree, renderNode )
-}
-
 const composerApi = getComposerApi()
-const toolbarApi = getToolbarApi()

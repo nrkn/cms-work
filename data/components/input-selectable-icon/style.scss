@@ -1,22 +1,22 @@
-$input-selectable-icon-color: hsl( 210, 5%, 95% );
-$input-selectable-icon-selected-color: hsl(210, 85%, 60% );
-
 .input-selectable-icon {
   display: block;
   padding: 0.25rem;
   width: 6rem;
   height: 6rem;
-  position: relative;
   text-align: center;
   overflow: hidden;
 
-  color: #222;
-  @include colorize-el( $input-selectable-icon-color );
+  color: $near-black-color;
+  @include colorize-el( $input-color );
+}
+
+.input-selectable-icon:not( .input-selectable-icon--selected ):hover {
+  @include colorize-el( $input-color-hover );
 }
 
 .input-selectable-icon--selected {
-  color: #fff;
-  @include colorize-el( $input-selectable-icon-selected-color );
+  color: $near-white-color;
+  @include colorize-el( $highlight-color );
 }
 
 .input-selectable-icon i {
@@ -25,10 +25,6 @@ $input-selectable-icon-selected-color: hsl(210, 85%, 60% );
 }
 
 .input-selectable-icon__title {
-  position: absolute;
-  left: 0.25rem;
-  right: 0.25rem;
-  bottom: 0.25rem;
   padding: 0.25rem;
   height: 1.5rem;
   line-height: 1.5;

@@ -1,11 +1,9 @@
-$header-bar-color: hsl( 210, 15%, 40% );
-$header-bar-color-children: hsl( 210, 85%, 40% );
-
 .header-bar {
   min-height: 3rem;
 
-  color: hsl( 210, 10%, 95% );
-  @include colorize-el( $header-bar-color );
+  color: $near-black-color;
+  @include colorize-el( $toolbar-color );
+  text-shadow: none;
   box-shadow: $medium-shadow;
 }
 
@@ -31,8 +29,4 @@ $header-bar-color-children: hsl( 210, 85%, 40% );
 
 .header-bar__actions li:last-child .button {
   margin-right: 0.5rem;
-}
-
-.header-bar--children {
-  @include colorize-el( $header-bar-color-children );
 }

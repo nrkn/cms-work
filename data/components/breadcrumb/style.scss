@@ -1,3 +1,11 @@
+.breadcrumb {
+  padding: 1rem;
+
+  @include colorize-el( $input-color );
+  text-shadow: none;
+  box-shadow: $medium-shadow;
+}
+
 .breadcrumb ul {
   list-style: none;
   margin: 0;
@@ -9,7 +17,8 @@
 }
 
 .breadcrumb li::after {
-  content: ' > '
+  content: "›";
+  padding: 0 0.5rem;
 }
 
 .breadcrumb li:last-child::after {

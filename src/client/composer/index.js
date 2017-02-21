@@ -90,7 +90,9 @@ const Composer = ( tree, renderNode, options ) => {
   })
 
   const toggleEl = el => {
-    const isNode = el.parentNode.matches( '.composer-node' )
+    const containerNode = el.closest( '.composer-node, .composer-node__children' )
+
+    const isNode = containerNode.matches( '.composer-node' )
     const key = isNode ? 'isCollapsed' : 'isChildrenCollapsed'
     const collapsedClass = isNode ? 'composer-node--collapsed' : 'composer-node__children--collapsed'
 
