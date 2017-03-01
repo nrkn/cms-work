@@ -5,25 +5,19 @@ const Validator = require( 'mtype-tv4' )
 const utils = require( 'mojule-utils' )
 const ensureModel = require( '../schema/ensureModel' )
 
-const { capitalizeFirstLetter } = utils
-
-// move to utils
-const hyphenatedToCamelCase = ( str, isCapitalizeFirst = false ) => {
-  let [ head, ...rest ] = str.split( '-' )
-  const capitalized = rest.map( capitalizeFirstLetter )
-
-  if( isCapitalizeFirst )
-    head = capitalizeFirstLetter( head )
-
-  return [ head, ...capitalized ].join( '' )
-}
+const { hyphenatedToCamelCase } = utils
 
 const ComponentApi = dependencies => {
-  const { componentNames, schemas } = dependencies
+  const { componentNames, schemas, configs } = dependencies
   const validator = Validator( schemas )
   const api = {}
 
   componentNames.forEach( name => {
+    const config = configs[ name ]
+
+    if( config && config.isAbstract )
+      return
+
     const apiName = hyphenatedToCamelCase( name, true )
 
     const factory = ( model, children ) => {

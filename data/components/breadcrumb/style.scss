@@ -1,5 +1,5 @@
 .breadcrumb {
-  padding: 1rem;
+  padding: spacing( 1, $pixel );
 
   @include colorize-el( $input-color );
   text-shadow: none;
@@ -18,7 +18,7 @@
 
 .breadcrumb li::after {
   content: "›";
-  padding: 0 0.5rem;
+  padding: 0 spacing( 0.5 );
 }
 
 .breadcrumb li:last-child::after {

@@ -1,0 +1,25 @@
+.input-text {
+  display: block;
+  color: $near-black-color;
+  @include colorize-el( $panel-color );
+  text-shadow: none;
+  padding: spacing( 0.5, $pixel );
+}
+
+.input-text__title {
+  margin-bottom: spacing( 0.5 );
+}
+
+.input-text__title small {
+  font-style: italic;
+}
+
+.input-text input {
+  display: block;
+  width: 100%;
+  font-size: 1rem;
+  padding: spacing( 0.25, $pixel );
+  @include colorize-el-background( $input-color );
+  @include colorize-el-border-inset( $panel-color );
+  box-shadow: inset $tiny-shadow;
+}

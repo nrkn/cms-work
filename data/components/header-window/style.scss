@@ -1,6 +1,6 @@
 .header-window {
-  padding-bottom: 0.125rem;
   @include colorize-el( $toolbar-color );
+  padding: spacing( 0.25, $pixel );
   box-shadow: $medium-shadow;
 }
 
@@ -8,12 +8,12 @@
   background: none;
   border: none;
   box-shadow: none;
+  padding: 0;
+  padding-bottom: spacing( 0.25 );
 }
 
 .header-window__main {
-  padding: 0.75rem;
-  margin: 0.25rem;
-  margin-top: 0;
+  padding: spacing( 0.75, $pixel );
 
   @include colorize-el-background( $panel-color );
   @include colorize-el-border-inset( $toolbar-color );

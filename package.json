@@ -24,7 +24,7 @@
     "mojule-dom": "^0.1.25",
     "mojule-templating": "^0.1.22",
     "mojule-transform": "^0.1.7",
-    "mojule-utils": "^0.1.1",
+    "mojule-utils": "^0.1.6",
     "mtype": "^0.1.2",
     "mtype-node": "^0.1.5",
     "mtype-node-level": "^0.1.0",

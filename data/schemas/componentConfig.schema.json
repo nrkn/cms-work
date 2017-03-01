@@ -4,6 +4,12 @@
   "properties": {
     "containerSelector": {
       "$ref": "nonEmptyString"
+    },
+    "inherit": {
+      "$ref": "nonEmptyString"
+    },
+    "isAbstract": {
+      "type": "boolean"
     }
   }
 }

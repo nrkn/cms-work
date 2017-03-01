@@ -93,9 +93,9 @@ $adjust-lightness-gradient-highlight: $adjust-lightness / 2;
     $adjust-saturation
   );
 
-  border: 0.0625rem solid $border-highlight;
-  border-bottom: 0.0625rem solid $border-shadow;
-  border-right: 0.0625rem solid $border-shadow;
+  border: $pixel solid $border-highlight;
+  border-bottom: $pixel solid $border-shadow;
+  border-right: $pixel solid $border-shadow;
 }
 
 @mixin colorize-el-border-inset( $base-color ){
@@ -119,9 +119,9 @@ $adjust-lightness-gradient-highlight: $adjust-lightness / 2;
     $adjust-saturation
   );
 
-  border: 0.0625rem solid $border-shadow;
-  border-bottom: 0.0625rem solid $border-highlight;
-  border-right: 0.0625rem solid $border-highlight;
+  border: $pixel solid $border-shadow;
+  border-bottom: $pixel solid $border-highlight;
+  border-right: $pixel solid $border-highlight;
 }
 
 @mixin colorize-el( $base-color ){
@@ -148,5 +148,5 @@ $adjust-lightness-gradient-highlight: $adjust-lightness / 2;
 
   @include colorize-el-background( $base-color );
   @include colorize-el-border( $base-color );
-  text-shadow: 0.0625rem 0.0625rem 0 $text-shadow;
+  text-shadow: $pixel $pixel 0 $text-shadow;
 }

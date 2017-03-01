@@ -27,7 +27,7 @@ const initApp = ( dependencies, resolve ) => {
 
     const {
       Document, Row, InputRadioIcon, InputCheckboxIcon, LinkList, Breadcrumb,
-      Link, Composer, HeaderBar, HeaderWindow
+      Link, Composer, HeaderBar, HeaderWindow, InputText, ButtonText
     } = componentApi
 
     const document = {
@@ -111,16 +111,43 @@ const initApp = ( dependencies, resolve ) => {
 
     const window = { bar }
 
+    const inputText1 = {
+      name: 'textInput1',
+      title: 'Hello',
+      value: 'World',
+      isRequired: true
+    }
+    const inputText2 = {
+      name: 'textInput2',
+      title: 'Hello',
+      placeholder: 'World',
+      isRequired: true
+    }
+    const inputText3 = {
+      name: 'textInput3',
+      title: 'Hello',
+      value: 'World',
+      placeholder: 'World'
+    }
+
+    const buttonText = { action: 'home', title: 'Home' }
+
     const documentNode =
       Document( document, [
         Breadcrumb( links.map( Link ) ),
+        /*
         HeaderWindow( window, [
           Row( radios.map( InputRadioIcon ) )
         ]),
         HeaderWindow( window, [
           Row( checkboxes.map( InputCheckboxIcon ) )
         ]),
-        Composer()
+        */
+        Row( [ ButtonText( buttonText ), ButtonText( buttonText ) ] ),
+        //Composer(),
+        InputText( inputText1 ),
+        InputText( inputText2 ),
+        InputText( inputText3 )
       ]
     )
 

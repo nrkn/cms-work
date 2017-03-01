@@ -1,7 +1,7 @@
 .button {
   padding: 0;
   font-size: 1rem;
-  line-height: 1.875rem;
+  line-height: spacing( 1.5, $pixel * 2 );
   text-align: center;
 
   color: $near-white-color;

@@ -12,6 +12,8 @@ html {
 body {
   background: #fff;
   color: #000;
+  line-height: $line-height;
+  overflow-y: scroll;
 }
 
 .gu-unselectable {
@@ -44,9 +46,9 @@ body {
   filter: alpha(opacity=20);
 }
 
-$progress-width: 20rem;
-$progress-height: 4rem;
-$progress-padding: 1rem;
+$progress-width: spacing( 16 );
+$progress-height: spacing( 4 );
+$progress-padding: spacing( 1 );
 
 $progress-color: $panel-color;
 $progress-bar-color: $success-color;
@@ -108,4 +110,31 @@ $progress-bar-color: $success-color;
 
 .modal--hidden {
   display: none;
+}
+
+.overlay-grid {
+  position: relative;
+}
+
+.overlay-grid:active:after {
+  display: none;
+}
+
+.overlay-grid:after {
+  background:
+    linear-gradient( to right, rgba( 200, 225, 255, 0.6 ) $pixel, transparent $pixel ),
+    linear-gradient( to bottom, rgba( 200, 225, 255, 0.6 ) $pixel, transparent $pixel );
+  background-size: $base-spacing $base-spacing;
+  bottom: 0;
+  margin-top: 0;
+  content: '';
+  display: block;
+  height: auto;
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: auto;
+  z-index: 9999;
 }

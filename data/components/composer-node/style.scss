@@ -5,7 +5,7 @@ $children-color: hsl( 210, 95%, 95% );
 .composer-node > .header-bar .header-bar__title::before,
 .composer-node__children > .header-bar .header-bar__title::before {
   content: "▴";
-  padding-right: 0.5rem;
+  padding-right: spacing( 0.5 );
 }
 
 .composer-node--collapsed > .header-bar .header-bar__title::before,
@@ -18,9 +18,9 @@ $children-color: hsl( 210, 95%, 95% );
 }
 
 .composer-node__view {
-  margin-bottom: 0.5rem;
+  margin-bottom: spacing( 0.5 );
   overflow: hidden;
-  padding: 0.5rem;
+  padding: spacing( 0.5 );
 
   color: $near-white-color;
   @include colorize-el-background( $near-black-color );
@@ -31,8 +31,8 @@ $children-color: hsl( 210, 95%, 95% );
 }
 
 .composer-node__main {
-  padding: 0.75rem;
-  margin: 0.25rem;
+  padding: spacing( 0.75 );
+  margin: spacing( 0.25 );
   margin-top: 0;
 
   @include colorize-el-background( $panel-color );
@@ -52,12 +52,13 @@ $children-color: hsl( 210, 95%, 95% );
   overflow: hidden;
 
   @include colorize-el-background( $children-color );
+  @include colorize-el-border-inset( $panel-color );
   box-shadow: inset $medium-shadow;
 }
 
 .composer-node__children > ul {
   margin: 0;
-  padding: 0.5rem;
+  padding: spacing( 0.5 );
   list-style: none;
 }
 

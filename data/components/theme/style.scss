@@ -1,3 +1,13 @@
+// whitespace
+
+$line-height: 1.25;
+$base-spacing: 1.25rem;
+$pixel: $base-spacing * 0.05;
+
+@function spacing( $multiplier:1, $subtract:0 ){
+  @return ( $base-spacing * $multiplier ) - $subtract;
+}
+
 // palette
 $primary-color: hsl(210, 85%, 60% );
 $secondary-color: hsl( 210, 15%, 40% );
@@ -26,7 +36,7 @@ $toolbar-color: $light-grey-color;
 $highlight-color: $primary-color;
 
 // shadows
-$large-shadow: 0.25rem 0.25rem 1rem rgba( 0, 0, 0, 0.25 );
-$medium-shadow: 0.125rem 0.125rem 0.5rem rgba( 0, 0, 0, 0.25 );
-$small-shadow: 0.0625rem 0.0625rem 0.25rem rgba( 0, 0, 0, 0.25 );
-$tiny-shadow: 0.03125rem 0.03125rem 0.125rem rgba( 0, 0, 0, 0.25 );
+$large-shadow: spacing( 0.25 ) spacing( 0.25 ) spacing( 1 ) rgba( 0, 0, 0, 0.25 );
+$medium-shadow: spacing( 0.125 ) spacing( 0.125 ) spacing( 0.5 ) rgba( 0, 0, 0, 0.25 );
+$small-shadow: spacing( 0.0625 ) spacing( 0.0625 ) spacing( 0.25 ) rgba( 0, 0, 0, 0.25 );
+$tiny-shadow: spacing( 0.03125 ) spacing( 0.03125) spacing( 0.125 ) rgba( 0, 0, 0, 0.25 );

@@ -36,7 +36,7 @@ const getComposerApi = () => {
   const RenderNode = require( '../render-composer/renderNode' )
   const renderNode = RenderNode( componentDependencies )
 
-  const treeRaw = componentDependencies.datas[ 'mojule-fs' ]
+  const treeRaw = componentDependencies.datas[ 'data-small' ]
   const tree = Tree( treeRaw )
 
   const modulesNodes = tree.findAll( n => n.value().name === 'node_modules' )

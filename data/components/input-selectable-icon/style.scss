@@ -1,8 +1,8 @@
 .input-selectable-icon {
   display: block;
-  padding: 0.25rem;
-  width: 6rem;
-  height: 6rem;
+  padding: spacing( 0.25, $pixel );
+  width: spacing( 6 );
+  height: spacing( 6 );
   text-align: center;
   overflow: hidden;
 
@@ -20,15 +20,14 @@
 }
 
 .input-selectable-icon i {
-  margin: 0.5rem;
+  margin: spacing( 0.5 );
   margin-bottom: 0;
 }
 
 .input-selectable-icon__title {
-  padding: 0.25rem;
-  height: 1.5rem;
-  line-height: 1.5;
-  font-size: 0.9375rem;
+  padding: spacing( 0.25 );
+  height: spacing( 1 );
+  font-size: spacing( 0.75 );
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
