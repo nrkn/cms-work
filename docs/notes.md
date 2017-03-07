@@ -8,34 +8,15 @@
 
 - All loaded from `/data` - needs some kind of manager eg if you want to upload
   one, bring one in from some module or whatever
-- Probably need an `options.json` as well
-
-### Use a tree for rendering:
-
-```javascript
-{
-  value: {
-    name: 'document',
-    model: { ... },
-    childContainer: '[data-container]'
-  },
-  children: [
-
-  ]
-}
-```
 
 ## 1tree
 
+- Refactor to use `depject` because it solves a lot of friction problems we are
+  having such as having to implement things using two different but similar
+  syntaxes, one where partial application is happening and nodes etc are being
+  wrapped, and one without
+
 - `equals` - implementation is a.get() === b.get()
-- `indexOf`
-- `slug` - returns a unique-within-siblings string for building paths. The
-  default implementation is simply indexOf - so paths would look like 0/1/2/0
-  etc.
-- `getPath`, `findForPath` (naming?) - uses slugs
-- are children sliced atm in default adapter? (don't think so - performance)
-- consider making class/tags a base feature and not just in dom - classes are
-  effectively the same thing as tags!
 - `schema` - add to base as an empty schema `{}` that will always validate true
 - `validate` - using schema
 - `attributes` - again, move from dom to support all - attribute values always
@@ -65,11 +46,6 @@ builtins etc take same initial signature, or even just:
   // ...
 }
 ```
-
-## 1tree-json & 1tree-schema
-
-- Convert to adapter or patch the tree in `toTree` (probs the latter)
-- Implement empty, accepts
 
 ## 1tree-component
 

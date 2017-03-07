@@ -10,6 +10,7 @@ const ensureModel = ( validator, model, name ) => {
   if( result.valid ) return
 
   const message = `Template model validation failed for ${ name }: ${ JSON.stringify( result.errors ) }`
+
   throw new Error( message )
 }
 

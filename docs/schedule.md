@@ -157,3 +157,46 @@ What views make these up?
 
   Mostly like a library screen but specialized for files
 
+## things we definitely need
+
+### quick
+
+* more components
+  - app-bar (specialised class of header-bar)
+  - grid, for libraries
+
+    modify row component to not wrap, grid is same as row but wraps
+* routing
+  - first decision is what website
+  - route nodes - what are the nodeTypes we needs for these?
+* image resizing
+  - immediately, not on demand, perhaps via a work queue - if the queue hasn't
+    completed, serve the image at original size
+* uploads (1-2 hours)
+* emailing
+* zipping / unzipping
+
+### moderate
+
+* normalize schema
+* schema -> form
+
+* users
+* claims - might be easy, might just be a matter of filtering nodes
+* model composer / schema composer / html composer / component composer
+
+  We have all the bits, but they need to be exposed to the UI, wired to storage
+  etc.
+* backup / restore
+* tags / filtering / searching
+* user css - how does it work under new system?
+* saving/publishing/versioning
+  - every page is static and cached, even those with dynamic parts
+  - pages with dynamic parts update via js
+
+### slow
+
+
+
+
+
