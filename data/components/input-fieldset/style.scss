@@ -1,0 +1,11 @@
+.input-fieldset {
+  @include colorize-el( $panel-color );
+  text-shadow: none;
+  padding: spacing( 0.5, $pixel );
+}
+
+.input-fieldset > legend {
+  background: $panel-color;
+  text-shadow: none;
+  padding: spacing( 0.5, $pixel );
+}

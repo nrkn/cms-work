@@ -1,0 +1,9 @@
+{
+  "id": "input-fieldset",
+  "type": "object",
+  "properties": {
+    "title": { "$ref": "nonEmptyString" },
+    "isDisabled": { "type": "boolean" }
+  },
+  "required": [ "title" ]
+}

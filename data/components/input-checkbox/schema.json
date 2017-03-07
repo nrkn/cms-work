@@ -1,0 +1,6 @@
+{
+  "id": "input-checkbox",
+  "properties": {
+    "isSelected": { "type": "boolean" }
+  }
+}

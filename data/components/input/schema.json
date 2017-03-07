@@ -4,8 +4,6 @@
   "properties": {
     "name": { "$ref": "nonEmptyString" },
     "title": { "$ref": "nonEmptyString" },
-    "value": { "type": "string" },
-    "placeholder": { "type": "string" },
     "isRequired": {
       "type": "boolean"
     }

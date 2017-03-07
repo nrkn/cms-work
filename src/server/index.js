@@ -27,7 +27,8 @@ const initApp = ( dependencies, resolve ) => {
 
     const {
       Document, Row, InputRadioIcon, InputCheckboxIcon, LinkList, Breadcrumb,
-      Link, Composer, HeaderBar, HeaderWindow, InputText, ButtonText
+      Link, Composer, HeaderBar, HeaderWindow, InputText, ButtonText,
+      InputFieldset, InputNumber, InputCheckbox, InputRadio
     } = componentApi
 
     const document = {
@@ -129,6 +130,34 @@ const initApp = ( dependencies, resolve ) => {
       value: 'World',
       placeholder: 'World'
     }
+    const inputNumber1 = {
+      name: 'numberInput1',
+      title: 'Age',
+      value: 36,
+      min: 18,
+      max: 150,
+      placeholder: '65'
+    }
+
+    const inputCheckbox1 = {
+      name: 'checkbox1',
+      title: 'Are you a pillock?',
+      isSelected: true
+    }
+    const inputCheckbox2 = {
+      name: 'checkbox2',
+      title: 'Are you awesome?'
+    }
+
+    const inputRadio1 = {
+      name: 'inputRadio',
+      title: 'I am a pillock',
+      isSelected: true
+    }
+    const inputRadio2 = {
+      name: 'inputRadio',
+      title: 'I am not a pillock (seems unlikely but OK)'
+    }
 
     const buttonText = { action: 'home', title: 'Home' }
 
@@ -145,9 +174,18 @@ const initApp = ( dependencies, resolve ) => {
         */
         Row( [ ButtonText( buttonText ), ButtonText( buttonText ) ] ),
         //Composer(),
-        InputText( inputText1 ),
-        InputText( inputText2 ),
-        InputText( inputText3 )
+        InputFieldset( { title: 'Cool Fieldset' }, [
+          InputText( inputText1 ),
+          InputText( inputText2 ),
+          InputText( inputText3 ),
+          InputNumber( inputNumber1 ),
+          InputCheckbox( inputCheckbox1 ),
+          InputCheckbox( inputCheckbox2 ),
+          InputFieldset( { title: 'Level of pillockery' }, [
+            InputRadio( inputRadio1 ),
+            InputRadio( inputRadio2 )
+          ])
+        ])
       ]
     )
 

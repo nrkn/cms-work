@@ -178,7 +178,6 @@ What views make these up?
 
 ### moderate
 
-* normalize schema
 * schema -> form
 
 * users

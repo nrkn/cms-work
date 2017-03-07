@@ -1,4 +1,8 @@
 {
   "id": "input-text",
-  "$ref": "input"
+  "$ref": "input",
+  "properties": {
+    "value": { "type": "string" },
+    "placeholder": { "type": "string" }
+  }
 }

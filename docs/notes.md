@@ -8,6 +8,8 @@
 
 - All loaded from `/data` - needs some kind of manager eg if you want to upload
   one, bring one in from some module or whatever
+- Should most inputs share a common template? How does inherit work with
+  templates?
 
 ## 1tree
 

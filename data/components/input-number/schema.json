@@ -1,0 +1,11 @@
+{
+  "id": "input-number",
+  "$ref": "input",
+  "properties": {
+    "min": { "type": "number" },
+    "max": { "type": "number" },
+    "step": { "type": "number" },
+    "value": { "type": "number" },
+    "placeholder": { "type": "string" }
+  }
+}

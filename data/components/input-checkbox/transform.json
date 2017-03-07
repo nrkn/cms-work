@@ -1,0 +1,26 @@
+{
+  "label": [
+    { "attr": [ "title", { "$value": "title" } ] }
+  ],
+  "input": [
+    { "attr": [ "name", { "$value": "name" } ] },
+    {
+      "$if": [
+        { "$value": "value" },
+        { "attr": [ "value", { "$value": "value" } ] }
+      ]
+    },
+    {
+      "$if": [
+        { "$value": "isRequired" },
+        { "attr": [ "required", "" ] }
+      ]
+    },
+    {
+      "$if": [
+        { "$value": "isSelected" },
+        { "attr": [ "checked", "" ] }
+      ]
+    }
+  ]
+}

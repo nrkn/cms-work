@@ -1,0 +1,11 @@
+.input-checkbox {
+  display: block;
+  color: $near-black-color;
+  @include colorize-el( $panel-color );
+  text-shadow: none;
+  padding: spacing( 0.5, $pixel );
+}
+
+.input-checkbox__title small {
+  font-style: italic;
+}
