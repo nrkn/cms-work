@@ -45,12 +45,20 @@ const NodeToComponent = componentApi => {
 
   const inputModel = node => {
     const value = node.value()
+    const { propertyName } = value
     const name = node.getPath()
     const title = getTitle( value )
 
-    // add isRequired to 1tree-schema!
-
     const model = { name, title }
+
+    const parent = node.getParent()
+
+    if( parent && propertyName ){
+      const { required } = parent.value()
+
+      if( Array.isArray( required ) && required.includes( propertyName ) )
+        Object.assign( model, { isRequired: true } )
+    }
 
     if( value.default )
       Object.assign( model, { value: value.default } )
@@ -138,11 +146,11 @@ const NodeToComponent = componentApi => {
       const fieldsetClasses = [ 'input-fieldset--select' ]
 
       const radioModels = children.map( childNode => {
-        const value = childNode.value()
-        const title = getTitle( value )
+        const title = getTitle( childNode.value() )
         const radioClasses = [ 'input-radio--select' ]
+        const value = childNode.getPath()
 
-        const model = { title, name, radioClasses }
+        const model = { title, name, value, radioClasses }
 
         return inputRadio( model )
       })
