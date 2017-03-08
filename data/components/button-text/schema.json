@@ -1,9 +1,13 @@
 {
   "id": "button-text",
+  "title": "Text Button",
   "type": "object",
   "$ref": "button",
   "properties": {
-    "title": { "$ref": "nonEmptyString" }
+    "title": {
+      "title": "Title",
+      "$ref": "nonEmptyString"
+    }
   },
   "required": [ "title" ]
 }

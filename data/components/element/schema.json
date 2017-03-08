@@ -1,12 +1,14 @@
 {
   "id": "element",
   "title": "HTML Element",
+  "type": "object",
   "properties": {
     "tagName": {
       "title": "Tag Name",
       "$ref": "nonEmptyString"
     },
     "attributes": {
+      "title": "Element Attributes",
       "type": "object"
     }
   },

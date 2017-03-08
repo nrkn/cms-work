@@ -1,9 +1,22 @@
 {
   "id": "input-fieldset",
+  "title": "Fieldset",
   "type": "object",
   "properties": {
-    "title": { "$ref": "nonEmptyString" },
-    "isDisabled": { "type": "boolean" }
+    "title": {
+      "title": "Fieldset Legend",
+      "$ref": "nonEmptyString"
+    },
+    "fieldsetClasses": {
+      "title": "Fieldset Classes",
+      "$ref": "class-names"
+    },
+    "isDisabled": {
+      "title": "Is Fieldset Disabled?",
+      "type": "boolean"
+    }
   },
-  "required": [ "title" ]
+  "required": [
+    "title"
+  ]
 }

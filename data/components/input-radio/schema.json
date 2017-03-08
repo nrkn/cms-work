@@ -1,6 +1,15 @@
 {
   "id": "input-radio",
+  "title": "Radio Input",
+  "type": "object",
   "properties": {
-    "isSelected": { "type": "boolean" }
+    "isSelected": {
+      "title": "Is Radio Selected?",
+      "type": "boolean"
+    },
+    "radioClasses": {
+      "title": "Radio Classes",
+      "$ref": "class-names"
+    }
   }
 }

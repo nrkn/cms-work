@@ -1,5 +1,6 @@
 {
   "id": "button",
+  "title": "Button",
   "type": "object",
   "properties": {
     "action": {
@@ -8,11 +9,7 @@
     },
     "buttonClasses": {
       "title": "Button Classes",
-      "type": "array",
-      "items": {
-        "title": "Class Name",
-        "$ref": "nonEmptyString"
-      }
+      "$ref": "class-names"
     },
     "isDisabled": {
       "title": "Button is disabled?",

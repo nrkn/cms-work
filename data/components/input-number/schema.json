@@ -1,11 +1,27 @@
 {
   "id": "input-number",
+  "title": "Number Input",
   "$ref": "input",
   "properties": {
-    "min": { "type": "number" },
-    "max": { "type": "number" },
-    "step": { "type": "number" },
-    "value": { "type": "number" },
-    "placeholder": { "type": "string" }
+    "min": {
+      "title": "Minimum Value",
+      "type": "number"
+    },
+    "max": {
+      "title": "Maximum Value",
+      "type": "number"
+    },
+    "step": {
+      "title": "Step Amount",
+      "type": "number"
+    },
+    "value": {
+      "title": "Current Value",
+      "type": "number"
+    },
+    "placeholder": {
+      "title": "Placeholder",
+      "type": "string"
+    }
   }
 }

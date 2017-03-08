@@ -1,6 +1,7 @@
 {
   "label": [
-    { "attr": [ "title", { "$value": "title" } ] }
+    { "attr": [ "title", { "$value": "title" } ] },
+    { "addClasses": { "$value": "radioClasses" } }
   ],
   "input": [
     { "attr": [ "name", { "$value": "name" } ] },

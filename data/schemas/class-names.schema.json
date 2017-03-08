@@ -1,0 +1,9 @@
+{
+  "id": "class-names",
+  "title": "Class Names",
+  "type": "array",
+  "items": {
+    "title": "Class",
+    "$ref": "nonEmptyString"
+  }
+}

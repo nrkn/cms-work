@@ -10,6 +10,7 @@ $pixel: $base-spacing * 0.05;
 
 // palette
 $primary-color: hsl(210, 85%, 60% );
+$primary-color-darker: hsl(210, 85%, 40% );
 $secondary-color: hsl( 210, 15%, 40% );
 $success-color: hsl( 150, 85%, 40% );
 $warning-color: hsl( 40, 100%, 50% );
@@ -17,6 +18,10 @@ $alert-color: hsl( 0, 85%, 50% );
 $near-white-color: hsl( 210, 5%, 95% );
 $light-grey-color: hsl( 210, 5%, 80% );
 $near-black-color: hsl( 210, 85%, 15% );
+
+$primary-grey-color: hsl( 210, 25%, 80% );
+$success-grey-color: hsl( 150, 25%, 80% );
+$success-white-color: hsl( 150, 25%, 95% );
 
 // derived colors (from palette)
 $button-color: $primary-color;
@@ -28,8 +33,15 @@ $button-alert-color-active: advanced-darken( $button-alert-color );
 
 $panel-color: $near-white-color;
 
+$list-color: $primary-grey-color;
+$list-panel-color: hsl( 210, 95%, 95% );
+
 $input-color: advanced-lighten( $near-white-color );
 $input-color-hover: advanced-darken( $near-white-color );
+
+$select-color: $success-grey-color;
+$select-inset-color: hsl( 150, 75%, 95% );
+$select-panel-color: $success-white-color;
 
 $toolbar-color: $light-grey-color;
 

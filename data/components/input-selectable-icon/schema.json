@@ -1,11 +1,24 @@
 {
   "id": "input-selectable-icon",
+  "title": "Abstract Selectable Icon",
   "type": "object",
   "$ref": "icon",
   "properties": {
-    "name": { "$ref": "nonEmptyString" },
-    "title": { "$ref": "nonEmptyString" },
-    "isSelected": { "type": "boolean" }
+    "name": {
+      "title": "Field Name",
+      "$ref": "nonEmptyString"
+    },
+    "title": {
+      "title": "Title",
+      "$ref": "nonEmptyString"
+    },
+    "isSelected": {
+      "title": "Is Icon Selected?",
+      "type": "boolean"
+    }
   },
-  "required": [ "name", "title" ]
+  "required": [
+    "name",
+    "title"
+  ]
 }

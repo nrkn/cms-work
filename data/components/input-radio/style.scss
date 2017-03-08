@@ -1,11 +1,4 @@
-.input-radio {
-  display: block;
-  color: $near-black-color;
-  @include colorize-el( $panel-color );
+.input-radio--select {
+  @include colorize-el( $select-panel-color );
   text-shadow: none;
-  padding: spacing( 0.5, $pixel );
-}
-
-.input-radio__title small {
-  font-style: italic;
 }

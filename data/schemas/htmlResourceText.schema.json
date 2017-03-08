@@ -1,8 +1,10 @@
 {
   "id": "htmlResourceText",
+  "title": "Resource as Text",
   "type": "object",
   "properties": {
     "text": {
+      "title": "Text Content",
       "type": "string"
     }
   },

@@ -1,8 +1,11 @@
 {
-  "fieldset": {
-    "$if": [
-      { "$value": "isDisabled" },
-      { "attr": [ "disabled", "" ] }
-    ]
-  }
+  "fieldset": [
+    {
+      "$if": [
+        { "$value": "isDisabled" },
+        { "attr": [ "disabled", "" ] }
+      ]
+    },
+    { "addClasses": { "$value": "fieldsetClasses" } }
+  ]
 }

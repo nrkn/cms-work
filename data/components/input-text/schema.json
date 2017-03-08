@@ -1,8 +1,15 @@
 {
   "id": "input-text",
+  "title": "Text Input",
   "$ref": "input",
   "properties": {
-    "value": { "type": "string" },
-    "placeholder": { "type": "string" }
+    "value": {
+      "title": "Current Value",
+      "type": "string"
+    },
+    "placeholder": {
+      "title": "Placeholder",
+      "type": "string"
+    }
   }
 }

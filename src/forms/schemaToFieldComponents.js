@@ -115,10 +115,42 @@ const NodeToComponent = componentApi => {
       */
       const value = node.value()
       const title = getTitle( value )
+      const fieldsetClasses = [ 'input-fieldset--list' ]
 
-      return inputFieldset( { title } )
+      return inputFieldset( { title, fieldsetClasses } )
     },
-    any: node => componentFragment()
+    any: node => {
+      const children = node.getChildren()
+
+      const childrenAreOneOf = children.every( childNode => {
+        return childNode.value().oneOf
+      })
+
+      // there may be other cases here, but for now handle oneOf
+      if( !childrenAreOneOf )
+        throw new Error( 'Type "any" only currently supported when children are "oneOf"' )
+
+      // field name for the oneOf node
+      const name = node.getPath()
+      const value = node.value()
+
+      const title = getTitle( value )
+      const fieldsetClasses = [ 'input-fieldset--select' ]
+
+      const radioModels = children.map( childNode => {
+        const value = childNode.value()
+        const title = getTitle( value )
+        const radioClasses = [ 'input-radio--select' ]
+
+        const model = { title, name, radioClasses }
+
+        return inputRadio( model )
+      })
+
+      const fieldsetModel = { title, fieldsetClasses }
+
+      return inputFieldset( fieldsetModel, radioModels )
+    }
   }
 
   return nodeToComponent

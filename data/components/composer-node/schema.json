@@ -1,17 +1,56 @@
 {
   "id": "composer-node",
+  "title": "Composer Node",
   "type": "object",
   "properties": {
-    "id": { "$ref": "nonEmptyString" },
-    "treeType": { "$ref": "nonEmptyString" },
-    "nodeType": { "$ref": "nonEmptyString" },
-    "nodeHeader": { "$ref": "header-bar" },
-    "childrenHeader": { "$ref": "header-bar" },
-    "depth": { "type": "integer" },
-    "isEmpty": { "type": "boolean" },
-    "isCollapsed": { "type": "boolean" },
-    "isChildrenCollapsed": { "type": "boolean" },
-    "preview": { "$ref": "nonEmptyString" }
+    "id": {
+      "title": "Node ID",
+      "$ref": "nonEmptyString"
+    },
+    "treeType": {
+      "title": "Tree Type",
+      "$ref": "nonEmptyString"
+    },
+    "nodeType": {
+      "title": "Node Type",
+      "$ref": "nonEmptyString"
+    },
+    "nodeHeader": {
+      "title": "Node Header Bar",
+      "$ref": "header-bar"
+    },
+    "childrenHeader": {
+      "title": "Node Children Header Bar",
+      "$ref": "header-bar"
+    },
+    "depth": {
+      "title": "Node Depth",
+      "type": "integer"
+    },
+    "isEmpty": {
+      "title": "Node is empty?",
+      "type": "boolean"
+    },
+    "isCollapsed": {
+      "title": "Node is collapsed?",
+      "type": "boolean"
+    },
+    "isChildrenCollapsed": {
+      "title": "Node children are collapsed?",
+      "type": "boolean"
+    },
+    "preview": {
+      "title": "Node Preview",
+      "$ref": "nonEmptyString"
+    }
   },
-  "required": [ "id", "treeType", "nodeType", "nodeHeader", "childrenHeader", "depth", "preview" ]
+  "required": [
+    "id",
+    "treeType",
+    "nodeType",
+    "nodeHeader",
+    "childrenHeader",
+    "depth",
+    "preview"
+  ]
 }

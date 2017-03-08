@@ -1,4 +1,5 @@
 {
   "id": "input-radio-icon",
+  "title": "Icon Radio",
   "$ref": "input-selectable-icon"
 }

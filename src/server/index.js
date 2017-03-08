@@ -178,7 +178,7 @@ const initApp = ( dependencies, resolve ) => {
 
     const documentNode =
       document( documentModel, [
-        allSchemasAsFields
+        ...allSchemasAsFields
         /*
         breadcrumb( linkModels.map( link ) ),
         headerWindow( windowModel, [

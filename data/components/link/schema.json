@@ -1,12 +1,15 @@
 {
   "id": "link",
+  "title": "Link",
   "type": "object",
   "properties": {
     "title": {
+      "title": "Link Text",
       "$ref": "nonEmptyString"
     },
     "uri": {
       "$ref": "nonEmptyString",
+      "title": "Link URI",
       "format": "uri"
     }
   },

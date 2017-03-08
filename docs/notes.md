@@ -11,6 +11,14 @@
 - Should most inputs share a common template? How does inherit work with
   templates?
 
+### fieldset component
+
+For the component forms, we need to differentiate between:
+object fieldset/array fieldset/oneOf fieldset etc.
+
+For two reasons, 1) for the js hooks 2) so they are distinguishable from each
+other visually
+
 ## dependencies
 
 Use [depject](https://github.com/depject/depject) for dependencies, this is a

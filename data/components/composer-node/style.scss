@@ -1,6 +1,6 @@
-$toolbar-children-color: hsl( 210, 85%, 40% );
+$toolbar-children-color: $primary-color-darker;
 $toolbar-empty-color: hsl( 210, 10%, 90% );
-$children-color: hsl( 210, 95%, 95% );
+$children-color: $list-panel-color;
 
 .composer-node > .header-bar .header-bar__title::before,
 .composer-node__children > .header-bar .header-bar__title::before {

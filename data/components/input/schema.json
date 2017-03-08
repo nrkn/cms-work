@@ -1,12 +1,23 @@
 {
   "id": "input",
+  "title": "Abstract Input",
   "type": "object",
   "properties": {
-    "name": { "$ref": "nonEmptyString" },
-    "title": { "$ref": "nonEmptyString" },
+    "name": {
+      "title": "Field Name",
+      "$ref": "nonEmptyString"
+    },
+    "title": {
+      "title": "Label Title",
+      "$ref": "nonEmptyString"
+    },
     "isRequired": {
+      "title": "Is Field Required?",
       "type": "boolean"
     }
   },
-  "required": [ "name", "title" ]
+  "required": [
+    "name",
+    "title"
+  ]
 }

@@ -1,16 +1,26 @@
 {
   "id": "header-bar",
+  "title": "Header Bar",
   "type": "object",
   "properties": {
-    "title": { "$ref": "nonEmptyString" },
+    "title": {
+      "title": "Header Bar Title",
+      "$ref": "nonEmptyString"
+    },
     "actions": {
+      "title": "Action Buttons",
       "type": "array",
-      "items": { "$ref": "button-icon" }
+      "items": {
+        "title": "Button",
+        "$ref": "button-icon"
+      }
     },
     "classes": {
-      "type": "array",
-      "items": { "$ref": "nonEmptyString" }
+      "title": "Header Bar Classes",
+      "$ref": "class-names"
     }
   },
-  "required": [ "title" ]
+  "required": [
+    "title"
+  ]
 }

@@ -1,4 +1,5 @@
 {
   "id": "input-checkbox-icon",
+  "title": "Icon Checkbox",
   "$ref": "input-selectable-icon"
 }

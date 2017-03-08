@@ -1,6 +1,11 @@
 {
   "id": "input-checkbox",
+  "title": "Checkbox Input",
+  "type": "object",
   "properties": {
-    "isSelected": { "type": "boolean" }
+    "isSelected": {
+      "title": "Is Checked?",
+      "type": "boolean"
+    }
   }
 }

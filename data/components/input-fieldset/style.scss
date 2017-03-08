@@ -1,11 +1,55 @@
 .input-fieldset {
-  @include colorize-el( $panel-color );
+  @include colorize-el( $toolbar-color );
+  border: 0;
+  text-shadow: none;
+  box-shadow: $medium-shadow;
+  padding: 0;
+}
+
+.input-fieldset > legend {
+  color: $near-black-color;
+  @include colorize-el( $toolbar-color );
+  font-weight: bold;
+  width: 100%;
   text-shadow: none;
   padding: spacing( 0.5, $pixel );
 }
 
-.input-fieldset > legend {
-  background: $panel-color;
+.input-fieldset > div {
+  @include colorize-el( $panel-color );
+  @include colorize-el-border-inset( $toolbar-color );
+  padding: spacing( 0.75, $pixel );
+  margin: spacing( 0.25 );
+  margin-top: 0;
+  box-shadow: inset $small-shadow;
+}
+
+.input-fieldset--list {
+  @include colorize-el( $list-color );
+  border: 0;
+}
+
+.input-fieldset--list > legend {
+  @include colorize-el( $list-color );
   text-shadow: none;
-  padding: spacing( 0.5, $pixel );
+}
+
+.input-fieldset--list > div {
+  @include colorize-el( $list-panel-color );
+  @include colorize-el-border-inset( $list-color );
+}
+
+.input-fieldset--select {
+  @include colorize-el( $select-color );
+  border: 0;
+}
+
+.input-fieldset--select > legend {
+  @include colorize-el( $select-color );
+  text-shadow: none;
+}
+
+.input-fieldset--select > div {
+  @include colorize-el( $select-inset-color );
+  @include colorize-el-border-inset( $select-color );
 }

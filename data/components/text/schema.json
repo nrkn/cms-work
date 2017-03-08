@@ -1,8 +1,14 @@
 {
   "id": "text",
   "title": "Text",
+  "type": "object",
   "properties": {
-    "value": { "type": "string" }
+    "value": {
+      "title": "Text Value",
+      "type": "string"
+    }
   },
-  "required": [ "value" ]
+  "required": [
+    "value"
+  ]
 }

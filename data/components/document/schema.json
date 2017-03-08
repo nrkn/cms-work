@@ -1,20 +1,37 @@
 {
   "id": "document",
+  "title": "HTML Document",
   "type": "object",
   "properties": {
-    "documentTitle": { "$ref": "nonEmptyString" },
+    "documentTitle": {
+      "title": "Document Title",
+      "$ref": "nonEmptyString"
+    },
     "headStyles": {
+      "title": "Head Styles",
       "type": "array",
-      "items": { "$ref": "style" }
+      "items": {
+        "title": "Style",
+        "$ref": "style"
+      }
     },
     "headScripts": {
+      "title": "Head Script",
       "type": "array",
-      "items": { "$ref": "script" }
+      "items": {
+        "title": "Script",
+        "$ref": "script"
+      }
     },
     "scripts": {
+      "title": "Body Scripts",
       "type": "array",
-      "items": { "$ref": "script" }
+      "items": {
+        "$ref": "script"
+      }
     }
   },
-  "required": [ "documentTitle" ]
+  "required": [
+    "documentTitle"
+  ]
 }
