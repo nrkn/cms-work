@@ -1,0 +1,28 @@
+{
+  "value": {
+    "id": "element",
+    "title": "HTML Element",
+    "required": [
+      "tagName"
+    ],
+    "type": "any"
+  },
+  "children": [
+    {
+      "value": {
+        "title": "Tag Name",
+        "type": "string",
+        "propertyName": "tagName",
+        "pattern": "^(?!\\s*$).+"
+      },
+      "children": []
+    },
+    {
+      "value": {
+        "type": "object",
+        "propertyName": "attributes"
+      },
+      "children": []
+    }
+  ]
+}

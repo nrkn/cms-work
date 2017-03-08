@@ -1,0 +1,19 @@
+{
+  "value": {
+    "id": "text",
+    "title": "Text",
+    "required": [
+      "value"
+    ],
+    "type": "any"
+  },
+  "children": [
+    {
+      "value": {
+        "type": "string",
+        "propertyName": "value"
+      },
+      "children": []
+    }
+  ]
+}

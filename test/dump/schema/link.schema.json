@@ -1,0 +1,19 @@
+{
+  "id": "link",
+  "type": "object",
+  "required": [
+    "title",
+    "uri"
+  ],
+  "properties": {
+    "title": {
+      "type": "string",
+      "pattern": "^(?!\\s*$).+"
+    },
+    "uri": {
+      "format": "uri",
+      "type": "string",
+      "pattern": "^(?!\\s*$).+"
+    }
+  }
+}

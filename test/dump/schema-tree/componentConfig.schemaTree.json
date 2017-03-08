@@ -1,0 +1,31 @@
+{
+  "value": {
+    "id": "componentConfig",
+    "type": "object"
+  },
+  "children": [
+    {
+      "value": {
+        "type": "string",
+        "propertyName": "containerSelector",
+        "pattern": "^(?!\\s*$).+"
+      },
+      "children": []
+    },
+    {
+      "value": {
+        "type": "string",
+        "propertyName": "inherit",
+        "pattern": "^(?!\\s*$).+"
+      },
+      "children": []
+    },
+    {
+      "value": {
+        "type": "boolean",
+        "propertyName": "isAbstract"
+      },
+      "children": []
+    }
+  ]
+}

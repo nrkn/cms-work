@@ -1,0 +1,36 @@
+{
+  "id": "input-number",
+  "type": "object",
+  "required": [
+    "name",
+    "title"
+  ],
+  "properties": {
+    "min": {
+      "type": "number"
+    },
+    "max": {
+      "type": "number"
+    },
+    "step": {
+      "type": "number"
+    },
+    "value": {
+      "type": "number"
+    },
+    "placeholder": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "pattern": "^(?!\\s*$).+"
+    },
+    "title": {
+      "type": "string",
+      "pattern": "^(?!\\s*$).+"
+    },
+    "isRequired": {
+      "type": "boolean"
+    }
+  }
+}

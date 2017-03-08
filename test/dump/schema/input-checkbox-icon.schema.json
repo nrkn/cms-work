@@ -1,0 +1,36 @@
+{
+  "id": "input-checkbox-icon",
+  "type": "object",
+  "required": [
+    "name",
+    "title",
+    "iconName"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "pattern": "^(?!\\s*$).+"
+    },
+    "title": {
+      "type": "string",
+      "pattern": "^(?!\\s*$).+"
+    },
+    "isSelected": {
+      "type": "boolean"
+    },
+    "iconName": {
+      "title": "Icon Name",
+      "type": "string",
+      "pattern": "^(?!\\s*$).+"
+    },
+    "iconClasses": {
+      "title": "Icon Classes",
+      "type": "array",
+      "items": {
+        "title": "Class Name",
+        "type": "string",
+        "pattern": "^(?!\\s*$).+"
+      }
+    }
+  }
+}

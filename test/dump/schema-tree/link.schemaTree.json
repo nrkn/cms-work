@@ -1,0 +1,29 @@
+{
+  "value": {
+    "id": "link",
+    "type": "object",
+    "required": [
+      "title",
+      "uri"
+    ]
+  },
+  "children": [
+    {
+      "value": {
+        "type": "string",
+        "propertyName": "title",
+        "pattern": "^(?!\\s*$).+"
+      },
+      "children": []
+    },
+    {
+      "value": {
+        "format": "uri",
+        "type": "string",
+        "propertyName": "uri",
+        "pattern": "^(?!\\s*$).+"
+      },
+      "children": []
+    }
+  ]
+}

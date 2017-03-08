@@ -2,19 +2,23 @@
   "id": "icon",
   "type": "object",
   "title": "Icon",
+  "required": [
+    "iconName"
+  ],
   "properties": {
     "iconName": {
       "title": "Icon Name",
-      "$ref": "nonEmptyString"
+      "type": "string",
+      "pattern": "^(?!\\s*$).+"
     },
     "iconClasses": {
       "title": "Icon Classes",
       "type": "array",
       "items": {
         "title": "Class Name",
-        "$ref": "nonEmptyString"
+        "type": "string",
+        "pattern": "^(?!\\s*$).+"
       }
     }
-  },
-  "required": [ "iconName" ]
+  }
 }

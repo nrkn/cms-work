@@ -1,0 +1,55 @@
+{
+  "value": {
+    "id": "button-text",
+    "type": "object",
+    "required": [
+      "title",
+      "action"
+    ]
+  },
+  "children": [
+    {
+      "value": {
+        "type": "string",
+        "propertyName": "title",
+        "pattern": "^(?!\\s*$).+"
+      },
+      "children": []
+    },
+    {
+      "value": {
+        "title": "Click Action",
+        "type": "string",
+        "propertyName": "action",
+        "pattern": "^(?!\\s*$).+"
+      },
+      "children": []
+    },
+    {
+      "value": {
+        "title": "Button Classes",
+        "type": "array",
+        "propertyName": "buttonClasses"
+      },
+      "children": [
+        {
+          "value": {
+            "title": "Class Name",
+            "type": "string",
+            "arrayItem": true,
+            "pattern": "^(?!\\s*$).+"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "value": {
+        "title": "Button is disabled?",
+        "type": "boolean",
+        "propertyName": "isDisabled"
+      },
+      "children": []
+    }
+  ]
+}

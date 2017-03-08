@@ -1,0 +1,18 @@
+{
+  "value": {
+    "id": "htmlResourceText",
+    "type": "object",
+    "required": [
+      "text"
+    ]
+  },
+  "children": [
+    {
+      "value": {
+        "type": "string",
+        "propertyName": "text"
+      },
+      "children": []
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "id": "document",
+  "type": "object",
+  "required": [
+    "documentTitle"
+  ],
+  "properties": {
+    "documentTitle": {
+      "type": "string",
+      "pattern": "^(?!\\s*$).+"
+    },
+    "headStyles": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "required": [
+              "text"
+            ],
+            "properties": {
+              "text": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "required": [
+              "src"
+            ],
+            "properties": {
+              "src": {
+                "type": "string"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "headScripts": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "required": [
+              "text"
+            ],
+            "properties": {
+              "text": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "required": [
+              "src"
+            ],
+            "properties": {
+              "src": {
+                "type": "string"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "scripts": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "required": [
+              "text"
+            ],
+            "properties": {
+              "text": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "required": [
+              "src"
+            ],
+            "properties": {
+              "src": {
+                "type": "string"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

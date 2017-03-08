@@ -1,0 +1,15 @@
+{
+  "value": {
+    "id": "input-radio",
+    "type": "any"
+  },
+  "children": [
+    {
+      "value": {
+        "type": "boolean",
+        "propertyName": "isSelected"
+      },
+      "children": []
+    }
+  ]
+}

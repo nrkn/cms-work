@@ -1,0 +1,27 @@
+{
+  "id": "input-text",
+  "type": "object",
+  "required": [
+    "name",
+    "title"
+  ],
+  "properties": {
+    "value": {
+      "type": "string"
+    },
+    "placeholder": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "pattern": "^(?!\\s*$).+"
+    },
+    "title": {
+      "type": "string",
+      "pattern": "^(?!\\s*$).+"
+    },
+    "isRequired": {
+      "type": "boolean"
+    }
+  }
+}

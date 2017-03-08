@@ -1,0 +1,169 @@
+{
+  "id": "composer-node",
+  "type": "object",
+  "required": [
+    "id",
+    "treeType",
+    "nodeType",
+    "nodeHeader",
+    "childrenHeader",
+    "depth",
+    "preview"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^(?!\\s*$).+"
+    },
+    "treeType": {
+      "type": "string",
+      "pattern": "^(?!\\s*$).+"
+    },
+    "nodeType": {
+      "type": "string",
+      "pattern": "^(?!\\s*$).+"
+    },
+    "nodeHeader": {
+      "type": "object",
+      "required": [
+        "title"
+      ],
+      "properties": {
+        "title": {
+          "type": "string",
+          "pattern": "^(?!\\s*$).+"
+        },
+        "actions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "action",
+              "iconName"
+            ],
+            "properties": {
+              "action": {
+                "title": "Click Action",
+                "type": "string",
+                "pattern": "^(?!\\s*$).+"
+              },
+              "buttonClasses": {
+                "title": "Button Classes",
+                "type": "array",
+                "items": {
+                  "title": "Class Name",
+                  "type": "string",
+                  "pattern": "^(?!\\s*$).+"
+                }
+              },
+              "isDisabled": {
+                "title": "Button is disabled?",
+                "type": "boolean"
+              },
+              "iconName": {
+                "title": "Icon Name",
+                "type": "string",
+                "pattern": "^(?!\\s*$).+"
+              },
+              "iconClasses": {
+                "title": "Icon Classes",
+                "type": "array",
+                "items": {
+                  "title": "Class Name",
+                  "type": "string",
+                  "pattern": "^(?!\\s*$).+"
+                }
+              }
+            }
+          }
+        },
+        "classes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^(?!\\s*$).+"
+          }
+        }
+      }
+    },
+    "childrenHeader": {
+      "type": "object",
+      "required": [
+        "title"
+      ],
+      "properties": {
+        "title": {
+          "type": "string",
+          "pattern": "^(?!\\s*$).+"
+        },
+        "actions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "action",
+              "iconName"
+            ],
+            "properties": {
+              "action": {
+                "title": "Click Action",
+                "type": "string",
+                "pattern": "^(?!\\s*$).+"
+              },
+              "buttonClasses": {
+                "title": "Button Classes",
+                "type": "array",
+                "items": {
+                  "title": "Class Name",
+                  "type": "string",
+                  "pattern": "^(?!\\s*$).+"
+                }
+              },
+              "isDisabled": {
+                "title": "Button is disabled?",
+                "type": "boolean"
+              },
+              "iconName": {
+                "title": "Icon Name",
+                "type": "string",
+                "pattern": "^(?!\\s*$).+"
+              },
+              "iconClasses": {
+                "title": "Icon Classes",
+                "type": "array",
+                "items": {
+                  "title": "Class Name",
+                  "type": "string",
+                  "pattern": "^(?!\\s*$).+"
+                }
+              }
+            }
+          }
+        },
+        "classes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^(?!\\s*$).+"
+          }
+        }
+      }
+    },
+    "depth": {
+      "type": "integer"
+    },
+    "isEmpty": {
+      "type": "boolean"
+    },
+    "isCollapsed": {
+      "type": "boolean"
+    },
+    "isChildrenCollapsed": {
+      "type": "boolean"
+    },
+    "preview": {
+      "type": "string",
+      "pattern": "^(?!\\s*$).+"
+    }
+  }
+}

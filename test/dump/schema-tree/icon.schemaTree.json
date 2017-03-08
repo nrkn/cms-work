@@ -1,0 +1,39 @@
+{
+  "value": {
+    "id": "icon",
+    "type": "object",
+    "title": "Icon",
+    "required": [
+      "iconName"
+    ]
+  },
+  "children": [
+    {
+      "value": {
+        "title": "Icon Name",
+        "type": "string",
+        "propertyName": "iconName",
+        "pattern": "^(?!\\s*$).+"
+      },
+      "children": []
+    },
+    {
+      "value": {
+        "title": "Icon Classes",
+        "type": "array",
+        "propertyName": "iconClasses"
+      },
+      "children": [
+        {
+          "value": {
+            "title": "Class Name",
+            "type": "string",
+            "arrayItem": true,
+            "pattern": "^(?!\\s*$).+"
+          },
+          "children": []
+        }
+      ]
+    }
+  ]
+}

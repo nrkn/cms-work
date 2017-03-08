@@ -4,6 +4,7 @@ const express = require( 'express' )
 const templateEngine = require( './templateEngine' )
 const getDependencies = require( './fileSystem/getDependencies' )
 const ComponentApi = require( '../components/componentApi' )
+const SchemaToFieldComponents = require( '../forms/schemaToFieldComponents' )
 const app = express()
 
 const initApp = ( dependencies, resolve ) => {
@@ -23,15 +24,29 @@ const initApp = ( dependencies, resolve ) => {
   app.get( '/', ( req, res ) => {
     const Tree = require( '1tree' )
 
+    const { schemas } = dependencies
+
+    const schemaNames = Object.keys( schemas )
+
     const componentApi = ComponentApi( dependencies )
+    const schemaToFieldComponents = SchemaToFieldComponents( dependencies )
+
 
     const {
-      Document, Row, InputRadioIcon, InputCheckboxIcon, LinkList, Breadcrumb,
-      Link, Composer, HeaderBar, HeaderWindow, InputText, ButtonText,
-      InputFieldset, InputNumber, InputCheckbox, InputRadio
+      document, row, inputRadioIcon, inputCheckboxIcon, linkList, breadcrumb,
+      link, composer, headerBar, headerWindow, inputText, buttonText,
+      inputFieldset, inputNumber, inputCheckbox, inputRadio, element, text,
+      componentFragment
     } = componentApi
 
-    const document = {
+    const allSchemasAsFields = schemaNames.map( name =>
+      componentFragment([
+        element( { tagName: 'h1' }, [ text( { value: name } ) ] ),
+        schemaToFieldComponents( name )
+      ])
+    )
+
+    const documentModel = {
       documentTitle: 'Cool Story Bro!',
       "headStyles": [
         {
@@ -45,7 +60,7 @@ const initApp = ( dependencies, resolve ) => {
       ]
     }
 
-    const inputs = [
+    const inputModels = [
       {
         title: 'New',
         iconName: 'fa-file'
@@ -64,7 +79,7 @@ const initApp = ( dependencies, resolve ) => {
       }
     ]
 
-    const radios = inputs.map(
+    const radioModels = inputModels.map(
       ( input, i ) => Object.assign(
         {
           name: 'radios',
@@ -74,7 +89,7 @@ const initApp = ( dependencies, resolve ) => {
       )
     )
 
-    const checkboxes = inputs.map(
+    const checkboxModels = inputModels.map(
       ( input, i ) => Object.assign(
         {
           name: 'checkboxes',
@@ -84,7 +99,7 @@ const initApp = ( dependencies, resolve ) => {
       )
     )
 
-    const links = [
+    const linkModels = [
       {
         "title": "Google",
         "uri": "http://google.com/"
@@ -99,7 +114,7 @@ const initApp = ( dependencies, resolve ) => {
       }
     ]
 
-    const bar = {
+    const barModel = {
       title: 'This is a great toolbar!',
       actions: [
         {
@@ -110,7 +125,7 @@ const initApp = ( dependencies, resolve ) => {
       ]
     }
 
-    const window = { bar }
+    const windowModel = { bar: barModel }
 
     const inputText1 = {
       name: 'textInput1',
@@ -159,33 +174,34 @@ const initApp = ( dependencies, resolve ) => {
       title: 'I am not a pillock (seems unlikely but OK)'
     }
 
-    const buttonText = { action: 'home', title: 'Home' }
+    const buttonTextModel = { action: 'home', title: 'Home' }
 
     const documentNode =
-      Document( document, [
-        Breadcrumb( links.map( Link ) ),
+      document( documentModel, [
+        allSchemasAsFields
         /*
-        HeaderWindow( window, [
-          Row( radios.map( InputRadioIcon ) )
+        breadcrumb( linkModels.map( link ) ),
+        headerWindow( windowModel, [
+          row( radioModels.map( inputRadioIcon ) )
         ]),
-        HeaderWindow( window, [
-          Row( checkboxes.map( InputCheckboxIcon ) )
+        headerWindow( windowModel, [
+          row( checkboxModels.map( inputCheckboxIcon ) )
         ]),
-        */
-        Row( [ ButtonText( buttonText ), ButtonText( buttonText ) ] ),
-        //Composer(),
-        InputFieldset( { title: 'Cool Fieldset' }, [
-          InputText( inputText1 ),
-          InputText( inputText2 ),
-          InputText( inputText3 ),
-          InputNumber( inputNumber1 ),
-          InputCheckbox( inputCheckbox1 ),
-          InputCheckbox( inputCheckbox2 ),
-          InputFieldset( { title: 'Level of pillockery' }, [
-            InputRadio( inputRadio1 ),
-            InputRadio( inputRadio2 )
+        row( [ buttonText( buttonTextModel ), buttonText( buttonTextModel ) ] ),
+        composer(),
+        inputFieldset( { title: 'Cool Fieldset' }, [
+          inputText( inputText1 ),
+          inputText( inputText2 ),
+          inputText( inputText3 ),
+          inputNumber( inputNumber1 ),
+          inputCheckbox( inputCheckbox1 ),
+          inputCheckbox( inputCheckbox2 ),
+          inputFieldset( { title: 'Level of pillockery' }, [
+            inputRadio( inputRadio1 ),
+            inputRadio( inputRadio2 )
           ])
         ])
+        */
       ]
     )
 

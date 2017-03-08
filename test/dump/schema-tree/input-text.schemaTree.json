@@ -1,0 +1,49 @@
+{
+  "value": {
+    "id": "input-text",
+    "type": "object",
+    "required": [
+      "name",
+      "title"
+    ]
+  },
+  "children": [
+    {
+      "value": {
+        "type": "string",
+        "propertyName": "value"
+      },
+      "children": []
+    },
+    {
+      "value": {
+        "type": "string",
+        "propertyName": "placeholder"
+      },
+      "children": []
+    },
+    {
+      "value": {
+        "type": "string",
+        "propertyName": "name",
+        "pattern": "^(?!\\s*$).+"
+      },
+      "children": []
+    },
+    {
+      "value": {
+        "type": "string",
+        "propertyName": "title",
+        "pattern": "^(?!\\s*$).+"
+      },
+      "children": []
+    },
+    {
+      "value": {
+        "type": "boolean",
+        "propertyName": "isRequired"
+      },
+      "children": []
+    }
+  ]
+}

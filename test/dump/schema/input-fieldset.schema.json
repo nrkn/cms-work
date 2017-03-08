@@ -1,0 +1,16 @@
+{
+  "id": "input-fieldset",
+  "type": "object",
+  "required": [
+    "title"
+  ],
+  "properties": {
+    "title": {
+      "type": "string",
+      "pattern": "^(?!\\s*$).+"
+    },
+    "isDisabled": {
+      "type": "boolean"
+    }
+  }
+}

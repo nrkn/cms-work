@@ -1,0 +1,117 @@
+{
+  "value": {
+    "id": "header-bar",
+    "type": "object",
+    "required": [
+      "title"
+    ]
+  },
+  "children": [
+    {
+      "value": {
+        "type": "string",
+        "propertyName": "title",
+        "pattern": "^(?!\\s*$).+"
+      },
+      "children": []
+    },
+    {
+      "value": {
+        "type": "array",
+        "propertyName": "actions"
+      },
+      "children": [
+        {
+          "value": {
+            "type": "object",
+            "arrayItem": true,
+            "required": [
+              "action",
+              "iconName"
+            ]
+          },
+          "children": [
+            {
+              "value": {
+                "title": "Click Action",
+                "type": "string",
+                "propertyName": "action",
+                "pattern": "^(?!\\s*$).+"
+              },
+              "children": []
+            },
+            {
+              "value": {
+                "title": "Button Classes",
+                "type": "array",
+                "propertyName": "buttonClasses"
+              },
+              "children": [
+                {
+                  "value": {
+                    "title": "Class Name",
+                    "type": "string",
+                    "arrayItem": true,
+                    "pattern": "^(?!\\s*$).+"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "value": {
+                "title": "Button is disabled?",
+                "type": "boolean",
+                "propertyName": "isDisabled"
+              },
+              "children": []
+            },
+            {
+              "value": {
+                "title": "Icon Name",
+                "type": "string",
+                "propertyName": "iconName",
+                "pattern": "^(?!\\s*$).+"
+              },
+              "children": []
+            },
+            {
+              "value": {
+                "title": "Icon Classes",
+                "type": "array",
+                "propertyName": "iconClasses"
+              },
+              "children": [
+                {
+                  "value": {
+                    "title": "Class Name",
+                    "type": "string",
+                    "arrayItem": true,
+                    "pattern": "^(?!\\s*$).+"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "value": {
+        "type": "array",
+        "propertyName": "classes"
+      },
+      "children": [
+        {
+          "value": {
+            "type": "string",
+            "arrayItem": true,
+            "pattern": "^(?!\\s*$).+"
+          },
+          "children": []
+        }
+      ]
+    }
+  ]
+}

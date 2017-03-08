@@ -1,0 +1,8 @@
+{
+  "id": "input-radio",
+  "properties": {
+    "isSelected": {
+      "type": "boolean"
+    }
+  }
+}

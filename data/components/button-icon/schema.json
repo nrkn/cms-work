@@ -1,5 +1,6 @@
 {
   "id": "button-icon",
+  "title": "Button Icon",
   "type": "object",
   "allOf": [
     { "$ref": "button" },

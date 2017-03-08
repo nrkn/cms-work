@@ -1,0 +1,14 @@
+{
+  "id": "element",
+  "title": "HTML Element",
+  "properties": {
+    "tagName": {
+      "title": "Tag Name",
+      "$ref": "nonEmptyString"
+    },
+    "attributes": {
+      "type": "object"
+    }
+  },
+  "required": [ "tagName" ]
+}

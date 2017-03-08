@@ -1,0 +1,17 @@
+{
+  "id": "element",
+  "title": "HTML Element",
+  "required": [
+    "tagName"
+  ],
+  "properties": {
+    "tagName": {
+      "title": "Tag Name",
+      "type": "string",
+      "pattern": "^(?!\\s*$).+"
+    },
+    "attributes": {
+      "type": "object"
+    }
+  }
+}

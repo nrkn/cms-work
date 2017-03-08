@@ -1,0 +1,11 @@
+{
+  "element": [
+    { "tagName": { "$value": "tagName" } },
+    {
+      "$if": [
+        { "$value": "attributes" },
+        { "attributes": { "$value": "attributes" } }
+      ]
+    }
+  ]
+}

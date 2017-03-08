@@ -1,0 +1,311 @@
+{
+  "value": {
+    "id": "composer-node",
+    "type": "object",
+    "required": [
+      "id",
+      "treeType",
+      "nodeType",
+      "nodeHeader",
+      "childrenHeader",
+      "depth",
+      "preview"
+    ]
+  },
+  "children": [
+    {
+      "value": {
+        "type": "string",
+        "propertyName": "id",
+        "pattern": "^(?!\\s*$).+"
+      },
+      "children": []
+    },
+    {
+      "value": {
+        "type": "string",
+        "propertyName": "treeType",
+        "pattern": "^(?!\\s*$).+"
+      },
+      "children": []
+    },
+    {
+      "value": {
+        "type": "string",
+        "propertyName": "nodeType",
+        "pattern": "^(?!\\s*$).+"
+      },
+      "children": []
+    },
+    {
+      "value": {
+        "type": "object",
+        "propertyName": "nodeHeader",
+        "required": [
+          "title"
+        ]
+      },
+      "children": [
+        {
+          "value": {
+            "type": "string",
+            "propertyName": "title",
+            "pattern": "^(?!\\s*$).+"
+          },
+          "children": []
+        },
+        {
+          "value": {
+            "type": "array",
+            "propertyName": "actions"
+          },
+          "children": [
+            {
+              "value": {
+                "type": "object",
+                "arrayItem": true,
+                "required": [
+                  "action",
+                  "iconName"
+                ]
+              },
+              "children": [
+                {
+                  "value": {
+                    "title": "Click Action",
+                    "type": "string",
+                    "propertyName": "action",
+                    "pattern": "^(?!\\s*$).+"
+                  },
+                  "children": []
+                },
+                {
+                  "value": {
+                    "title": "Button Classes",
+                    "type": "array",
+                    "propertyName": "buttonClasses"
+                  },
+                  "children": [
+                    {
+                      "value": {
+                        "title": "Class Name",
+                        "type": "string",
+                        "arrayItem": true,
+                        "pattern": "^(?!\\s*$).+"
+                      },
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "value": {
+                    "title": "Button is disabled?",
+                    "type": "boolean",
+                    "propertyName": "isDisabled"
+                  },
+                  "children": []
+                },
+                {
+                  "value": {
+                    "title": "Icon Name",
+                    "type": "string",
+                    "propertyName": "iconName",
+                    "pattern": "^(?!\\s*$).+"
+                  },
+                  "children": []
+                },
+                {
+                  "value": {
+                    "title": "Icon Classes",
+                    "type": "array",
+                    "propertyName": "iconClasses"
+                  },
+                  "children": [
+                    {
+                      "value": {
+                        "title": "Class Name",
+                        "type": "string",
+                        "arrayItem": true,
+                        "pattern": "^(?!\\s*$).+"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "value": {
+            "type": "array",
+            "propertyName": "classes"
+          },
+          "children": [
+            {
+              "value": {
+                "type": "string",
+                "arrayItem": true,
+                "pattern": "^(?!\\s*$).+"
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "value": {
+        "type": "object",
+        "propertyName": "childrenHeader",
+        "required": [
+          "title"
+        ]
+      },
+      "children": [
+        {
+          "value": {
+            "type": "string",
+            "propertyName": "title",
+            "pattern": "^(?!\\s*$).+"
+          },
+          "children": []
+        },
+        {
+          "value": {
+            "type": "array",
+            "propertyName": "actions"
+          },
+          "children": [
+            {
+              "value": {
+                "type": "object",
+                "arrayItem": true,
+                "required": [
+                  "action",
+                  "iconName"
+                ]
+              },
+              "children": [
+                {
+                  "value": {
+                    "title": "Click Action",
+                    "type": "string",
+                    "propertyName": "action",
+                    "pattern": "^(?!\\s*$).+"
+                  },
+                  "children": []
+                },
+                {
+                  "value": {
+                    "title": "Button Classes",
+                    "type": "array",
+                    "propertyName": "buttonClasses"
+                  },
+                  "children": [
+                    {
+                      "value": {
+                        "title": "Class Name",
+                        "type": "string",
+                        "arrayItem": true,
+                        "pattern": "^(?!\\s*$).+"
+                      },
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "value": {
+                    "title": "Button is disabled?",
+                    "type": "boolean",
+                    "propertyName": "isDisabled"
+                  },
+                  "children": []
+                },
+                {
+                  "value": {
+                    "title": "Icon Name",
+                    "type": "string",
+                    "propertyName": "iconName",
+                    "pattern": "^(?!\\s*$).+"
+                  },
+                  "children": []
+                },
+                {
+                  "value": {
+                    "title": "Icon Classes",
+                    "type": "array",
+                    "propertyName": "iconClasses"
+                  },
+                  "children": [
+                    {
+                      "value": {
+                        "title": "Class Name",
+                        "type": "string",
+                        "arrayItem": true,
+                        "pattern": "^(?!\\s*$).+"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "value": {
+            "type": "array",
+            "propertyName": "classes"
+          },
+          "children": [
+            {
+              "value": {
+                "type": "string",
+                "arrayItem": true,
+                "pattern": "^(?!\\s*$).+"
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "value": {
+        "type": "integer",
+        "propertyName": "depth"
+      },
+      "children": []
+    },
+    {
+      "value": {
+        "type": "boolean",
+        "propertyName": "isEmpty"
+      },
+      "children": []
+    },
+    {
+      "value": {
+        "type": "boolean",
+        "propertyName": "isCollapsed"
+      },
+      "children": []
+    },
+    {
+      "value": {
+        "type": "boolean",
+        "propertyName": "isChildrenCollapsed"
+      },
+      "children": []
+    },
+    {
+      "value": {
+        "type": "string",
+        "propertyName": "preview",
+        "pattern": "^(?!\\s*$).+"
+      },
+      "children": []
+    }
+  ]
+}

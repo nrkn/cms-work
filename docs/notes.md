@@ -11,6 +11,16 @@
 - Should most inputs share a common template? How does inherit work with
   templates?
 
+## dependencies
+
+Use [depject](https://github.com/depject/depject) for dependencies, this is a
+bit of work!
+
+## schema/json trees
+
+Consider changing the path code to return something more like dot notation eg
+`/buttonIcon/buttonClasses/0` would look like `buttonIcon.buttonClasses[0]`
+
 ## 1tree
 
 - Refactor to use `depject` because it solves a lot of friction problems we are
@@ -50,6 +60,10 @@ builtins etc take same initial signature, or even just:
 ```
 
 ## 1tree-component
+
+- Needs to exists, firstly - at the moment it's a pseudo-tree
+- The component api eg header( model, [ children ] ) should not need children
+  to be wrapped in an array
 
 ## 1tree-routing
 

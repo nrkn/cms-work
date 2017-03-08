@@ -18,7 +18,7 @@ const ComponentApi = dependencies => {
     if( config && config.isAbstract )
       return
 
-    const apiName = hyphenatedToCamelCase( name, true )
+    const apiName = hyphenatedToCamelCase( name )
 
     const factory = ( model, children ) => {
       if( Array.isArray( model ) ){
@@ -35,7 +35,9 @@ const ComponentApi = dependencies => {
       const node = Tree( { value, children: [] } )
 
       if( Array.isArray( children ) )
-        children.forEach( child => node.append( child ) )
+        children.forEach( child =>
+          node.append( child )
+      )
 
       return node
     }

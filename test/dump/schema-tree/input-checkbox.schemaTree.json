@@ -1,0 +1,15 @@
+{
+  "value": {
+    "id": "input-checkbox",
+    "type": "any"
+  },
+  "children": [
+    {
+      "value": {
+        "type": "boolean",
+        "propertyName": "isSelected"
+      },
+      "children": []
+    }
+  ]
+}

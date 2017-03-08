@@ -1,0 +1,44 @@
+{
+  "value": {
+    "id": "htmlResource",
+    "type": "any"
+  },
+  "children": [
+    {
+      "value": {
+        "type": "object",
+        "oneOf": true,
+        "required": [
+          "text"
+        ]
+      },
+      "children": [
+        {
+          "value": {
+            "type": "string",
+            "propertyName": "text"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "value": {
+        "type": "object",
+        "oneOf": true,
+        "required": [
+          "src"
+        ]
+      },
+      "children": [
+        {
+          "value": {
+            "type": "string",
+            "propertyName": "src"
+          },
+          "children": []
+        }
+      ]
+    }
+  ]
+}

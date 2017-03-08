@@ -1,0 +1,8 @@
+{
+  "value": {
+    "id": "nonEmptyString",
+    "type": "string",
+    "pattern": "^(?!\\s*$).+"
+  },
+  "children": []
+}

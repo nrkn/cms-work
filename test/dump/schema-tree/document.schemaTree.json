@@ -1,0 +1,175 @@
+{
+  "value": {
+    "id": "document",
+    "type": "object",
+    "required": [
+      "documentTitle"
+    ]
+  },
+  "children": [
+    {
+      "value": {
+        "type": "string",
+        "propertyName": "documentTitle",
+        "pattern": "^(?!\\s*$).+"
+      },
+      "children": []
+    },
+    {
+      "value": {
+        "type": "array",
+        "propertyName": "headStyles"
+      },
+      "children": [
+        {
+          "value": {
+            "type": "any",
+            "arrayItem": true
+          },
+          "children": [
+            {
+              "value": {
+                "type": "object",
+                "oneOf": true,
+                "required": [
+                  "text"
+                ]
+              },
+              "children": [
+                {
+                  "value": {
+                    "type": "string",
+                    "propertyName": "text"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "value": {
+                "type": "object",
+                "oneOf": true,
+                "required": [
+                  "src"
+                ]
+              },
+              "children": [
+                {
+                  "value": {
+                    "type": "string",
+                    "propertyName": "src"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "value": {
+        "type": "array",
+        "propertyName": "headScripts"
+      },
+      "children": [
+        {
+          "value": {
+            "type": "any",
+            "arrayItem": true
+          },
+          "children": [
+            {
+              "value": {
+                "type": "object",
+                "oneOf": true,
+                "required": [
+                  "text"
+                ]
+              },
+              "children": [
+                {
+                  "value": {
+                    "type": "string",
+                    "propertyName": "text"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "value": {
+                "type": "object",
+                "oneOf": true,
+                "required": [
+                  "src"
+                ]
+              },
+              "children": [
+                {
+                  "value": {
+                    "type": "string",
+                    "propertyName": "src"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "value": {
+        "type": "array",
+        "propertyName": "scripts"
+      },
+      "children": [
+        {
+          "value": {
+            "type": "any",
+            "arrayItem": true
+          },
+          "children": [
+            {
+              "value": {
+                "type": "object",
+                "oneOf": true,
+                "required": [
+                  "text"
+                ]
+              },
+              "children": [
+                {
+                  "value": {
+                    "type": "string",
+                    "propertyName": "text"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "value": {
+                "type": "object",
+                "oneOf": true,
+                "required": [
+                  "src"
+                ]
+              },
+              "children": [
+                {
+                  "value": {
+                    "type": "string",
+                    "propertyName": "src"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "id": "htmlResource",
+  "oneOf": [
+    {
+      "type": "object",
+      "required": [
+        "text"
+      ],
+      "properties": {
+        "text": {
+          "type": "string"
+        }
+      }
+    },
+    {
+      "type": "object",
+      "required": [
+        "src"
+      ],
+      "properties": {
+        "src": {
+          "type": "string"
+        }
+      }
+    }
+  ]
+}

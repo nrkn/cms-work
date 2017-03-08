@@ -1,0 +1,43 @@
+{
+  "id": "button-icon",
+  "title": "Button Icon",
+  "type": "object",
+  "required": [
+    "action",
+    "iconName"
+  ],
+  "properties": {
+    "action": {
+      "title": "Click Action",
+      "type": "string",
+      "pattern": "^(?!\\s*$).+"
+    },
+    "buttonClasses": {
+      "title": "Button Classes",
+      "type": "array",
+      "items": {
+        "title": "Class Name",
+        "type": "string",
+        "pattern": "^(?!\\s*$).+"
+      }
+    },
+    "isDisabled": {
+      "title": "Button is disabled?",
+      "type": "boolean"
+    },
+    "iconName": {
+      "title": "Icon Name",
+      "type": "string",
+      "pattern": "^(?!\\s*$).+"
+    },
+    "iconClasses": {
+      "title": "Icon Classes",
+      "type": "array",
+      "items": {
+        "title": "Class Name",
+        "type": "string",
+        "pattern": "^(?!\\s*$).+"
+      }
+    }
+  }
+}

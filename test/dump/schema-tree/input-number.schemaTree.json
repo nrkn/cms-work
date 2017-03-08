@@ -1,0 +1,70 @@
+{
+  "value": {
+    "id": "input-number",
+    "type": "object",
+    "required": [
+      "name",
+      "title"
+    ]
+  },
+  "children": [
+    {
+      "value": {
+        "type": "number",
+        "propertyName": "min"
+      },
+      "children": []
+    },
+    {
+      "value": {
+        "type": "number",
+        "propertyName": "max"
+      },
+      "children": []
+    },
+    {
+      "value": {
+        "type": "number",
+        "propertyName": "step"
+      },
+      "children": []
+    },
+    {
+      "value": {
+        "type": "number",
+        "propertyName": "value"
+      },
+      "children": []
+    },
+    {
+      "value": {
+        "type": "string",
+        "propertyName": "placeholder"
+      },
+      "children": []
+    },
+    {
+      "value": {
+        "type": "string",
+        "propertyName": "name",
+        "pattern": "^(?!\\s*$).+"
+      },
+      "children": []
+    },
+    {
+      "value": {
+        "type": "string",
+        "propertyName": "title",
+        "pattern": "^(?!\\s*$).+"
+      },
+      "children": []
+    },
+    {
+      "value": {
+        "type": "boolean",
+        "propertyName": "isRequired"
+      },
+      "children": []
+    }
+  ]
+}

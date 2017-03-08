@@ -1,23 +1,27 @@
 {
   "id": "button",
   "type": "object",
+  "required": [
+    "action"
+  ],
   "properties": {
     "action": {
       "title": "Click Action",
-      "$ref": "nonEmptyString"
+      "type": "string",
+      "pattern": "^(?!\\s*$).+"
     },
     "buttonClasses": {
       "title": "Button Classes",
       "type": "array",
       "items": {
         "title": "Class Name",
-        "$ref": "nonEmptyString"
+        "type": "string",
+        "pattern": "^(?!\\s*$).+"
       }
     },
     "isDisabled": {
       "title": "Button is disabled?",
       "type": "boolean"
     }
-  },
-  "required": [ "action" ]
+  }
 }
