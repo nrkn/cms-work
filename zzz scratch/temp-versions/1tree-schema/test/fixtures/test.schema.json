@@ -2,7 +2,7 @@
   "id": "document",
   "type": "object",
   "properties": {
-    "title": { "$ref": "nonEmptyString" },
+    "title": { "$ref": "non-empty-string" },
     "headStyles": {
       "type": "array",
       "items": { "$ref": "style" }

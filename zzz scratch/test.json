@@ -335,7 +335,7 @@
       "type": "object",
       "properties": {
         "title": {
-          "$ref": "nonEmptyString"
+          "$ref": "non-empty-string"
         },
         "headStyles": {
           "type": "array",

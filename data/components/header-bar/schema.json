@@ -5,7 +5,7 @@
   "properties": {
     "title": {
       "title": "Header Bar Title",
-      "$ref": "nonEmptyString"
+      "$ref": "non-empty-string"
     },
     "actions": {
       "title": "Action Buttons",

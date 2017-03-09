@@ -1,5 +1,5 @@
 {
-  "id": "nonEmptyString",
+  "id": "non-empty-string",
   "type": "string",
   "pattern": "^(?!\\s*$).+"
 }

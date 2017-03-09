@@ -1,0 +1,8 @@
+{
+  "id": "dataset",
+  "title": "Data Set",
+  "type": "object",
+  "additionalProperties": {
+    "type": "string"
+  }
+}

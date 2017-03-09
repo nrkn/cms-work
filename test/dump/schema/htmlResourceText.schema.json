@@ -1,5 +1,5 @@
 {
-  "id": "htmlResourceText",
+  "id": "html-resource-text",
   "type": "object",
   "required": [
     "text"

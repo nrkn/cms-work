@@ -5,11 +5,11 @@
   "properties": {
     "name": {
       "title": "Field Name",
-      "$ref": "nonEmptyString"
+      "$ref": "non-empty-string"
     },
     "title": {
       "title": "Label Title",
-      "$ref": "nonEmptyString"
+      "$ref": "non-empty-string"
     },
     "isRequired": {
       "title": "Is Field Required?",

@@ -2,6 +2,7 @@
   "id": "input-checkbox",
   "title": "Checkbox Input",
   "type": "object",
+  "$ref": "input",
   "properties": {
     "isSelected": {
       "title": "Is Checked?",

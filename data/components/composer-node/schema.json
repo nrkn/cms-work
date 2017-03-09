@@ -5,15 +5,15 @@
   "properties": {
     "id": {
       "title": "Node ID",
-      "$ref": "nonEmptyString"
+      "$ref": "non-empty-string"
     },
     "treeType": {
       "title": "Tree Type",
-      "$ref": "nonEmptyString"
+      "$ref": "non-empty-string"
     },
     "nodeType": {
       "title": "Node Type",
-      "$ref": "nonEmptyString"
+      "$ref": "non-empty-string"
     },
     "nodeHeader": {
       "title": "Node Header Bar",
@@ -41,7 +41,7 @@
     },
     "preview": {
       "title": "Node Preview",
-      "$ref": "nonEmptyString"
+      "$ref": "non-empty-string"
     }
   },
   "required": [

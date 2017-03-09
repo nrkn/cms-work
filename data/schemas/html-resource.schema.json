@@ -1,14 +1,14 @@
 {
-  "id": "htmlResource",
+  "id": "html-resource",
   "title": "Resource",
   "oneOf": [
     {
       "title": "Resource as Text",
-      "$ref": "htmlResourceText"
+      "$ref": "html-resource-text"
     },
     {
       "title": "Resource as URI",
-      "$ref": "htmlResourceSrc"
+      "$ref": "html-resource-src"
     }
   ]
 }

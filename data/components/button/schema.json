@@ -5,7 +5,7 @@
   "properties": {
     "action": {
       "title": "Click Action",
-      "$ref": "nonEmptyString"
+      "$ref": "non-empty-string"
     },
     "buttonClasses": {
       "title": "Button Classes",

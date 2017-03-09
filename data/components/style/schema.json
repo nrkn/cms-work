@@ -1,5 +1,5 @@
 {
   "id": "style",
   "title": "Style",
-  "$ref": "htmlResource"
+  "$ref": "html-resource"
 }

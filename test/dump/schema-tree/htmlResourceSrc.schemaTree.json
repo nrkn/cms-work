@@ -1,6 +1,6 @@
 {
   "value": {
-    "id": "htmlResourceSrc",
+    "id": "html-resource-src",
     "type": "object",
     "required": [
       "src"

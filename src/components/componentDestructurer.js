@@ -7,6 +7,7 @@ const destructure = components => {
   const defaultModels = {}
   const configs = {}
   const transforms = {}
+  const clientScripts = {}
 
   const componentNames = Object.keys( components )
 
@@ -25,11 +26,12 @@ const destructure = components => {
     populate( defaultModels, componentName, 'defaultModel' )
     populate( configs, componentName, 'config' )
     populate( transforms, componentName, 'transform' )
+    populate( clientScripts, componentName, 'clientScript' )
   })
 
   return {
     styles, templates, schemas, defaultModels, configs, transforms,
-    componentNames, components
+    componentNames, components, clientScripts
   }
 }
 

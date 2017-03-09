@@ -5,7 +5,7 @@
   "properties": {
     "documentTitle": {
       "title": "Document Title",
-      "$ref": "nonEmptyString"
+      "$ref": "non-empty-string"
     },
     "headStyles": {
       "title": "Head Styles",

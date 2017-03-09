@@ -5,7 +5,7 @@
   "properties": {
     "iconName": {
       "title": "Icon Name",
-      "$ref": "nonEmptyString"
+      "$ref": "non-empty-string"
     },
     "iconClasses": {
       "title": "Icon Classes",

@@ -1,5 +1,5 @@
 {
-  "id": "componentConfig",
+  "id": "component-config",
   "type": "object",
   "properties": {
     "containerSelector": {

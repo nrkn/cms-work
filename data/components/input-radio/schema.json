@@ -2,6 +2,7 @@
   "id": "input-radio",
   "title": "Radio Input",
   "type": "object",
+  "$ref": "input",
   "properties": {
     "isSelected": {
       "title": "Is Radio Selected?",

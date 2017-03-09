@@ -39,9 +39,14 @@ const initApp = ( dependencies, resolve ) => {
       componentFragment
     } = componentApi
 
+    const h1Model = {
+      tagName: 'h1',
+      elementClasses: [ 'theme-primary', 'padding-half', 'margin-vertical-1', 'shadow-medium' ]
+    }
+
     const allSchemasAsFields = schemaNames.map( name =>
       componentFragment([
-        element( { tagName: 'h1' }, [ text( { value: name } ) ] ),
+        element( h1Model, [ text( { value: name } ) ] ),
         schemaToFieldComponents( name )
       ])
     )

@@ -1,5 +1,5 @@
 {
-  "id": "htmlResource",
+  "id": "html-resource",
   "oneOf": [
     {
       "type": "object",

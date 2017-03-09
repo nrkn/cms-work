@@ -4,6 +4,6 @@
   "type": "array",
   "items": {
     "title": "Class",
-    "$ref": "nonEmptyString"
+    "$ref": "non-empty-string"
   }
 }

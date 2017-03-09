@@ -1,6 +1,6 @@
 {
   "value": {
-    "id": "componentConfig",
+    "id": "component-config",
     "type": "object"
   },
   "children": [

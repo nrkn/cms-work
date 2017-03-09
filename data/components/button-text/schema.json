@@ -6,7 +6,7 @@
   "properties": {
     "title": {
       "title": "Title",
-      "$ref": "nonEmptyString"
+      "$ref": "non-empty-string"
     }
   },
   "required": [ "title" ]

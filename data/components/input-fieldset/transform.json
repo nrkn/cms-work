@@ -6,6 +6,12 @@
         { "attr": [ "disabled", "" ] }
       ]
     },
+    {
+      "$if": [
+        { "$value": "fieldsetData" },
+        { "dataset": { "$value": "fieldsetData" } }
+      ]
+    },
     { "addClasses": { "$value": "fieldsetClasses" } }
   ]
 }

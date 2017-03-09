@@ -5,11 +5,11 @@
   "properties": {
     "tagName": {
       "title": "Tag Name",
-      "$ref": "nonEmptyString"
+      "$ref": "non-empty-string"
     },
-    "attributes": {
-      "title": "Element Attributes",
-      "type": "object"
+    "elementClasses": {
+      "title": "Element Class Names",
+      "$ref": "class-names"
     }
   },
   "required": [ "tagName" ]

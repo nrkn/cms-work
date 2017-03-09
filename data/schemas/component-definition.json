@@ -1,0 +1,17 @@
+{
+  "comment": "Not finished, do not use!",
+
+  "id": "component-definition",
+  "title": "Component Definition",
+  "type": "object",
+  "properties": {
+    "config": {
+      "title": "Configuration",
+      "$ref": "component-config"
+    },
+    "schema": {
+      "title": "JSON Schema",
+      "$ref": "non-empty-string"
+    }
+  }
+}

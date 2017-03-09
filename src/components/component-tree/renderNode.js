@@ -2,9 +2,12 @@
 
 const Templates = require( '../../templates' )
 const RenderCss = require( './renderCss' )
+const RenderClientScripts = require( './renderClientScripts' )
 
 const RenderNode = dependencies => {
   const renderCss = RenderCss( dependencies )
+  const renderClientScripts = RenderClientScripts( dependencies )
+
   const { configs } = dependencies
   const { renderComponent } = Templates( dependencies )
 
@@ -29,6 +32,23 @@ const RenderNode = dependencies => {
     node.value( value )
   }
 
+  const addScriptsToDocumentBody = node => {
+    const value = node.value()
+    const componentName = value.name
+    const componentModel = value.model
+
+    const js = renderClientScripts( node )
+
+    if( !Array.isArray( componentModel.scripts ) )
+      componentModel.scripts = []
+
+    componentModel.scripts.push({
+      text: js
+    })
+
+    node.value( value )
+  }
+
   const renderNode = node => {
     const value = node.value()
     const componentName = value.name
@@ -36,11 +56,12 @@ const RenderNode = dependencies => {
 
     if( componentName === 'document' ){
       addCssToDocumentHead( node )
+      addScriptsToDocumentBody( node )
     }
 
     const dom = renderComponent( componentName, componentModel )
     const config = Object.assign( {}, defaultConfig, configs[ componentName ] )
-    const childContainer = dom.select( config.containerSelector )
+    const childContainer = dom.matches( config.containerSelector ) ? dom : dom.select( config.containerSelector )
     const children = node.getChildren()
 
     if( childContainer && children.length ){
@@ -56,7 +77,7 @@ const RenderNode = dependencies => {
             rather than a documentFragment with a single child, but continue to
             use current behaviour if the fragment has multiple children?
           */
-          const liNode = dom.parse( '<li></li>' ).select( 'li' )
+          const liNode = dom.parse( '<li></li>' )
 
           liNode.append( childDom )
           childContainer.append( liNode )

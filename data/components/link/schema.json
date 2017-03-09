@@ -5,10 +5,10 @@
   "properties": {
     "title": {
       "title": "Link Text",
-      "$ref": "nonEmptyString"
+      "$ref": "non-empty-string"
     },
     "uri": {
-      "$ref": "nonEmptyString",
+      "$ref": "non-empty-string",
       "title": "Link URI",
       "format": "uri"
     }

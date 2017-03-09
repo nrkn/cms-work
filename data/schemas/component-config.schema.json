@@ -1,15 +1,15 @@
 {
-  "id": "componentConfig",
+  "id": "component-config",
   "title": "Component Config",
   "type": "object",
   "properties": {
     "containerSelector": {
       "title": "Container Selector",
-      "$ref": "nonEmptyString"
+      "$ref": "non-empty-string"
     },
     "inherit": {
       "title": "Inherits From",
-      "$ref": "nonEmptyString"
+      "$ref": "non-empty-string"
     },
     "isAbstract": {
       "title": "Is Abstract Component?",

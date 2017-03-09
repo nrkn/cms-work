@@ -5,11 +5,15 @@
   "properties": {
     "title": {
       "title": "Fieldset Legend",
-      "$ref": "nonEmptyString"
+      "$ref": "non-empty-string"
     },
     "fieldsetClasses": {
       "title": "Fieldset Classes",
       "$ref": "class-names"
+    },
+    "fieldsetData": {
+      "title": "Fieldset Data",
+      "$ref": "dataset"
     },
     "isDisabled": {
       "title": "Is Fieldset Disabled?",

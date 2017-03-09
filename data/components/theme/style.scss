@@ -52,3 +52,24 @@ $large-shadow: spacing( 0.25 ) spacing( 0.25 ) spacing( 1 ) rgba( 0, 0, 0, 0.25 
 $medium-shadow: spacing( 0.125 ) spacing( 0.125 ) spacing( 0.5 ) rgba( 0, 0, 0, 0.25 );
 $small-shadow: spacing( 0.0625 ) spacing( 0.0625 ) spacing( 0.25 ) rgba( 0, 0, 0, 0.25 );
 $tiny-shadow: spacing( 0.03125 ) spacing( 0.03125) spacing( 0.125 ) rgba( 0, 0, 0, 0.25 );
+
+.theme-primary {
+  @include colorize-el( $primary-color );
+  color: $near-white-color;
+}
+
+.padding-half {
+  padding: spacing( 0.5 );
+}
+
+.margin-bottom-1 {
+  margin-bottom: spacing( 1 );
+}
+
+.margin-vertical-1 {
+  margin: spacing( 1 ) 0;
+}
+
+.shadow-medium {
+  box-shadow: $medium-shadow;
+}

@@ -10,6 +10,10 @@
   one, bring one in from some module or whatever
 - Should most inputs share a common template? How does inherit work with
   templates?
+- Do we need requires as well, to bring in additional client scripts etc.?
+- Add client.js
+- Add server.js (eg consider case of a stock ticker that needs to make a 3rd party
+  api call)
 
 ### fieldset component
 
@@ -18,6 +22,12 @@ object fieldset/array fieldset/oneOf fieldset etc.
 
 For two reasons, 1) for the js hooks 2) so they are distinguishable from each
 other visually
+
+- Code to hydrate a model from a form post
+- Code to populate a schema from a model (via default keyword)
+- Placeholders???
+- Add format support
+- Add enum support
 
 ## dependencies
 

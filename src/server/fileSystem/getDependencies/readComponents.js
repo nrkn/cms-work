@@ -15,7 +15,8 @@ const readComponents = componentPath =>
         schema: value => value.name === 'schema.json',
         defaultModel: value => value.name === 'defaultModel.json',
         config: value => value.name === 'config.json',
-        transform: value => value.name === 'transform.json'
+        transform: value => value.name === 'transform.json',
+        clientScript: value => value.name === 'client.js'
       }
 
       tree.walk( ( node, parent, depth ) => {
