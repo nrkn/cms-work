@@ -22,7 +22,7 @@
     "html-node": "^0.1.0",
     "mime": "^1.3.4",
     "mojule-dom": "^0.2.4",
-    "mojule-templating": "^0.1.25",
+    "mojule-templating": "^0.1.27",
     "mojule-transform": "^0.1.7",
     "mojule-utils": "^0.1.6",
     "mtype": "^0.1.2",

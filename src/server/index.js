@@ -183,7 +183,7 @@ const initApp = ( dependencies, resolve ) => {
 
     const documentNode =
       document( documentModel, [
-        ...allSchemasAsFields
+        buttonText( buttonTextModel )
         /*
         breadcrumb( linkModels.map( link ) ),
         headerWindow( windowModel, [
@@ -205,7 +205,8 @@ const initApp = ( dependencies, resolve ) => {
             inputRadio( inputRadio1 ),
             inputRadio( inputRadio2 )
           ])
-        ])
+        ]),
+        ...allSchemasAsFields
         */
       ]
     )
